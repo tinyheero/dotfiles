@@ -29,10 +29,11 @@ Plugin 'gmarik/Vundle.vim'
 "" The following are examples of different formats supported.
 "" Keep Plugin commands between vundle#begin/end.
 "" plugin on GitHub repo
-Plugin 'scrooloose/nerdtree'  " file structure viewer
-Plugin 'kshenoy/vim-signature'  " place, toggle and display marks
-Plugin 'Lokaltog/vim-easymotion'  " Quick movements
-Plugin 'christoomey/vim-tmux-navigator'  " seamless navigation between tmux and vim panes
+Plugin 'scrooloose/nerdtree' " file structure viewer
+Plugin 'kshenoy/vim-signature' " place, toggle and display marks
+Plugin 'Lokaltog/vim-easymotion' " quick movements
+Plugin 'christoomey/vim-tmux-navigator' " seamless navigation between tmux and vim panes
+Plugin 'jalvesaq/R-Vim-runtime' " development versions of R related runtime files
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
