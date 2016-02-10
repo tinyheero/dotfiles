@@ -12,6 +12,29 @@ filetype plugin on
 " Special identation for certain filetypes
 filetype indent on	
 
+" Enables backspace. Seems to have been disabled in vim7.3.
+set bs=2
+
+"----------
+" User Interface
+"----------
+
+" Black background
+set background=dark
+
+" Use base16 colors
+let base16colorspace=256
+colorscheme base16-default
+
+" Always show current position
+set ruler
+
+" Always show status line
+set ls=2            
+
+" Put numbers on side
+set number            
+
 "----------
 " Mappings
 "----------
