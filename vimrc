@@ -12,6 +12,14 @@ nmap k gk
 autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 
 "----------
+" Airline
+"----------
+
+ " Enable the list of buffers and corresponding numbers
+ let g:airline#extensions#tabline#enabled = 1
+ let g:airline#extensions#tabline#buffer_nr_show = 1
+
+"----------
 " Vundle Stuff
 "----------
 set nocompatible              " be iMproved, required
