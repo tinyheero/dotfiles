@@ -17,7 +17,7 @@ filetype indent on
 "----------
 
 " Command to substitute all occurrences of the word under the cursor
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 
 "----------
 " Autocommands
@@ -48,7 +48,7 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 'r'
 
 " Use a leader instead of the actual named binding
-nmap <Leader>p :CtrlP<cr>
+nmap <leader>p :CtrlP<cr>
 
 "----------
 " Vim-R-Plugin
