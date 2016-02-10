@@ -12,12 +12,19 @@ nmap k gk
 autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 
 "----------
-" Airline
+" Airline Plugin
 "----------
 
- " Enable the list of buffers and corresponding numbers
- let g:airline#extensions#tabline#enabled = 1
- let g:airline#extensions#tabline#buffer_nr_show = 1
+" Enable the list of buffers and corresponding numbers
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+"----------
+" Vim-R-Plugin
+"----------
+
+" R help appears in horizontal window
+let vimrplugin_vimpager = "horizontal"
 
 "----------
 " Vundle Stuff
@@ -42,6 +49,7 @@ Plugin 'kshenoy/vim-signature' " place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " quick movements
 Plugin 'christoomey/vim-tmux-navigator' " seamless navigation between tmux and vim panes
 Plugin 'jalvesaq/R-Vim-runtime' " development versions of R related runtime files
+Plugin 'bling/vim-airline' " status bar
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
