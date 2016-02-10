@@ -48,7 +48,7 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 'r'
 
 " Use a leader instead of the actual named binding
-nmap <leader>p :CtrlP<cr>
+nmap <Leader>p :CtrlP<cr>
 
 "----------
 " Vim-R-Plugin
