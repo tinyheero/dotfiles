@@ -6,10 +6,10 @@
 nmap j gj
 nmap k gk
 
-" turns plugin on depending on filetype
+" Turns plugin on depending on filetype
 filetype plugin on	
 
-" special identation for certain filetypes
+" Special identation for certain filetypes
 filetype indent on	
 
 "----------
@@ -31,6 +31,13 @@ autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 " Enable the list of buffers and corresponding numbers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+"----------
+" NERDTree Plugin
+"----------
+
+" Map <leader>nt key for turning on NERDTree 
+map <leader>nt :NERDTree<ENTER>
 
 "----------
 " CtrlP Plugin
