@@ -2,9 +2,16 @@
 " General
 "----------
 
-" ensures that vim moves up/down linewise instead of by wrapped lines
+" Ensures that vim moves up/down linewise instead of by wrapped lines
 nmap j gj
 nmap k gk
+
+"----------
+" Mappings
+"----------
+
+" Command to substitute all occurrences of the word under the cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 "----------
 " Autocommands
