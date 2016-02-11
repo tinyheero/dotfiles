@@ -48,6 +48,10 @@ filetype indent on
 " Enables backspace. Seems to have been disabled in vim7.3.
 set bs=2
 
+" Set map leader to allow for extra key combinations
+let mapleader = ","
+let g:mapleader = ","
+
 "----------
 " User Interface
 "----------
@@ -67,6 +71,9 @@ set ls=2
 
 " Put numbers on side
 set number            
+
+" Hotkey for toggling paste mode
+set pastetoggle=<F2>
 
 "----------
 " Mappings
@@ -94,6 +101,12 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Map <leader>nt key for turning on NERDTree 
 map <leader>nt :NERDTree<ENTER>
+
+" Prevents NERDTree plugin from using fancy arrow graphics
+let g:NERDTreeDirArrows=0
+
+" Show line numbers in NERDtree
+let NERDTreeShowLineNumbers=1
 
 "----------
 " CtrlP Plugin
