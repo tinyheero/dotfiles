@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 "" The following are examples of different formats supported.
 "" Keep Plugin commands between vundle#begin/end.
 "" plugin on GitHub repo
+Plugin 'bling/vim-bufferline' " show the list of buffers in the command bar
 Plugin 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
 Plugin 'chriskempson/base16-vim' " Base16 color scheme
 Plugin 'jalvesaq/R-Vim-runtime' " Development versions of R related runtime files
@@ -129,9 +130,6 @@ nmap <leader>p :CtrlP<cr>
 "----------
 " Vim-R-Plugin
 "----------
-
-" R help appears in horizontal window
-let vimrplugin_vimpager = "horizontal"
 
 "----------
 " Buffergator Plugin
