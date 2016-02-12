@@ -131,6 +131,9 @@ nmap <leader>p :CtrlP<cr>
 " Vim-R-Plugin
 "----------
 
+" R help appears in horizontal window
+let vimrplugin_vimpager = "horizontal"
+
 "----------
 " Buffergator Plugin
 "----------
