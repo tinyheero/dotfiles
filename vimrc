@@ -14,9 +14,11 @@ Plugin 'gmarik/Vundle.vim'
 "" The following are examples of different formats supported.
 "" Keep Plugin commands between vundle#begin/end.
 "" plugin on GitHub repo
+Plugin 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
 Plugin 'bling/vim-bufferline' " show the list of buffers in the command bar
 Plugin 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
 Plugin 'chriskempson/base16-vim' " Base16 color scheme
+Plugin 'edkolev/tmuxline.vim'  " Improves the tmux status bar and integrates with the vim-airline
 Plugin 'jalvesaq/R-Vim-runtime' " Development versions of R related runtime files
 Plugin 'jeetsukumaran/vim-buffergator'  " List, select and switch between buffers.
 Plugin 'kien/ctrlp.vim' " Fuzzy search
