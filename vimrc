@@ -112,6 +112,13 @@ set showmatch
 " Turn on omni completion 
 set omnifunc=syntaxcomplete#Complete
 
+" Use Ctrl+Space to do omnicompletion:
+if has("gui_running")
+    inoremap <C-Space> <C-x><C-o>
+else
+    inoremap <Nul> <C-x><C-o>
+endif
+
 " Turns on nice popup menu for omni completion
 :highlight Pmenu ctermbg=238 gui=bold
 
@@ -137,6 +144,12 @@ set si
 "----------
 " Mappings
 "----------
+
+"" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Command to substitute all occurrences of the word under the cursor
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/
