@@ -25,7 +25,9 @@ Plugin 'kien/ctrlp.vim' " Fuzzy search
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'scrooloose/nerdtree' " File structure viewer
+Plugin 'Raimondi/delimitMate' " Easy completion
 Plugin 'tpope/vim-fugitive'  " Git integration
+Plugin 'tpope/vim-surround'  " Quoting and parenthesizing made simple
 Plugin 'vim-airline/vim-airline' " Status bar
 Plugin 'vim-airline/vim-airline-themes' " Themes for vim-airline
 
@@ -37,6 +39,8 @@ filetype on " required!
 "----------
 " General
 "----------
+
+syntax enable
 
 " Ensures that vim moves up/down linewise instead of by wrapped lines
 nmap j gj
@@ -88,6 +92,8 @@ nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 "----------
 " Autocommands
 "----------
+
+" Rmarkdown tabs are 2 spaces
 autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 
 "----------
