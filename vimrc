@@ -1,3 +1,8 @@
+" Stops vim from behaving in a strongly vi -compatible way. 
+" Place at the start of vimrc file as it can affect lots of other 
+" options which you may want to override.
+set nocompatible
+
 "----------
 " Manage Plugins using Vundle
 "----------
@@ -154,6 +159,9 @@ let g:airline#extensions#tabline#buffer_nr_show = 0
 "----------
 " NERDTree Plugin
 "----------
+
+" Prevents NERDTree plugin from using fancy arrow graphics
+let g:NERDTreeDirArrows=0
 
 " Map <leader>nt key for turning on NERDTree 
 map <leader>nt :NERDTree<ENTER>
