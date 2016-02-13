@@ -4,7 +4,7 @@ Repository to store my various .dotfiles.
 
 ## How to Install
 
-```
+```bash
 git clone git@github.com:tinyheero/dotfiles.git
 cd dotfiles
 sh install.sh
