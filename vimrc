@@ -169,6 +169,10 @@ autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#buffer_nr_show = 0
 
+" Populate the g:airline_symbols dictionary with the proper font glyphs for
+" various symbols
+let g:airline_powerline_fonts = 1
+
 "----------
 " NERDTree Plugin
 "----------
