@@ -25,6 +25,7 @@ Plugin 'kien/ctrlp.vim' " Fuzzy search
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'scrooloose/nerdtree' " File structure viewer
+Plugin 'scrooloose/nerdcommenter' " Commenting
 Plugin 'Raimondi/delimitMate' " Easy completion
 Plugin 'tpope/vim-fugitive'  " Git integration
 Plugin 'tpope/vim-surround'  " Quoting and parenthesizing made simple
@@ -52,12 +53,30 @@ filetype plugin on
 " Special identation for certain filetypes
 filetype indent on	
 
+" Highlight searches
+set hlsearch
+
+" Incremental searching
+set incsearch
+
+" Ignore case while searching
+set ignorecase
+
 " Enables backspace. Seems to have been disabled in vim7.3.
 set bs=2
 
 " Set map leader to allow for extra key combinations
 let mapleader = ","
 let g:mapleader = ","
+
+" Turn off ability to enter Ex mode which is not very useful to be in
+nnoremap Q <nop>
+
+" Set to auto read when a file is changed from the outside
+set autoread	
+
+" Turn off error beep/flash
+set visualbell t_vb= 
 
 "----------
 " User Interface
@@ -82,6 +101,34 @@ set number
 " Hotkey for toggling paste mode
 set pastetoggle=<F2>
 
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" Turn on omni completion 
+set omnifunc=syntaxcomplete#Complete
+
+" Turns on nice popup menu for omni completion
+:highlight Pmenu ctermbg=238 gui=bold
+
+"----------
+" Text, tab and indent related
+"----------
+
+" 1 tab == 2 spaces
+" Number of spaces to use for autoindenting"
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+
+" Insert tabs on the start of a line according to shiftwidth, not tabstop
+set smarttab
+
+" Auto indent
+set ai
+
+" Smart indent
+set si
+
 "----------
 " Mappings
 "----------
@@ -101,8 +148,8 @@ autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 "----------
 
 " Enable the list of buffers and corresponding numbers
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#buffer_nr_show = 0
 
 "----------
 " NERDTree Plugin
@@ -134,6 +181,13 @@ let g:ctrlp_working_path_mode = 'r'
 
 " Use a leader instead of the actual named binding
 nmap <leader>p :CtrlP<cr>
+
+"---------
+" Tmux Powerline
+"---------
+
+" Remove the funny symbols in tmuxline
+let g:tmuxline_powerline_separators = 0
 
 "----------
 " Vim-R-Plugin
