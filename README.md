@@ -12,7 +12,13 @@ sh install.sh
 
 ### Vim
 
-The vim configuration file `vimrc` depends on several plugins managed through Vundle. To install them, open vim and then:
+The vim configuration file `vimrc` depends on several plugins managed through [Vundle](https://github.com/VundleVim/Vundle.vim). You need to first setup Vundle:
+
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+Then install all the plugins by opening vim and then:
 
 ```
 :PluginInstall
