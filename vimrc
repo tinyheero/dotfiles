@@ -161,6 +161,11 @@ nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 " Rmarkdown tabs are 2 spaces
 autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 
+" Allow for html omnicompletion to take place outside of R chunks and R
+" omnicompletion to take place inside of R chunks
+" https://groups.google.com/forum/#!msg/vim-r-plugin/KCxsqbj-hn4/1or-EG_1DQAJ
+autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=rcomplete#CompleteR
+
 "----------
 " Airline Plugin
 "----------
