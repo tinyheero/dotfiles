@@ -217,7 +217,7 @@ nmap <leader>p :CtrlP<cr>
 "---------
 
 " Remove the funny symbols in tmuxline
-let g:tmuxline_powerline_separators = 0
+let g:tmuxline_powerline_separators = 1
 
 "----------
 " Vim-R-Plugin
