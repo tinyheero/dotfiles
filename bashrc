@@ -1,6 +1,8 @@
 #---------
 # User interface
 #---------
+
+# Base16 shell colors
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
@@ -10,6 +12,30 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 
 # Line numbers and tabs width = 2 space
 alias less="less -N -x 2"
+
+alias rsync="rsync -avr --partial --progress --rsh=ssh"
+alias ls="ls -F"
+alias pd="pushd"
+alias bd="popd"
+alias make="make --warn-undefined-variables"
+
+#----------
+# Vim-R-Plugin
+#----------
+
+# Change the TERM environment variable (to get 256 colors) and make Vim
+# connecting to X Server even if running in a terminal emulator (many of
+# the plugin features depend on this).
+if [ "x$DISPLAY" != "x" ]; then
+  if [ "screen" = "$TERM" ]
+  then
+      export TERM=screen-256color
+  else
+      export TERM=xterm-256color
+  fi
+  alias vim="vim --servername VIM"
+  alias vi="vim --servername VIM"
+fi
 
 #----------
 # Functions
