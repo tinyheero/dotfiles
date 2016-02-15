@@ -1,6 +1,6 @@
-" Stops vim from behaving in a strongly vi -compatible way. 
-" Place at the start of vimrc file as it can affect lots of other 
-" options which you may want to override.
+" Stops vim from behaving in a strongly vi -compatible way.
+" Place at the start of vimrc file as it can affect lots of other
+" options which you may want to override
 set nocompatible
 
 "----------
@@ -53,10 +53,10 @@ nmap j gj
 nmap k gk
 
 " Turns plugin on depending on filetype
-filetype plugin on	
+filetype plugin on
 
 " Special identation for certain filetypes
-filetype indent on	
+filetype indent on
 
 " Highlight searches
 set hlsearch
@@ -78,10 +78,13 @@ let g:mapleader = ","
 nnoremap Q <nop>
 
 " Set to auto read when a file is changed from the outside
-set autoread	
+set autoread
 
 " Turn off error beep/flash
-set visualbell t_vb= 
+set visualbell t_vb=
+
+nnoremap v <C-V>
+nnoremap <C-V> v
 
 "----------
 " User Interface
@@ -98,10 +101,10 @@ colorscheme base16-default
 set ruler
 
 " Always show status line
-set ls=2            
+set ls=2
 
 " Put numbers on side
-set number            
+set number
 
 " Hotkey for toggling paste mode
 set pastetoggle=<F2>
@@ -109,7 +112,7 @@ set pastetoggle=<F2>
 " Show matching brackets when text indicator is over them
 set showmatch
 
-" Turn on omni completion 
+" Turn on omni completion
 set omnifunc=syntaxcomplete#Complete
 
 " Use Ctrl+Space to do omnicompletion:
@@ -185,7 +188,7 @@ let g:airline_powerline_fonts = 1
 " Prevents NERDTree plugin from using fancy arrow graphics
 let g:NERDTreeDirArrows=0
 
-" Map <leader>nt key for turning on NERDTree 
+" Map <leader>nt key for turning on NERDTree
 map <leader>nt :NERDTree<ENTER>
 
 " Prevents NERDTree plugin from using fancy arrow graphics
