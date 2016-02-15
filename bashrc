@@ -1,3 +1,6 @@
+#----------
+# User specific 
+#----------
 
-# Tab width for `less` output
-export LESS="-x2"
+# Line numbers and tabs width = 2 space 
+alias less="less -N -x 2"
