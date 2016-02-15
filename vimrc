@@ -87,9 +87,6 @@ set autoread
 " Turn off error beep/flash
 set visualbell t_vb=
 
-nnoremap v <C-V>
-nnoremap <C-V> v
-
 "----------
 " User Interface
 "----------
