@@ -24,14 +24,18 @@ Plugin 'bling/vim-bufferline' " show the list of buffers in the command bar
 Plugin 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
 Plugin 'chriskempson/base16-vim' " Base16 color scheme
 Plugin 'edkolev/tmuxline.vim'  " Improves the tmux status bar and integrates with the vim-airline
+Plugin 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plugin 'jalvesaq/R-Vim-runtime' " Development versions of R related runtime files
 Plugin 'jeetsukumaran/vim-buffergator'  " List, select and switch between buffers.
 Plugin 'kien/ctrlp.vim' " Fuzzy search
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
+Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plugin 'scrooloose/nerdtree' " File structure viewer
 Plugin 'scrooloose/nerdcommenter' " Commenting
 Plugin 'Raimondi/delimitMate' " Easy completion
+Plugin 'tinyheero/vim-snippets' " Snippets for vim-snipmate
+Plugin 'tomtom/tlib_vim' " Dependency of vim-snipmate
 Plugin 'tpope/vim-fugitive'  " Git integration
 Plugin 'tpope/vim-surround'  " Quoting and parenthesizing made simple
 Plugin 'vim-airline/vim-airline' " Status bar
