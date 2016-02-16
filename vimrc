@@ -156,7 +156,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Command to substitute all occurrences of the word under the cursor
-nnoremap <leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <leader>s :s/\<<C-r><C-w>\>/
+nnoremap <leader>%s :%s/\<<C-r><C-w>\>/
 
 "----------
 " Autocommands
