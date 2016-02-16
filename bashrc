@@ -1,10 +1,19 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+ . /etc/bashrc
+fi
+
+umask 002
+
 #---------
 # User interface
 #---------
 
 # Base16 shell colors
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+[[ "$-" == *i* ]] && [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Customize linux prompt
 export PS1="\u@\h [\t] \w >> "
