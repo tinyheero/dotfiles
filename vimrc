@@ -32,10 +32,10 @@ Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plugin 'scrooloose/nerdtree' " File structure viewer
-Plugin 'scrooloose/nerdcommenter' " Commenting
 Plugin 'Raimondi/delimitMate' " Easy completion
 Plugin 'tinyheero/vim-snippets' " Snippets for vim-snipmate
 Plugin 'tomtom/tlib_vim' " Dependency of vim-snipmate
+Plugin 'tomtom/tcomment_vim' " Universal comment
 Plugin 'tpope/vim-fugitive'  " Git integration
 Plugin 'tpope/vim-surround'  " Quoting and parenthesizing made simple
 Plugin 'vim-airline/vim-airline' " Status bar
