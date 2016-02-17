@@ -14,13 +14,13 @@ sh install.sh
 
 The vim configuration file `vimrc` requires vim version > 7.4 and with the clientserver feature enabled. You can install vim through homebrew:
 
-```
+```{bash}
 brew install --with-client-server 
 ```
 
 It also depends on several plugins managed through [Vundle](https://github.com/VundleVim/Vundle.vim). You need to first setup Vundle:
 
-```
+```{bash}
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
