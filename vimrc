@@ -27,7 +27,7 @@ Plugin 'edkolev/tmuxline.vim'  " Improves the tmux status bar and integrates wit
 Plugin 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plugin 'jalvesaq/R-Vim-runtime' " Development versions of R related runtime files
 Plugin 'jeetsukumaran/vim-buffergator'  " List, select and switch between buffers.
-Plugin 'kien/ctrlp.vim' " Fuzzy search
+Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy search
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
