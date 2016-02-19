@@ -31,6 +31,7 @@ Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy search
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
+Plugin 'mhinz/vim-startify' " Fnacy start screen for vim
 Plugin 'scrooloose/nerdtree' " File structure viewer
 Plugin 'Raimondi/delimitMate' " Easy completion
 Plugin 'tinyheero/vim-snippets' " Snippets for vim-snipmate
