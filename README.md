@@ -66,3 +66,12 @@ On Centos:
 ```
 yum install the_silver_searcher
 ```
+
+### Ag
+
+A cool tip I learned from the video [07 - Plugins - The power of :Ag](https://www.youtube.com/watch?v=XzN4h4dj4cE) is using Ag to search and replace for a given string across all the files in your project.
+
+```
+:args `ag -l string_to_replace .`
+:argdo %s/string_to_search/replacement_string/g | w
+```
