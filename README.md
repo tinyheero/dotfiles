@@ -43,3 +43,18 @@ One amazing plugin is the Vim-R-Plugin which allows for the integration of vim a
 Make sure you press the spacebar a few times to make sure everything gets installed. 
 
 > You will need the matching version of [vimcom R package](https://github.com/jalvesaq/VimCom) for the corresponding Vim-R-Plugin.
+
+### Unite
+
+To get the [Unite](https://github.com/Shougo/unite.vim) plugin working, you will need to also compile the [vimproc plugin](https://github.com/Shougo/vimproc.vim). This is automatically downloaded when you run `:PluginInstall`. So one needs to:
+
+```bash
+cd ~/.vim/bundle/vimproc.vim
+make
+```
+
+Additionally, Unite is setup to use the [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) for searching for files (esssentially replaces [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)). You'll need to install the_silver_searcher:
+
+```
+brew install the_silver_searcher
+```
