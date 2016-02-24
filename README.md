@@ -55,6 +55,14 @@ make
 
 Additionally, Unite is setup to use the [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) for searching for files (esssentially replaces [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)). You'll need to install the_silver_searcher:
 
+On Mac OSX:
+
 ```
 brew install the_silver_searcher
+```
+
+On Centos:
+
+```
+yum install the_silver_searcher
 ```
