@@ -27,13 +27,15 @@ Plugin 'edkolev/tmuxline.vim'  " Improves the tmux status bar and integrates wit
 Plugin 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plugin 'jalvesaq/R-Vim-runtime' " Development versions of R related runtime files
 Plugin 'jeetsukumaran/vim-buffergator'  " List, select and switch between buffers.
-Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy search
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plugin 'mhinz/vim-startify' " Fnacy start screen for vim
 Plugin 'scrooloose/nerdtree' " File structure viewer
+Plugin 'Shougo/unite.vim' " Unite and create user interfaces
+Plugin 'Shougo/vimproc.vim' " Interactive command execution in Vim
 Plugin 'Raimondi/delimitMate' " Easy completion
+Plugin 'rking/ag.vim' " Silver searcher
 Plugin 'tinyheero/vim-snippets' " Snippets for vim-snipmate
 Plugin 'tomtom/tlib_vim' " Dependency of vim-snipmate
 Plugin 'tomtom/tcomment_vim' " Universal comment
@@ -87,6 +89,10 @@ set autoread
 
 " Turn off error beep/flash
 set visualbell t_vb=
+
+" Reselect visual block after indent
+vnoremap < <gv
+vnoremap > >gv
 
 "----------
 " User Interface
@@ -201,22 +207,17 @@ let g:NERDTreeDirArrows=0
 let NERDTreeShowLineNumbers=1
 
 "----------
-" CtrlP Plugin
+" Unite Plugin
 "----------
+nnoremap <C-p> :Unite file_rec/git<cr>
+nnoremap <space>/ :Unite grep:.<cr>
 
-" Setup some default ignores
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
-\}
-
-" Use the nearest .git directory as the cwd
-" This makes a lot of sense if you are working on a project that is in version
-" control. It also supports works with .svn, .hg, .bzr.
-let g:ctrlp_working_path_mode = 'r'
-
-" Use a leader instead of the actual named binding
-nmap <leader>p :CtrlP<cr>
+" Use ag in unite grep source.
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts =
+\ '-i --vimgrep --hidden --ignore ' .
+\ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+let g:unite_source_grep_recursive_opt = ''
 
 "---------
 " Tmux Powerline
