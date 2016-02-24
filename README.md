@@ -67,11 +67,13 @@ On Centos:
 yum install the_silver_searcher
 ```
 
-### Ag
+### ag.vim
 
-A cool tip I learned from the video [07 - Plugins - The power of :Ag](https://www.youtube.com/watch?v=XzN4h4dj4cE) is using Ag to search and replace for a given string across all the files in your project.
+The [ag.vim plugin](https://github.com/rking/ag.vim) serves as a front for the the_silver_searcher. This is essentially grep for programmers. A cool tip I learned from the video [07 - Plugins - The power of :Ag](https://www.youtube.com/watch?v=XzN4h4dj4cE) is using Ag to search and replace for a given string across all the files in your project.
 
 ```
 :args `ag -l string_to_replace .`
 :argdo %s/string_to_search/replacement_string/g | w
 ```
+
+> ag.vim is different from Unite (listed above). Both use the_silver_searcher as a backend.

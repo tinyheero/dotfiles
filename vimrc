@@ -35,7 +35,7 @@ Plugin 'scrooloose/nerdtree' " File structure viewer
 Plugin 'Shougo/unite.vim' " Unite and create user interfaces
 Plugin 'Shougo/vimproc.vim' " Interactive command execution in Vim
 Plugin 'Raimondi/delimitMate' " Easy completion
-Plugin 'rking/ag.vim' " Silver searcher
+Plugin 'rking/ag.vim' " Vim plugin for 'Silver searcher'
 Plugin 'tinyheero/vim-snippets' " Snippets for vim-snipmate
 Plugin 'tomtom/tlib_vim' " Dependency of vim-snipmate
 Plugin 'tomtom/tcomment_vim' " Universal comment
