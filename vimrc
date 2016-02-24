@@ -166,6 +166,8 @@ map <C-l> <C-w>l
 nnoremap <leader>s :s/\<<C-r><C-w>\>/
 nnoremap <leader>%s :%s/\<<C-r><C-w>\>/
 
+map <leader>cd :cd ..
+
 "----------
 " Autocommands
 "----------
