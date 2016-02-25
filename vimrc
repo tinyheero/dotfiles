@@ -26,7 +26,6 @@ Plugin 'chriskempson/base16-vim' " Base16 color scheme
 Plugin 'edkolev/tmuxline.vim'  " Improves the tmux status bar and integrates with the vim-airline
 Plugin 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plugin 'jalvesaq/R-Vim-runtime' " Development versions of R related runtime files
-Plugin 'jeetsukumaran/vim-buffergator'  " List, select and switch between buffers.
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
@@ -211,8 +210,19 @@ let NERDTreeShowLineNumbers=1
 "----------
 " Unite Plugin
 "----------
-nnoremap <C-p> :Unite file_rec/git<cr>
+" Search files and open in vsplit
+nnoremap <leader>fv :<C-u>Unite -buffer-name=files -default-action=vsplit -start-insert file_rec/async:!<cr>
+
+" Search files and open in new tab
+nnoremap <leader>ft :<C-u>Unite -buffer-name=files -default-action=tabopen -start-insert file_rec/async:!<cr>
+
+" Search files and open in new window
+nnoremap <leader>fc :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<cr>
+
 nnoremap <space>/ :Unite grep:.<cr>
+
+nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<cr>
+"nnoremap <C-l> :Unite buffer:.<cr>
 
 " Use ag in unite grep source.
 let g:unite_source_grep_command = 'ag'
@@ -234,25 +244,3 @@ let g:tmuxline_powerline_separators = 1
 
 " R help appears in horizontal window
 let vimrplugin_vimpager = "horizontal"
-
-"----------
-" Buffergator Plugin
-"----------
-
-" Use the right side of the screen
-let g:buffergator_viewport_split_policy = 'R'
-"
-" I want my own keymappings...
-let g:buffergator_suppress_keymaps = 1
-
-" Looper buffers
-"let g:buffergator_mru_cycle_loop = 1
-
-" Go to the next buffer open
-nmap gb :BuffergatorMruCycleNext<cr>
-
-" Go to the previous buffer open
-nmap gB :BuffergatorMruCyclePrev<cr>
-
-" View the entire list of buffers open
-nmap <leader>bl :BuffergatorOpen<cr>
