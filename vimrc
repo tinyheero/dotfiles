@@ -165,14 +165,16 @@ map <C-l> <C-w>l
 nnoremap <leader>s :s/\<<C-r><C-w>\>/
 nnoremap <leader>%s :%s/\<<C-r><C-w>\>/
 
+" Move Up One Directory
 map <leader>cd :cd ..
 
 "----------
 " Autocommands
 "----------
 
-" Rmarkdown tabs are 2 spaces
+" Rmarkdown and markdown tabs are 2 spaces
 autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
+autocmd Filetype markdown setlocal expandtab ts=2 sts=2 sw=2
 
 " Allow for html omnicompletion to take place outside of R chunks and R
 " omnicompletion to take place inside of R chunks
