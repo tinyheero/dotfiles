@@ -212,6 +212,7 @@ let NERDTreeShowLineNumbers=1
 "----------
 " Unite Plugin
 "----------
+
 " Search files and open in vsplit
 nnoremap <leader>fv :<C-u>Unite -buffer-name=files -default-action=vsplit -start-insert file_rec/async:!<cr>
 
@@ -224,7 +225,6 @@ nnoremap <leader>fc :<C-u>Unite -buffer-name=files -start-insert file_rec/async:
 nnoremap <space>/ :Unite grep:.<cr>
 
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<cr>
-"nnoremap <C-l> :Unite buffer:.<cr>
 
 " Use ag in unite grep source.
 let g:unite_source_grep_command = 'ag'
