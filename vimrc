@@ -29,7 +29,6 @@ Plugin 'jalvesaq/R-Vim-runtime' " Development versions of R related runtime file
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
-Plugin 'mhinz/vim-startify' " Fnacy start screen for vim
 Plugin 'scrooloose/nerdtree' " File structure viewer
 Plugin 'Shougo/unite.vim' " Unite and create user interfaces
 Plugin 'Shougo/vimproc.vim' " Interactive command execution in Vim
@@ -110,8 +109,8 @@ set ruler
 " Always show status line
 set ls=2
 
-" Put numbers on side
-set number
+" Use relative numbers
+set relativenumber
 
 " Hotkey for toggling paste mode
 set pastetoggle=<F2>
@@ -212,6 +211,8 @@ let NERDTreeShowLineNumbers=1
 "----------
 " Unite Plugin
 "----------
+"
+let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '--ignore', '.hg', '--ignore', '.svn', '--ignore', '.git', '--ignore', '.bzr', '--hidden', '-g', '']
 
 " Search files and open in vsplit
 nnoremap <leader>fv :<C-u>Unite -buffer-name=files -default-action=vsplit -start-insert file_rec/async:!<cr>
