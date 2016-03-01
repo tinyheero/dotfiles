@@ -171,7 +171,8 @@ map <leader>cd :cd ..
 " Autocommands
 "----------
 
-" Rmarkdown and markdown tabs are 2 spaces
+" R, Rmarkdown, markdown files have tabs that are 2 spaces
+autocmd Filetype r setlocal expandtab ts=2 sts=2 sw=2
 autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 autocmd Filetype markdown setlocal expandtab ts=2 sts=2 sw=2
 
