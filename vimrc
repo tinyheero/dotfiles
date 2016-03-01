@@ -171,10 +171,11 @@ map <leader>cd :cd ..
 " Autocommands
 "----------
 
-" R, Rmarkdown, markdown files have tabs that are 2 spaces
+" Set number of spaces for tabs
 autocmd Filetype r setlocal expandtab ts=2 sts=2 sw=2
 autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 autocmd Filetype markdown setlocal expandtab ts=2 sts=2 sw=2
+autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4
 
 " Allow for html omnicompletion to take place outside of R chunks and R
 " omnicompletion to take place inside of R chunks
