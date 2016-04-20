@@ -29,6 +29,7 @@ Plugin 'jalvesaq/R-Vim-runtime' " Development versions of R related runtime file
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
+Plugin 'naddeoa/vim-visual-page-percent' " Visual display of your location in a file for Vim
 Plugin 'scrooloose/nerdtree' " File structure viewer
 Plugin 'Shougo/unite.vim' " Unite and create user interfaces
 Plugin 'Shougo/vimproc.vim' " Interactive command execution in Vim
@@ -130,6 +131,9 @@ endif
 
 " Turns on nice popup menu for omni completion
 :highlight Pmenu ctermbg=238 gui=bold
+
+" Highlight current line
+set cursorline
 
 "----------
 " Text, tab and indent related
@@ -247,3 +251,9 @@ let g:tmuxline_powerline_separators = 1
 
 " R help appears in horizontal window
 let vimrplugin_vimpager = "horizontal"
+
+"----------
+" vim-visual-page-percent
+"----------
+let g:airline_section_z = airline#section#create(['windowswap', '%{VisualPercent()}', 'linenr', ':%3v '])
+set laststatus=2
