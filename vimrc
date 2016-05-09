@@ -93,11 +93,6 @@ set visualbell t_vb=
 vnoremap < <gv
 vnoremap > >gv
 
-" Swap ; and : 
-" Avoid using <SHIFT> for Ex commands
-nnoremap ; :
-nnoremap : ;
-
 "----------
 " User Interface
 "----------
