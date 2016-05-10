@@ -192,9 +192,6 @@ autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4
 " https://groups.google.com/forum/#!msg/vim-r-plugin/KCxsqbj-hn4/1or-EG_1DQAJ
 autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=rcomplete#CompleteR
 
-" Use specific version of R for particular projects
-autocmd BufReadPre /share/lustre/projects/transformed_FL/* let vimrplugin_r_path='/share/lustre/projects/transformed_FL/usr/R/3.2.3/bin/'
-
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
 " https://bitbucket.org/snakemake/snakemake/wiki/FAQ#markdown-header-how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
