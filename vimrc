@@ -95,7 +95,8 @@ vnoremap > >gv
 
 " Swap ; and : 		
 " Avoid using <SHIFT> for Ex commands		
-nnoremap ; :		
+" Only applies in 'normal' mode
+nnoremap ; :
 nnoremap : ;
 
 "----------
