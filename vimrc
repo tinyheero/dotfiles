@@ -211,7 +211,7 @@ let g:airline_powerline_fonts = 1
 let g:NERDTreeDirArrows=0
 
 " Map <leader>nt key for turning on NERDTree
-map <leader>nt :NERDTree<ENTER>
+map <leader>nt ;NERDTree<ENTER>
 
 " Prevents NERDTree plugin from using fancy arrow graphics
 let g:NERDTreeDirArrows=0
