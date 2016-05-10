@@ -75,3 +75,7 @@ function extract(){
     echo "'$1' is not a valid file"
   fi
 }
+
+# Autocomplete for Conda
+# http://conda.pydata.org/docs/install/tab-completion.html
+eval "$(register-python-argcomplete conda)"
