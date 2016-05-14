@@ -12,7 +12,9 @@ sh install.sh
 
 ## Vim
 
-The vim configuration file `vimrc` requires vim version > 7.4 and with the clientserver feature enabled. You can install vim through homebrew:
+The vim configuration file `vimrc` requires vim version > 7.4 and with the clientserver feature enabled. At the time of this writing, the configuration works with 7.4.1830.
+
+You can install vim through homebrew:
 
 ```{bash}
 brew install --with-client-server 
@@ -32,9 +34,11 @@ Then install all the plugins by opening vim and then:
 
 The [vim-airline plugin](https://github.com/vim-airline/vim-airline) uses the powerline fonts. A patched font, based on what your terminal uses, is required for this which you can generate yourself or download a [pre-patched font](https://github.com/powerline/fonts). For example, in iTerm the default font is Monaco. A patched font for Monaco for the OSX was already generated [here](https://gist.github.com/baopham/1838072#file-monaco-powerline-otf). You can download it in then `Font Book" -> File -> Add Fonts and choose the "Monaco for Powerline.otf".`. Restart your iTerm2 and it should now have the powerline symbols!
 
-### Vim-R-Plugin
+### Nvim-R
 
-One amazing plugin is the Vim-R-Plugin which allows for the integration of vim and R. This isn't installed automatically through the above setup since we want to use the stable release. You can download this [here](http://www.vim.org/scripts/script.php?script_id=2628) and then get the `Vim-R-plugin.vmb` open it and then:
+One amazing plugin is the Nvim-R (formerly known as Vim-R-Plugin) which allows for the integration of vim and R. This isn't installed automatically through the above setup since we want to use the stable release. 
+
+These instructions and the `.vimrc` file has been tested with Nvim-R v0.9.3. You can download this [here](http://www.vim.org/scripts/script.php?script_id=2628) and then get the `Vim-R-plugin.vmb` open it and then:
 
 ```
 :source %
@@ -42,7 +46,11 @@ One amazing plugin is the Vim-R-Plugin which allows for the integration of vim a
 
 Make sure you press the spacebar a few times to make sure everything gets installed. 
 
-> You will need the matching version of [vimcom R package](https://github.com/jalvesaq/VimCom) for the corresponding Vim-R-Plugin.
+The plugin depends on an R package called `nvimcom` (formally known as vimcom). In the past, you would have to download the version that matched specifically with the plugin version you needed. But now, the plugin comes bundled with this package and will automatically install it for you to the R you have in your PATH. If you ever need to install the nvimcom R package again (e.g. if you a different R instance), you can find it at `~/.vim/R/nvimcom`. You can install this with:
+
+```
+devtools::install(""~/.vim/R/nvimcom")
+```
 
 ### Unite
 

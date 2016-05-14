@@ -25,7 +25,6 @@ Plugin 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and v
 Plugin 'chriskempson/base16-vim' " Base16 color scheme
 Plugin 'edkolev/tmuxline.vim'  " Improves the tmux status bar and integrates with the vim-airline
 Plugin 'garbas/vim-snipmate' " TextMate's snippets features in Vim
-Plugin 'jalvesaq/R-Vim-runtime' " Development versions of R related runtime files
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
@@ -262,11 +261,16 @@ let g:unite_source_grep_recursive_opt = ''
 let g:tmuxline_powerline_separators = 1
 
 "----------
-" Vim-R-Plugin
+" Nvim-R : Plugin to work with R
+" Formerly known as Vim-R-Plugin
 "----------
 
 " R help appears in horizontal window
 let vimrplugin_vimpager = "horizontal"
+
+let R_in_buffer = 0
+let R_applescript = 0
+let R_tmux_split = 1
 
 "----------
 " vim-visual-page-percent
