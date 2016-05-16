@@ -42,18 +42,20 @@ alias make="make --warn-undefined-variables"
 # Vim-R-Plugin
 #----------
 
-# Change the TERM environment variable (to get 256 colors) and make Vim
-# connecting to X Server even if running in a terminal emulator (many of
-# the plugin features depend on this).
-if [ "x$DISPLAY" != "x" ]; then
-  if [ "screen" = "$TERM" ]
-  then
-      export TERM=screen-256color
-  else
-      export TERM=xterm-256color
-  fi
-  alias vim="vim --servername VIM"
-  alias vi="vim --servername VIM"
+# Change the TERM environment variable (to get 256 colors) even if you are
+# accessing your system through ssh and using either Tmux or GNU Screen:
+# alias vim="vim --servername VIM"
+# alias vi="vim --servername VIM"
+
+if [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-256color" ]
+then
+       export TERM=xterm-256color
+       export HAS_256_COLORS=yes
+fi
+
+if [ "$TERM" = "screen" ] && [ "$HAS_256_COLORS" = "yes" ]
+then
+ 	 export TERM=screen-256color
 fi
 
 #----------
