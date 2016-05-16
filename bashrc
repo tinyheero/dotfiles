@@ -39,14 +39,11 @@ alias bd="popd"
 alias make="make --warn-undefined-variables"
 
 #----------
-# Vim-R-Plugin
+# Nvim-R (formally known as Vim-R-Plugin)
 #----------
 
 # Change the TERM environment variable (to get 256 colors) even if you are
 # accessing your system through ssh and using either Tmux or GNU Screen:
-# alias vim="vim --servername VIM"
-# alias vi="vim --servername VIM"
-
 if [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-256color" ]
 then
        export TERM=xterm-256color
