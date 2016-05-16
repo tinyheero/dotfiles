@@ -41,7 +41,7 @@ One amazing plugin is the Nvim-R (formerly known as Vim-R-Plugin) which allows f
 These instructions and the `.vimrc` file has been tested with Nvim-R v0.9.3. You can download this [here](http://www.vim.org/scripts/script.php?script_id=2628) and then get the `Vim-R-plugin.vmb` open it and then:
 
 ```
-:source %
+:so %
 ```
 
 Make sure you press the spacebar a few times to make sure everything gets installed. 
@@ -50,7 +50,7 @@ The plugin depends on an R package called `nvimcom` (formally known as vimcom). 
 
 If you ever need to install the nvimcom R package again (e.g. if you a different R instance), you can find it at `~/.vim/R/nvimcom`. You can install this with:
 
-```
+```r
 devtools::install(""~/.vim/R/nvimcom")
 ```
 
@@ -67,13 +67,13 @@ Additionally, Unite is setup to use the [the_silver_searcher](https://github.com
 
 On Mac OSX:
 
-```
+```bash
 brew install the_silver_searcher
 ```
 
 On Centos:
 
-```
+```bash
 yum install the_silver_searcher
 ```
 
