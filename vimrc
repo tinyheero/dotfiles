@@ -6,7 +6,6 @@ set nocompatible
 "----------
 " Manage Plugins using Vundle
 "----------
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -25,6 +24,7 @@ Plugin 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and v
 Plugin 'chriskempson/base16-vim' " Base16 color scheme
 Plugin 'edkolev/tmuxline.vim'  " Improves the tmux status bar and integrates with the vim-airline
 Plugin 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+Plugin 'jalvesaq/R-Vim-runtime' " Vim runtime scripts of file types that include R code
 Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
 Plugin 'Lokaltog/vim-easymotion' " Quick movements
 Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
@@ -189,7 +189,8 @@ autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4
 " Allow for html omnicompletion to take place outside of R chunks and R
 " omnicompletion to take place inside of R chunks
 " https://groups.google.com/forum/#!msg/vim-r-plugin/KCxsqbj-hn4/1or-EG_1DQAJ
-autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=rcomplete#CompleteR
+" Following autocmd works when using nvim-r plugin
+autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=CompleteR
 
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
@@ -266,11 +267,16 @@ let g:tmuxline_powerline_separators = 1
 "----------
 
 " R help appears in horizontal window
-let vimrplugin_vimpager = "horizontal"
+let R_nvimpager = "horizontal"
 
+" Run R inside tmux session
 let R_in_buffer = 0
 let R_applescript = 0
 let R_tmux_split = 1
+
+" Highlight chunk header as R code
+let rrst_syn_hl_chunk = 1
+let rmd_syn_hl_chunk = 1
 
 "----------
 " vim-visual-page-percent
