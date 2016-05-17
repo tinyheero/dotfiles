@@ -51,7 +51,7 @@ The plugin depends on an R package called `nvimcom` (formally known as vimcom). 
 If you ever need to install the nvimcom R package again (e.g. if you a different R instance), you can find it at `~/.vim/R/nvimcom`. You can install this with:
 
 ```r
-devtools::install(""~/.vim/R/nvimcom")
+devtools::install("~/.vim/R/nvimcom")
 ```
 
 ### Unite
