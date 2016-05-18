@@ -88,3 +88,9 @@ The [ag.vim plugin](https://github.com/rking/ag.vim) serves as a front for the t
 ```
 
 > ag.vim is different from Unite (listed above). Both use the_silver_searcher as a backend.
+
+## Bash
+
+### hstr
+
+The bashrc uses [hstr](https://github.com/dvorka/hstr)
