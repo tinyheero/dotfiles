@@ -14,14 +14,13 @@ Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
 
 call plug#end()
 
 filetype plugin indent on
 
 syntax on
-
-let R_tmux_split = 1
 
 "----------
 " General
@@ -135,4 +134,19 @@ set ai
 " Smart indent
 set si
 
+"----------
+" Nvim-R
+" Formerly known as Vim-R-Plugin
+"----------
+let R_notmuxconf = 1
+
+" R help appears in horizontal window
+let R_nvimpager = "horizontal"
+
+" Run R inside tmux session
+let R_tmux_split = 1
+
+" Highlight chunk header as R code
+let rrst_syn_hl_chunk = 1
+let rmd_syn_hl_chunk = 1
 

@@ -37,6 +37,7 @@ alias ls="ls -F"
 alias pd="pushd"
 alias bd="popd"
 alias make="make --warn-undefined-variables"
+alias vi="nvim"
 
 #----------
 # Nvim-R (formally known as Vim-R-Plugin)
