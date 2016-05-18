@@ -12,7 +12,9 @@ Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'jalvesaq/Nvim-R'
+Plug 'Lokaltog/vim-easymotion' " Quick movements
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
+Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'Shougo/unite.vim' " Unite and create user interfaces
 Plug 'Shougo/vimproc.vim' " Interactive command execution in Vim
 Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
@@ -138,6 +140,59 @@ set ai
 set si
 
 "----------
+" Mappings
+"----------
+
+"" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Command to substitute all occurrences of the word under the cursor
+nnoremap <leader>s :s/\<<C-r><C-w>\>/
+nnoremap <leader>%s :%s/\<<C-r><C-w>\>/
+
+" Move Up One Directory
+map <leader>cd ;cd ..
+
+"----------
+" Autocommands
+"----------
+
+" Set number of spaces for tabs
+autocmd Filetype r setlocal expandtab ts=2 sts=2 sw=2
+autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
+autocmd Filetype markdown setlocal expandtab ts=2 sts=2 sw=2
+autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4
+
+" Allow for html omnicompletion to take place outside of R chunks and R
+" omnicompletion to take place inside of R chunks
+" https://groups.google.com/forum/#!msg/vim-r-plugin/KCxsqbj-hn4/1or-EG_1DQAJ
+" Following autocmd works when using nvim-r plugin
+autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=CompleteR
+
+" Syntax Highlighting for Snakemake Files
+" Requires syntax highlight definition file. See link below for more details.
+" https://bitbucket.org/snakemake/snakemake/wiki/FAQ#markdown-header-how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
+au BufNewFile,BufRead Snakefile set syntax=snakemake
+au BufNewFile,BufRead *.rules set syntax=snakemake
+au BufNewFile,BufRead *.snakefile set syntax=snakemake
+au BufNewFile,BufRead *.snake set syntax=snakemake
+
+"----------
+" Airline Plugin
+"----------
+
+" Enable the list of buffers and corresponding numbers
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#buffer_nr_show = 0
+
+" Populate the g:airline_symbols dictionary with the proper font glyphs for
+" various symbols
+let g:airline_powerline_fonts = 1
+
+"----------
 " Nvim-R
 " Formerly known as Vim-R-Plugin
 "----------
@@ -178,3 +233,10 @@ let g:unite_source_grep_default_opts =
 \ '-i --vimgrep --hidden --ignore ' .
 \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
 let g:unite_source_grep_recursive_opt = ''
+
+"---------
+" Tmux Powerline
+"---------
+
+" Remove the funny symbols in tmuxline
+let g:tmuxline_powerline_separators = 1
