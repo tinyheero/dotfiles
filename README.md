@@ -10,26 +10,27 @@ cd dotfiles
 sh install.sh
 ```
 
-## Vim
+## Neovim
 
-The vim configuration file `vimrc` requires vim version > 7.4 and with the clientserver feature enabled. At the time of this writing, the configuration works with 7.4.1830.
+The neovim configuration file requires neovim version > 0.1.4. 
 
-You can install vim through homebrew:
+You can install neovim through homebrew:
 
 ```{bash}
-brew install --with-client-server 
+brew install neovim/neovim/neovim
 ```
 
-It also depends on several plugins managed through [Vundle](https://github.com/VundleVim/Vundle.vim). You need to first setup Vundle:
+It also depends on several plugins managed through [vim-plug](https://github.com/junegunn/vim-plug). You need to first setup vim-plug:
 
 ```{bash}
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 Then install all the plugins by opening vim and then:
 
 ```
-:PluginInstall
+:PlugInstall
 ```
 
 The [vim-airline plugin](https://github.com/vim-airline/vim-airline) uses the powerline fonts. A patched font, based on what your terminal uses, is required for this which you can generate yourself or download a [pre-patched font](https://github.com/powerline/fonts). For example, in iTerm the default font is Monaco. A patched font for Monaco for the OSX was already generated [here](https://gist.github.com/baopham/1838072#file-monaco-powerline-otf). You can download it in then `Font Book" -> File -> Add Fonts and choose the "Monaco for Powerline.otf".`. Restart your iTerm2 and it should now have the powerline symbols!
