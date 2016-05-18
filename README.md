@@ -12,7 +12,7 @@ sh install.sh
 
 ## Neovim
 
-The neovim configuration file requires neovim version > 0.1.4.  You can install neovim through homebrew:
+The neovim configuration file requires neovim version > 0.1.4.  You can install neovim through homebrew (OSX) or [linuxbrew](http://linuxbrew.sh/) (linux)
 
 ```{bash}
 brew install neovim/neovim/neovim
