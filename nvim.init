@@ -1,3 +1,4 @@
+" vim: set ft=vim:
 " Stops vim from behaving in a strongly vi -compatible way.
 " Place at the start of vimrc file as it can affect lots of other
 " options which you may want to override
@@ -7,14 +8,16 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
 Plug 'bling/vim-bufferline' " show the list of buffers in the command bar
-Plug 'jalvesaq/Nvim-R'
 Plug 'chriskempson/base16-vim' " Base16 color scheme
-Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
+Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+Plug 'jalvesaq/Nvim-R'
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
+Plug 'Shougo/unite.vim' " Unite and create user interfaces
+Plug 'Shougo/vimproc.vim' " Interactive command execution in Vim
+Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
-Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
 
 call plug#end()
 
@@ -150,3 +153,28 @@ let R_tmux_split = 1
 let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
 
+"----------
+" Unite Plugin
+"----------
+"
+let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '--ignore', '.hg', '--ignore', '.svn', '--ignore', '.git', '--ignore', '.bzr', '--hidden', '-g', '']
+
+" Search files and open in vsplit
+nnoremap <leader>fv :<C-u>Unite -buffer-name=files -default-action=vsplit -start-insert file_rec/async:!<cr>
+
+" Search files and open in new tab
+nnoremap <leader>ft :<C-u>Unite -buffer-name=files -default-action=tabopen -start-insert file_rec/async:!<cr>
+
+" Search files and open in new window
+nnoremap <leader>fc :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<cr>
+
+nnoremap <space>/ :Unite grep:.<cr>
+
+nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<cr>
+
+" Use ag in unite grep source.
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts =
+\ '-i --vimgrep --hidden --ignore ' .
+\ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+let g:unite_source_grep_recursive_opt = ''
