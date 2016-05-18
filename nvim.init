@@ -11,7 +11,6 @@ Plug 'bling/vim-bufferline' " show the list of buffers in the command bar
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
-Plug 'jalvesaq/Nvim-R'
 Plug 'Lokaltog/vim-easymotion' " Quick movements
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'scrooloose/nerdtree' " File structure viewer
@@ -54,9 +53,6 @@ set incsearch
 
 " Ignore case while searching
 set ignorecase
-
-" Enables backspace. Seems to have been disabled in vim7.3.
-set bs=2
 
 " Set map leader to allow for extra key combinations
 let mapleader = ","
