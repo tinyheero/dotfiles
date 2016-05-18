@@ -32,7 +32,6 @@ syntax on
 "----------
 " General
 "----------
-
 syntax enable
 
 " Ensures that vim moves up/down linewise instead of by wrapped lines
@@ -178,6 +177,11 @@ au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.rules set syntax=snakemake
 au BufNewFile,BufRead *.snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
+
+" zathura is the recommend pdf viewer for Nvim-R, but requires very recent 
+" version that is unavailable as a binary from package manager
+" Setting it to evince is a workaround.
+let R_pdfviewer = "evince"
 
 "----------
 " Airline Plugin
