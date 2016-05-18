@@ -93,4 +93,10 @@ The [ag.vim plugin](https://github.com/rking/ag.vim) serves as a front for the t
 
 ### hstr
 
-The bashrc uses [hstr](https://github.com/dvorka/hstr)
+The bashrc uses [hstr](https://github.com/dvorka/hstr). This can be used on Centos:
+
+```
+sudo yum install hstr -y
+```
+
+Or you can install from soruce.
