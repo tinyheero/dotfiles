@@ -12,9 +12,7 @@ sh install.sh
 
 ## Neovim
 
-The neovim configuration file requires neovim version > 0.1.4. 
-
-You can install neovim through homebrew:
+The neovim configuration file requires neovim version > 0.1.4.  You can install neovim through homebrew:
 
 ```{bash}
 brew install neovim/neovim/neovim
@@ -39,7 +37,7 @@ The [vim-airline plugin](https://github.com/vim-airline/vim-airline) uses the po
 
 One amazing plugin is the Nvim-R (formerly known as Vim-R-Plugin) which allows for the integration of vim and R. This isn't installed automatically through the above setup since we want to use the stable release. 
 
-These instructions and the `.vimrc` file has been tested with Nvim-R v0.9.3. You can download this [here](http://www.vim.org/scripts/script.php?script_id=2628) and then get the `Vim-R-plugin.vmb` open it and then:
+These instructions and the `nvim.init` file has been tested with Nvim-R v0.9.3. You can download this [here](http://www.vim.org/scripts/script.php?script_id=2628) and then get the `Nvim-R.vmb` open it and then:
 
 ```
 :so %
@@ -49,10 +47,10 @@ Make sure you press the spacebar a few times to make sure everything gets instal
 
 The plugin depends on an R package called `nvimcom` (formally known as vimcom). In the past, you would have to download the version that matched specifically with the plugin version you needed. But now, the plugin comes bundled with this package and will automatically install it for you to the R you have in your PATH. Additionally, you don't need to put `library("nvimcom")` in your `~/.Rprofile` because "Nvim-R sets the value of the environment variable R_DEFAULT_PACKAGES, including nvimcom."
 
-If you ever need to install the nvimcom R package again (e.g. if you a different R instance), you can find it at `~/.vim/R/nvimcom`. You can install this with:
+If you ever need to install the nvimcom R package again (e.g. if you a different R instance), you can find it at `~/.config/nvim/R/nvimcom`. You can install this with:
 
 ```r
-devtools::install("~/.vim/R/nvimcom")
+devtools::install("~/.config/nvim/R/nvimcom")
 ```
 
 ### Unite
