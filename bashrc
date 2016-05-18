@@ -7,6 +7,9 @@ fi
 
 umask 002
 
+# Needed to fix <c-h> binding for neovim
+export TERMINFO="$HOME/.terminfo"
+
 #----------
 # Linuxbrew
 #----------
