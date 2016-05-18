@@ -1,0 +1,138 @@
+" Stops vim from behaving in a strongly vi -compatible way.
+" Place at the start of vimrc file as it can affect lots of other
+" options which you may want to override
+set nocompatible
+
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
+Plug 'bling/vim-bufferline' " show the list of buffers in the command bar
+Plug 'jalvesaq/Nvim-R'
+Plug 'chriskempson/base16-vim' " Base16 color scheme
+Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
+Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
+Plug 'vim-airline/vim-airline' " Status bar
+Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+
+call plug#end()
+
+filetype plugin indent on
+
+syntax on
+
+let R_tmux_split = 1
+
+"----------
+" General
+"----------
+
+syntax enable
+
+" Ensures that vim moves up/down linewise instead of by wrapped lines
+nmap j gj
+nmap k gk
+
+" Turns plugin on depending on filetype
+filetype plugin on
+
+" Special identation for certain filetypes
+filetype indent on
+
+" Highlight searches
+set hlsearch
+
+" Incremental searching
+set incsearch
+
+" Ignore case while searching
+set ignorecase
+
+" Enables backspace. Seems to have been disabled in vim7.3.
+set bs=2
+
+" Set map leader to allow for extra key combinations
+let mapleader = ","
+let g:mapleader = ","
+
+" Turn off ability to enter Ex mode which is not very useful to be in
+nnoremap Q <nop>
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Turn off error beep/flash
+set visualbell t_vb=
+
+" Reselect visual block after indent
+vnoremap < <gv
+vnoremap > >gv
+
+" Swap ; and : 		
+" Avoid using <SHIFT> for Ex commands		
+" Only applies in 'normal' mode
+nnoremap ; :
+nnoremap : ;
+
+"----------
+" User Interface
+"----------
+
+" Black background
+set background=dark
+
+" Use base16 colors
+let base16colorspace=256
+colorscheme base16-default
+
+" Always show current position
+set ruler
+
+" Always show status line
+set ls=2
+
+" Use relative numbers
+set relativenumber
+
+" Hotkey for toggling paste mode
+set pastetoggle=<F2>
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" Turn on omni completion
+set omnifunc=syntaxcomplete#Complete
+
+" Use Ctrl+Space to do omnicompletion:
+if has("gui_running")
+    inoremap <C-Space> <C-x><C-o>
+else
+    inoremap <Nul> <C-x><C-o>
+endif
+
+" Turns on nice popup menu for omni completion
+:highlight Pmenu ctermbg=238 gui=bold
+
+" Highlight current line
+set cursorline
+
+"----------
+" Text, tab and indent related
+"----------
+
+" 1 tab == 2 spaces
+" Number of spaces to use for autoindenting"
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+
+" Insert tabs on the start of a line according to shiftwidth, not tabstop
+set smarttab
+
+" Auto indent
+set ai
+
+" Smart indent
+set si
+
+
