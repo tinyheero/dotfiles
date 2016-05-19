@@ -17,6 +17,8 @@ Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'Shougo/unite.vim' " Unite and create user interfaces
 Plug 'Shougo/vimproc.vim' " Interactive command execution in Vim
 Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
+Plug 'tomtom/tlib_vim' " Dependency of vim-snipmate
+Plug 'tomtom/tcomment_vim' " Universal comment
 Plug 'tpope/vim-fugitive' " Git integration
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
