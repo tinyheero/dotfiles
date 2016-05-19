@@ -185,6 +185,10 @@ au BufNewFile,BufRead *.snake set syntax=snakemake
 " Setting it to evince is a workaround.
 let R_pdfviewer = "evince"
 
+" Don't use the Nvim-R terminal emulator
+" This requires the use of tmux
+let R_in_buffer = 0
+
 "----------
 " Airline Plugin
 "----------
