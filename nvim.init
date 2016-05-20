@@ -180,15 +180,6 @@ au BufNewFile,BufRead *.rules set syntax=snakemake
 au BufNewFile,BufRead *.snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
 
-" zathura is the recommend pdf viewer for Nvim-R, but requires very recent 
-" version that is unavailable as a binary from package manager
-" Setting it to evince is a workaround.
-let R_pdfviewer = "evince"
-
-" Don't use the Nvim-R terminal emulator
-" This requires the use of tmux
-let R_in_buffer = 0
-
 "----------
 " Airline Plugin
 "----------
@@ -221,17 +212,25 @@ let NERDTreeShowLineNumbers=1
 " Nvim-R
 " Formerly known as Vim-R-Plugin
 "----------
-let R_notmuxconf = 1
 
 " R help appears in horizontal window
 let R_nvimpager = "horizontal"
 
-" Run R inside tmux session
-let R_tmux_split = 1
-
 " Highlight chunk header as R code
 let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
+
+" zathura is the recommend pdf viewer for Nvim-R, but requires very recent 
+" version that is unavailable as a binary from package manager
+" Setting it to evince is a workaround.
+let R_pdfviewer = "evince"
+
+" Don't use the Nvim-R terminal emulator
+" This requires the use of tmux
+let R_in_buffer = 0
+
+" Run R inside tmux session
+let R_tmux_split = 1
 
 "----------
 " Unite Plugin
