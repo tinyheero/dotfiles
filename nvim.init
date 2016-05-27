@@ -17,6 +17,7 @@ Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'Shougo/unite.vim' " Unite and create user interfaces
 Plug 'Shougo/vimproc.vim' " Interactive command execution in Vim
 Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
+Plug 'tomtom/tlib_vim' " Dependency of vim-snipmate
 Plug 'tomtom/tcomment_vim' " Universal comment
 Plug 'tpope/vim-fugitive' " Git integration
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
@@ -33,7 +34,6 @@ syntax on
 "----------
 " General
 "----------
-
 syntax enable
 
 " Ensures that vim moves up/down linewise instead of by wrapped lines
@@ -212,17 +212,25 @@ let NERDTreeShowLineNumbers=1
 " Nvim-R
 " Formerly known as Vim-R-Plugin
 "----------
-let R_notmuxconf = 1
 
 " R help appears in horizontal window
 let R_nvimpager = "horizontal"
 
-" Run R inside tmux session
-let R_tmux_split = 1
-
 " Highlight chunk header as R code
 let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
+
+" zathura is the recommend pdf viewer for Nvim-R, but requires very recent 
+" version that is unavailable as a binary from package manager
+" Setting it to evince is a workaround.
+let R_pdfviewer = "evince"
+
+" Don't use the Nvim-R terminal emulator
+" This requires the use of tmux
+let R_in_buffer = 0
+
+" Run R inside tmux session
+let R_tmux_split = 1
 
 "----------
 " Unite Plugin

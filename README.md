@@ -12,11 +12,13 @@ sh install.sh
 
 ## Neovim
 
-The neovim configuration file requires neovim version > 0.1.4.  You can install neovim through homebrew:
+The neovim configuration file requires neovim version > 0.1.4.  You can install neovim through homebrew (OSX): 
 
 ```{bash}
 brew install neovim/neovim/neovim
 ```
+
+If you are installing this on a linux distribution, then you can use [linuxbrew](http://linuxbrew.sh/). 
 
 It also depends on several plugins managed through [vim-plug](https://github.com/junegunn/vim-plug). You need to first setup vim-plug:
 
@@ -53,6 +55,17 @@ If you ever need to install the nvimcom R package again (e.g. if you a different
 devtools::install("~/.config/nvim/R/nvimcom")
 ```
 
+#### Nvim-R and Tmux
+
+Nvim-R now contains its own terminal emulator which means it doesn't need tmux anymore. The `nvim.vim` configuration file is setup to still run tmux as external terminal emulator with the following lines:
+
+```
+let R_in_buffer = 0
+let R_tmux_split = 1
+```
+
+This means you need to first start tmux and then launch vim. When you spawn an R session from inside vim, it will create another tmux session that is split in the same window. You can remove the `let R_tmux_split = 1` part if you want it to be external.
+
 ### Unite
 
 To get the [Unite](https://github.com/Shougo/unite.vim) plugin working, you will need to also compile the [vimproc plugin](https://github.com/Shougo/vimproc.vim). This is automatically downloaded when you run `:PluginInstall`. So one needs to:
@@ -86,3 +99,15 @@ The [ag.vim plugin](https://github.com/rking/ag.vim) serves as a front for the t
 ```
 
 > ag.vim is different from Unite (listed above). Both use the_silver_searcher as a backend.
+
+## Bash
+
+### hstr
+
+The bashrc uses [hstr](https://github.com/dvorka/hstr). This can be used on Centos:
+
+```
+sudo yum install hstr -y
+```
+
+Or you can install from soruce.
