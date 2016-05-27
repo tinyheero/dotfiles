@@ -4,4 +4,7 @@ if (interactive()) {
          r["CRAN"] <- "http://cran.stat.sfu.ca"
          options(repos=r)
   })
+
+	library("setwidth")
+	library("colorout")
 }
