@@ -1,3 +1,5 @@
+chooseCRANmirror(graphics=FALSE)
+
 if (interactive()) {
   # Default repo
   local({r <- getOption("repos")
