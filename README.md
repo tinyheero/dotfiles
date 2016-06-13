@@ -39,13 +39,11 @@ The [vim-airline plugin](https://github.com/vim-airline/vim-airline) uses the po
 
 There is this weird issue with iTerm2 on OSX where the command `ctrl-h` doesn't work to switch to the left pane. See this [thread](https://github.com/neovim/neovim/issues/2048) for details. The solution is the following inside of iTerm2:
 
-```
-Edit -> Preferences -> Keys
-Press +
-Press Ctrl+h as Keyboard Shortcut
-Choose Send Escape Sequence as Action
-Type [104;5u for Esc
-```
+1. Edit -> Preferences -> Keys
+1. Press `+`
+1. Press `Ctrl+h` as Keyboard Shortcut
+1. Choose Send Escape Sequence as Action
+1. Type `[104;5u` for Esc
 
 ### Nvim-R
 
