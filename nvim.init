@@ -174,7 +174,7 @@ autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4
 autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=CompleteR
 
 " Syntax Highlighting for Rprofile Files
-au BufNewFile,BufRead *.Rprofile set syntax=r
+au BufNewFile,BufRead *.Rprofile set filetype=r
 
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
