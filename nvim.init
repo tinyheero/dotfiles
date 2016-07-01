@@ -11,6 +11,7 @@ Plug 'bling/vim-bufferline' " show the list of buffers in the command bar
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'Lokaltog/vim-easymotion' " Quick movements
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'scrooloose/nerdtree' " File structure viewer
@@ -171,6 +172,9 @@ autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4
 " https://groups.google.com/forum/#!msg/vim-r-plugin/KCxsqbj-hn4/1or-EG_1DQAJ
 " Following autocmd works when using nvim-r plugin
 autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=CompleteR
+
+" Syntax Highlighting for Rprofile Files
+au BufNewFile,BufRead *.Rprofile set syntax=r
 
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
