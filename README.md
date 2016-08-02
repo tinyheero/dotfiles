@@ -12,7 +12,11 @@ sh install.sh
 
 ## Neovim
 
-The neovim configuration file requires neovim version > 0.1.4.  You can install neovim through homebrew (OSX): 
+The neovim configuration file requires neovim version > 0.1.4. 
+
+> If you wish to use vim and not neovim, see below.
+
+You can install neovim through homebrew (OSX): 
 
 ```{bash}
 brew install neovim/neovim/neovim
@@ -27,7 +31,7 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Then install all the plugins by opening vim and then:
+Then install all the plugins by opening neovim and then:
 
 ```
 :PlugInstall
@@ -109,6 +113,21 @@ The [ag.vim plugin](https://github.com/rking/ag.vim) serves as a front for the t
 ```
 
 > ag.vim is different from Unite (listed above). Both use the_silver_searcher as a backend.
+
+## Vim
+
+If you don't want to use neovim, then you can also just use base vim. You can use all the plugins that are listed above. To set this up,
+
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+Then open vim, and run:
+
+```
+:PlugInstall
+```
 
 ## Bash
 
