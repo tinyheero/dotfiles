@@ -140,3 +140,43 @@ sudo yum install hstr -y
 ```
 
 Or you can install from soruce.
+
+## Base16
+
+We use the Base16 color guideslines for vim, shell and the iterm2 terminal.
+
+* [base16-vim](https://github.com/chriskempson/base16-vim)
+* [base16-iterm2](https://github.com/chriskempson/base16-iterm2)
+* [base16-shell](https://github.com/chriskempson/base16-shell)
+
+In order to get everything working, you must install all 3 base16 color implementations.
+
+### Base16-vim
+
+This is automatically installed when you run `:PlugInstall` inside vim.
+
+### Base16-iterm2
+
+To install the base16-iterm2, simply go to the [github page](https://github.com/chriskempson/base16-iterm2) download the appropriate color scheme you need. In this case, this would be `base16-default.dark.256.itermcolors`. Then in iterm2:
+
+1. Go to `Preferences > Profiles > Colors` 
+2. Click on Color Presets... (bottom right) > Import and import your the `base16-default.dark.256.itermcolors` file.
+
+### Base16-shell
+
+The base16-shell implementation can be installed using:
+
+```
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+```
+
+Inside the bashrc file, there is a line:
+
+```bash
+BASE16_SHELL="/Users/fongchunchan/.config/base16-shell/scripts/base16-default-dark.sh"
+[[ "$-" == *i* ]] && [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+```
+
+This simply ensures that the correct bash16-shell color theme is loaded. In this case, we want it to the base16-default-dark.
+
+
