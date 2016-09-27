@@ -179,4 +179,10 @@ BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
 
 This simply ensures that the correct bash16-shell color theme is loaded. In this case, we want it to the base16-default-dark.
 
+## R
 
+The `Rprofile` file configures what should be loaded in R when R is first started. One of the packages that is automatically loaded is the [colorout](https://github.com/jalvesaq/colorout) package. This is unfortunately not available from CRAN and would need to be installed manually. Using devtools also works:
+
+```
+devtools::install_github("jalvesaq/colorout")
+```
