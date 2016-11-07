@@ -99,6 +99,11 @@ function extract(){
   fi
 }
 
+# Counts the Number of Columns in a File
+function num_cols(){
+  awk '{print NF}' $1 | sort -nu | tail -n 1
+}
+
 # Autocomplete for Conda
 # http://conda.pydata.org/docs/install/tab-completion.html
 eval "$(register-python-argcomplete conda)"

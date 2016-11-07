@@ -12,7 +12,11 @@ sh install.sh
 
 ## Neovim
 
-The neovim configuration file requires neovim version > 0.1.4.  You can install neovim through homebrew (OSX): 
+The neovim configuration file requires neovim version > 0.1.4. 
+
+> If you wish to use vim and not neovim, see below.
+
+You can install neovim through homebrew (OSX): 
 
 ```{bash}
 brew install neovim/neovim/neovim
@@ -27,7 +31,7 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Then install all the plugins by opening vim and then:
+Then install all the plugins by opening neovim and then:
 
 ```
 :PlugInstall
@@ -110,6 +114,21 @@ The [ag.vim plugin](https://github.com/rking/ag.vim) serves as a front for the t
 
 > ag.vim is different from Unite (listed above). Both use the_silver_searcher as a backend.
 
+## Vim
+
+If you don't want to use neovim, then you can also just use base vim. You can use all the plugins that are listed above. To set this up,
+
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+Then open vim, and run:
+
+```
+:PlugInstall
+```
+
 ## Bash
 
 ### hstr
@@ -121,3 +140,49 @@ sudo yum install hstr -y
 ```
 
 Or you can install from soruce.
+
+## Base16
+
+We use the Base16 color guideslines for vim, shell and the iterm2 terminal.
+
+* [base16-vim](https://github.com/chriskempson/base16-vim)
+* [base16-iterm2](https://github.com/chriskempson/base16-iterm2)
+* [base16-shell](https://github.com/chriskempson/base16-shell)
+
+In order to get everything working, you must install all 3 base16 color implementations.
+
+### Base16-vim
+
+This is automatically installed when you run `:PlugInstall` inside vim.
+
+### Base16-iterm2
+
+To install the base16-iterm2, simply go to the [github page](https://github.com/chriskempson/base16-iterm2) download the appropriate color scheme you need. In this case, this would be `base16-default.dark.256.itermcolors`. Then in iterm2:
+
+1. Go to `Preferences > Profiles > Colors` 
+2. Click on Color Presets... (bottom right) > Import and import your the `base16-default.dark.256.itermcolors` file.
+
+### Base16-shell
+
+The base16-shell implementation can be installed using:
+
+```
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+```
+
+Inside the bashrc file, there is a line:
+
+```bash
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
+[[ "$-" == *i* ]] && [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+```
+
+This simply ensures that the correct bash16-shell color theme is loaded. In this case, we want it to the base16-default-dark.
+
+## R
+
+The `Rprofile` file configures what should be loaded in R when R is first started. One of the packages that is automatically loaded is the [colorout](https://github.com/jalvesaq/colorout) package. This is unfortunately not available from CRAN and would need to be installed manually. Using devtools also works:
+
+```
+devtools::install_github("jalvesaq/colorout")
+```
