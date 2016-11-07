@@ -1,51 +1,36 @@
+" vim: set ft=vim:
 " Stops vim from behaving in a strongly vi -compatible way.
 " Place at the start of vimrc file as it can affect lots of other
 " options which you may want to override
 set nocompatible
 
-"----------
-" Manage Plugins using Vundle
-"----------
-filetype off                  " required
+call plug#begin('~/.config/nvim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
+Plug 'bling/vim-bufferline' " show the list of buffers in the command bar
+Plug 'chriskempson/base16-vim' " Base16 color scheme
+Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
+Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+Plug 'kshenoy/vim-signature' " Place, toggle and display marks
+Plug 'Lokaltog/vim-easymotion' " Quick movements
+Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
+Plug 'scrooloose/nerdtree' " File structure viewer
+Plug 'Shougo/unite.vim' " Unite and create user interfaces
+Plug 'Shougo/vimproc.vim' " Interactive command execution in Vim
+Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
+Plug 'tomtom/tlib_vim' " Dependency of vim-snipmate
+Plug 'tomtom/tcomment_vim' " Universal comment
+Plug 'tpope/vim-fugitive' " Git integration
+Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
+Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
+Plug 'vim-airline/vim-airline' " Status bar
+Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#end()
 
-"" The following are examples of different formats supported.
-"" Keep Plugin commands between vundle#begin/end.
-"" plugin on GitHub repo
-Plugin 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
-Plugin 'bling/vim-bufferline' " show the list of buffers in the command bar
-Plugin 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
-Plugin 'chriskempson/base16-vim' " Base16 color scheme
-Plugin 'edkolev/tmuxline.vim'  " Improves the tmux status bar and integrates with the vim-airline
-Plugin 'garbas/vim-snipmate' " TextMate's snippets features in Vim
-Plugin 'jalvesaq/R-Vim-runtime' " Vim runtime scripts of file types that include R code
-Plugin 'kshenoy/vim-signature' " Place, toggle and display marks
-Plugin 'Lokaltog/vim-easymotion' " Quick movements
-Plugin 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
-Plugin 'naddeoa/vim-visual-page-percent' " Visual display of your location in a file for Vim
-Plugin 'scrooloose/nerdtree' " File structure viewer
-Plugin 'Shougo/unite.vim' " Unite and create user interfaces
-Plugin 'Shougo/vimproc.vim' " Interactive command execution in Vim
-Plugin 'Raimondi/delimitMate' " Easy completion
-Plugin 'rking/ag.vim' " Vim plugin for 'Silver searcher'
-Plugin 'tinyheero/vim-snippets' " Snippets for vim-snipmate
-Plugin 'tomtom/tlib_vim' " Dependency of vim-snipmate
-Plugin 'tomtom/tcomment_vim' " Universal comment
-Plugin 'tpope/vim-fugitive'  " Git integration
-Plugin 'tpope/vim-surround'  " Quoting and parenthesizing made simple
-Plugin 'vim-airline/vim-airline' " Status bar
-Plugin 'vim-airline/vim-airline-themes' " Themes for vim-airline
+filetype plugin indent on
 
-" All of your Plugins must be added before the following line
-call vundle#end() " required
-filetype plugin indent on " required
-filetype on " required!
+syntax on
 
 "----------
 " General
@@ -107,7 +92,7 @@ set background=dark
 
 " Use base16 colors
 let base16colorspace=256
-colorscheme base16-default
+colorscheme base16-default-dark
 
 " Always show current position
 set ruler

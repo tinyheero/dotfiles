@@ -25,6 +25,8 @@ Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'lervag/vimtex' " Support for writing latex documents
+Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
 
 call plug#end()
 
@@ -88,7 +90,7 @@ set background=dark
 
 " Use base16 colors
 let base16colorspace=256
-colorscheme base16-default
+colorscheme base16-default-dark
 
 " Always show current position
 set ruler
