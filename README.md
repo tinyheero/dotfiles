@@ -183,6 +183,6 @@ This simply ensures that the correct bash16-shell color theme is loaded. In this
 
 The `Rprofile` file configures what should be loaded in R when R is first started. One of the packages that is automatically loaded is the [colorout](https://github.com/jalvesaq/colorout) package. This is unfortunately not available from CRAN and would need to be installed manually. Using devtools also works:
 
-```
+```r
 devtools::install_github("jalvesaq/colorout")
 ```
