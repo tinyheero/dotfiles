@@ -149,7 +149,7 @@ Then open vim, and run:
 
 ### hstr
 
-The bashrc uses [hstr](https://github.com/dvorka/hstr). This can be used on Centos:
+The `bash_profile` uses [hstr](https://github.com/dvorka/hstr). This can be used on Centos:
 
 ```
 sudo yum install hstr -y
@@ -186,7 +186,7 @@ The base16-shell implementation can be installed using:
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 ```
 
-Inside the bashrc file, there is a line:
+Inside the `bash_profile` file, there is a line:
 
 ```bash
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"

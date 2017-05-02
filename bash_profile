@@ -22,8 +22,8 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 #---------
 
 # Base16 shell colors
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ "$-" == *i* ]] && [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Customize linux prompt
 export PS1="\u@\h [\t] \w >> "
