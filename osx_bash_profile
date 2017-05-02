@@ -31,6 +31,9 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # Customize linux prompt
 export PS1="\u@\h [\t] \w >> "
 
+# Turn colors on or off (used for MACOSX)
+export CLICOLOR=1
+
 #----------
 # User specific aliases
 #----------
@@ -110,3 +113,13 @@ function num_cols(){
 # Autocomplete for Conda
 # http://conda.pydata.org/docs/install/tab-completion.html
 eval "$(register-python-argcomplete conda)"
+
+# cd to the path of the front Finder window
+cdf() {
+  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+  if [ "$target" != "" ]; then
+    cd "$target"; pwd
+  else
+    echo 'No Finder window found' >&2
+  fi
+}
