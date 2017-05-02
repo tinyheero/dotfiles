@@ -1,6 +1,6 @@
 # dotfiles
 
-Repository to store my various .dotfiles. 
+Repository to store my various .dotfiles. The `bash_profile` are set to be OS specific. The `all_bash_profile` provides a generic `bash_profile` to be used for Linux or Mac OSX. This is then loaded by the specific OS `bash_profile` files (e.g. `osx_bash_profile` and `linux_bash_profile`).
 
 ## How to Install
 
