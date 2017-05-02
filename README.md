@@ -4,6 +4,20 @@ Repository to store my various .dotfiles.
 
 ## How to Install
 
+You need to first get homebrew:
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Once this is setup, install wget:
+
+```
+brew install wget
+```
+
+Now let's clone the repository:
+
 ```bash
 git clone git@github.com:tinyheero/dotfiles.git
 cd dotfiles
