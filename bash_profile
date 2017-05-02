@@ -10,6 +10,9 @@ umask 002
 # Needed to fix <c-h> binding for neovim
 export TERMINFO="$HOME/.terminfo"
 
+# Set git text editor to nvim
+export GIT_EDITOR=nvim
+
 #----------
 # Linuxbrew
 #----------
