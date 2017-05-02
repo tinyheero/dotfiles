@@ -3,6 +3,3 @@
 if [ -f $HOME/.all_bash_profile ]; then
  . $HOME/.all_bash_profile
 fi
-
-# Turn colors on or off (used for MACOSX)
-export CLICOLOR=1
