@@ -187,7 +187,7 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 Inside the bashrc file, there is a line:
 
 ```bash
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default-dark.sh"
 [[ "$-" == *i* ]] && [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 ```
 
