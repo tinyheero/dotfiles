@@ -155,7 +155,13 @@ The `bash_profile` uses [hstr](https://github.com/dvorka/hstr). This can be used
 sudo yum install hstr -y
 ```
 
-Or you can install from soruce.
+On Mac OSX, we can install using homebrew:
+
+```
+brew install hh
+```
+
+Alternatively, you can install from source.
 
 ## Base16
 
