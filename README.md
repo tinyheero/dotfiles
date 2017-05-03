@@ -72,6 +72,7 @@ One amazing plugin is the Nvim-R (formerly known as Vim-R-Plugin) which allows f
 These instructions and the `nvim.init` file has been tested with Nvim-R v0.9.3. You can download this [here](http://www.vim.org/scripts/script.php?script_id=2628) and then get the `Nvim-R.vmb` open it and then:
 
 ```
+:packadd vimball
 :so %
 ```
 
