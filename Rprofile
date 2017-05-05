@@ -1,4 +1,3 @@
-
 if (interactive()) {
   # Default repo
   local({r <- getOption("repos")
@@ -8,7 +7,6 @@ if (interactive()) {
 
   #chooseCRANmirror(graphics = FALSE)
 
-	library("setwidth")
 	library("colorout")
 
   # Set working directory to alway the project root
