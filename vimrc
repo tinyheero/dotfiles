@@ -100,8 +100,10 @@ set ruler
 " Always show status line
 set ls=2
 
-" Use relative numbers
+" Use hybrid line number mode
+" http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
 set relativenumber
+set number
 
 " Hotkey for toggling paste mode
 set pastetoggle=<F2>
