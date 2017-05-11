@@ -52,6 +52,10 @@ filetype indent on
 
 " Highlight searches
 set hlsearch
+"
+" Copy to system clipboard
+" https://www.reddit.com/r/neovim/comments/3fricd/easiest_way_to_copy_from_neovim_to_system/
+set clipboard+=unnamedplus
 
 " Incremental searching
 set incsearch
