@@ -19,6 +19,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
     + [Base16-iTerm2](#base16-iterm2)
     + [Base16-shell](#base16-shell)
 * [R](#r)
+* [Tmux](#tmux)
 
 ## How to Install
 
@@ -223,6 +224,24 @@ This simply ensures that the correct bash16-shell color theme is loaded. In this
 ## R
 
 The `Rprofile` file configures what should be loaded in R when R is first started. One of the packages that is automatically loaded is the [colorout](https://github.com/jalvesaq/colorout) package. This is unfortunately not available from CRAN and would need to be installed manually. Using devtools also works:
+
+## Tmux
+
+The `tmux.conf` is setup such that the prefix is switched from <C-b> to <C-a>. This is so that it is concordant with the default binding used in screen, which what I switched from. It is also setup to allow for copying from inside a tmux session using vi commands. By installing `reattach-to-user-namespace`:
+
+```
+brew install reattach-to-user-namespace --with-wrap-pbcopy-and-pbpaste
+```
+
+The text will be copied into the system clipboard. You may or may not need to also select "Applications in terminal may access clipboard" inside iTerm2 -> Preferences (see this link for more details). This may only be with mouse copying though. The workflow for this is as follows:
+
+```
+C-a escape # to enter copy mode
+v # visual selection
+q # to escape copy mode
+```
+
+Then you can copy using `command-p` as per usual as the text is copied into the OS clipboard.
 
 ```r
 devtools::install_github("jalvesaq/colorout")
