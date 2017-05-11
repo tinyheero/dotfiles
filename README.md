@@ -2,6 +2,24 @@
 
 Repository to store my various .dotfiles. The `bash_profile` are set to be OS specific. The `all_bash_profile` provides a generic `bash_profile` to be used for Linux or Mac OSX. This is then loaded by the specific OS `bash_profile` files (e.g. `osx_bash_profile` and `linux_bash_profile`).
 
+**Table of Contents**
+
+* [How to Install](#how-to-install)
+* [Neovim](#neovim)
+    + [Neovim and iTerm2 on OSX](#neovim-and-iterm2-on-osx)
+    + [Nvim-R](#nvim-r)
+        - [Nvim-R and Tmux](#nvim-r-and-tmux)
+    + [Unite](#unite)
+    + [ag.vim](#agvim)
+* [Vim](#vim)
+* [Bash](#bash)
+    + [hstr](#hstr)
+* [Base16](#base16)
+    + [Base16-vim](#base16-vim)
+    + [Base16-iTerm2](#base16-iterm2)
+    + [Base16-shell](#base16-shell)
+* [R](#r)
+
 ## How to Install
 
 You need to first get homebrew:
@@ -178,7 +196,7 @@ In order to get everything working, you must install all 3 base16 color implemen
 
 This is automatically installed when you run `:PlugInstall` inside vim.
 
-### Base16-iterm2
+### Base16-iTerm2
 
 To install the base16-iterm2, simply go to the [github page](https://github.com/chriskempson/base16-iterm2) download the appropriate color scheme you need. In this case, this would be `base16-default.dark.256.itermcolors`. Then in iterm2:
 
