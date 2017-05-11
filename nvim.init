@@ -9,7 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
 Plug 'bling/vim-bufferline' " show the list of buffers in the command bar
 Plug 'chriskempson/base16-vim' " Base16 color scheme
-Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes
+Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes. Allows treating vim and tmux as one a unified session.
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'Lokaltog/vim-easymotion' " Quick movements
