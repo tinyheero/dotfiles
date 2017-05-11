@@ -227,7 +227,7 @@ The `Rprofile` file configures what should be loaded in R when R is first starte
 
 ## Tmux
 
-The `tmux.conf` is setup such that the prefix is switched from <C-b> to <C-a>. This is so that it is concordant with the default binding used in screen, which what I switched from. It is also setup to allow for copying from inside a tmux session using vi commands. By installing `reattach-to-user-namespace`:
+The `tmux.conf` is setup such that the prefix is switched from `<C-b>` to `<C-a>`. This is so that it is concordant with the default binding used in screen, which what I switched from. It is also setup to allow for copying from inside a tmux session using vi commands. By installing `reattach-to-user-namespace`:
 
 ```
 brew install reattach-to-user-namespace --with-wrap-pbcopy-and-pbpaste
