@@ -10,13 +10,17 @@ Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
 Plug 'bling/vim-bufferline' " show the list of buffers in the command bar
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes. Allows treating vim and tmux as one a unified session.
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
+Plug 'lervag/vimtex' " Support for writing latex documents
 Plug 'Lokaltog/vim-easymotion' " Quick movements
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
+Plug 'majutsushi/tagbar' " Vim plugin that displays tags in a window, ordered by scope
 Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'Shougo/unite.vim' " Unite and create user interfaces
 Plug 'Shougo/vimproc.vim' " Interactive command execution in Vim
+Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
 Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
 Plug 'tomtom/tlib_vim' " Dependency of vim-snipmate
 Plug 'tomtom/tcomment_vim' " Universal comment
@@ -25,9 +29,6 @@ Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
-Plug 'lervag/vimtex' " Support for writing latex documents
-Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
-Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
 
 call plug#end()
 
@@ -38,8 +39,6 @@ syntax on
 "----------
 " General
 "----------
-set tags+=./Rtags,./RsrcTags,Rtags,RsrcTags;
-
 syntax enable
 
 " Ensures that vim moves up/down linewise instead of by wrapped lines
@@ -282,3 +281,20 @@ let g:unite_source_grep_recursive_opt = ''
 
 " Remove the funny symbols in tmuxline
 let g:tmuxline_powerline_separators = 1
+
+"----------
+" Ctags 
+"----------
+" Ctag Support for R 
+" https://github.com/majutsushi/tagbar/wiki#r
+let g:tagbar_type_r = {
+    \ 'ctagstype' : 'r',
+    \ 'kinds'     : [
+        \ 'f:Functions',
+        \ 'g:GlobalVariables',
+        \ 'v:FunctionVariables',
+    \ ]
+\ }
+
+set tags=./tags,tags;
+nnoremap <leader>tb :TagbarToggle<CR>
