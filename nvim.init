@@ -38,6 +38,8 @@ syntax on
 "----------
 " General
 "----------
+set tags+=./Rtags,./RsrcTags,Rtags,RsrcTags;
+
 syntax enable
 
 " Ensures that vim moves up/down linewise instead of by wrapped lines
