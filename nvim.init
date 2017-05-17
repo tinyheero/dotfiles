@@ -16,7 +16,8 @@ Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'lervag/vimtex' " Support for writing latex documents
 Plug 'Lokaltog/vim-easymotion' " Quick movements
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
-Plug 'majutsushi/tagbar' " Vim plugin that displays tags in a window, ordered by scope
+Plug 'majutsushi/tagbar' " Displays tags in a window, ordered by scope
+Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels in code
 Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'Shougo/unite.vim' " Unite and create user interfaces
 Plug 'Shougo/vimproc.vim' " Interactive command execution in Vim
@@ -297,5 +298,14 @@ let g:tagbar_type_r = {
     \ ]
 \ }
 
-set tags=./tags,tags;
+" Turns on the TagBar
 nnoremap <leader>tb :TagbarToggle<CR>
+
+"set tags=./tags,tags;
+
+"----------
+" Indent guides
+"----------
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
