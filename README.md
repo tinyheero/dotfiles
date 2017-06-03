@@ -225,6 +225,23 @@ This simply ensures that the correct bash16-shell color theme is loaded. In this
 
 The `Rprofile` file configures what should be loaded in R when R is first started. One of the packages that is automatically loaded is the [colorout](https://github.com/jalvesaq/colorout) package. This is unfortunately not available from CRAN and would need to be installed manually. Using devtools also works:
 
+```r
+devtools::install_github("jalvesaq/colorout")
+```
+
+### Starting a new R project
+
+For starting a new R project, you can use the `setup_r_proj.R` script:
+
+```r
+~/dotfiles/setup_r_proj.R
+```
+
+This will automatically install the following R packages:
+
+* nvimcom
+* colorout
+
 ## Tmux
 
 The `tmux.conf` is setup such that the prefix is switched from `<C-b>` to `<C-a>`. This is so that it is concordant with the default binding used in screen, which what I switched from. It is also setup to allow for copying from inside a tmux session using vi commands. By installing `reattach-to-user-namespace`:
@@ -243,6 +260,4 @@ q # to escape copy mode
 
 Then you can copy using `command-p` as per usual as the text is copied into the OS clipboard.
 
-```r
-devtools::install_github("jalvesaq/colorout")
-```
+
