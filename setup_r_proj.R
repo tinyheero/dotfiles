@@ -1,5 +1,7 @@
+#!/usr/bin/env Rscript
+
 script_description <- "
-Setup a new R project by installin nvimcom and colorout
+Setup a new R project by installing nvimcom and colorout.
 "
 
 devtools::install("~/.config/nvim/R/nvimcom")
