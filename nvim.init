@@ -32,6 +32,7 @@ Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'vim-pandoc/vim-pandoc-syntax' " Provides markdown syntax? Fixes a nvim-r-plugin rmarkdown bug
 
 call plug#end()
 
@@ -183,6 +184,9 @@ autocmd Filetype r setlocal expandtab ts=2 sts=2 sw=2
 autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
 autocmd Filetype markdown setlocal expandtab ts=2 sts=2 sw=2
 autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4
+
+" Set no wrap for R scripts
+autocmd Filetype r set nowrap
 
 " Allow for html omnicompletion to take place outside of R chunks and R
 " omnicompletion to take place inside of R chunks
