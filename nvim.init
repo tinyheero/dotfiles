@@ -42,9 +42,16 @@ filetype off
 "----------
 syntax on
 
-" Ensures that vim moves up/down linewise instead of by wrapped lines
-nmap j gj
-nmap k gk
+" Set j,k movements from strict linewise to onscreen display line movements.
+" If movement preceeded by a number, useful in relative number mode, then 
+" revert back to strict linewise movements.
+"
+" Additionally, it will save movements larger than 5 lines to the jumplist.
+" Use ctrl-o/ctrl-i to navigate backwards and forwards through this jumplist.
+"
+" https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 
 " Turns plugin on depending on filetype
 filetype plugin on
@@ -87,6 +94,11 @@ vnoremap > >gv
 " Only applies in 'normal' mode
 nnoremap ; :
 nnoremap : ;
+
+" Better wrapping with breakindent
+" https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
+set breakindent
+set showbreak=\\\\\
 
 "----------
 " User Interface
@@ -177,6 +189,9 @@ au BufNewFile,BufRead *.py vmap \se :SlimuxREPLSendSelection<CR>
 "----------
 " Autocommands
 "----------
+
+" Automatically equalize splits when Vim is resized
+autocmd VimResized * wincmd =
 
 " Set number of spaces for tabs
 autocmd Filetype r setlocal expandtab ts=2 sts=2 sw=2
