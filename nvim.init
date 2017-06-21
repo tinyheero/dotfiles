@@ -7,7 +7,6 @@ set nocompatible
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
-Plug 'bling/vim-bufferline' " show the list of buffers in the command bar
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes. Allows treating vim and tmux as one a unified session.
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
@@ -236,8 +235,10 @@ au BufNewFile,BufRead *.snake set syntax=snakemake
 " Airline Plugin
 "----------
 
-" Enable the list of buffers and corresponding numbers
-let g:airline#extensions#tabline#enabled = 0
+" Enable the list of buffers at the top (in the tabline)
+let g:airline#extensions#tabline#enabled = 1
+
+" Do not show buffer number
 let g:airline#extensions#tabline#buffer_nr_show = 0
 
 " Populate the g:airline_symbols dictionary with the proper font glyphs for
@@ -286,6 +287,9 @@ let R_tmux_split = 1
 
 " R panel always opens horizontally
 let R_rconsole_width = 0
+
+" Type 2 `_` to get `<-`
+let R_assign = 2
 
 "----------
 " Unite Plugin
