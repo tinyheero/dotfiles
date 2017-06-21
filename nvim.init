@@ -43,7 +43,7 @@ filetype off
 syntax on
 
 " Set j,k movements from strict linewise to onscreen display line movements.
-" If movement preceeded by a number, useful in relative number mode, then 
+" If movement preceeded by a number, useful in relative number mode, then
 " revert back to strict linewise movements.
 "
 " Additionally, it will save movements larger than 5 lines to the jumplist.
@@ -101,7 +101,7 @@ set visualbell t_vb=
 vnoremap < <gv
 vnoremap > >gv
 
-" Swap ; and : 		
+" Swap ; and :
 " Avoid using <SHIFT> for Ex commands		
 " Only applies in 'normal' mode
 nnoremap ; :
@@ -273,7 +273,7 @@ let R_nvimpager = "horizontal"
 let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
 
-" zathura is the recommend pdf viewer for Nvim-R, but requires very recent 
+" zathura is the recommend pdf viewer for Nvim-R, but requires very recent
 " version that is unavailable as a binary from package manager
 " Setting it to evince is a workaround.
 let R_pdfviewer = "evince"
