@@ -9,7 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes. Allows treating vim and tmux as one a unified session.
-Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder. For searching in files use ack.vim
 Plug 'epeli/slimux' " Allows interaction between vim and a tmux window/pane
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
@@ -17,11 +17,10 @@ Plug 'lervag/vimtex' " Support for writing latex documents
 Plug 'Lokaltog/vim-easymotion' " Quick movements
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'majutsushi/tagbar' " Displays tags in a window, ordered by scope
+Plug 'mileszs/ack.vim' " Searching tool
 Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels in code
 Plug 'python-mode/python-mode'
 Plug 'scrooloose/nerdtree' " File structure viewer
-Plug 'Shougo/unite.vim' " Unite and create user interfaces
-Plug 'Shougo/vimproc.vim' " Interactive command execution in Vim
 Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
 Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
 Plug 'tomtom/tlib_vim' " Dependency of vim-snipmate
@@ -291,31 +290,21 @@ let R_rconsole_width = 0
 " Type 2 `_` to get `<-`
 let R_assign = 2
 
-"----------
-" Unite Plugin
-"----------
-"
-let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '--ignore', '.hg', '--ignore', '.svn', '--ignore', '.git', '--ignore', '.bzr', '--hidden', '-g', '']
+"---------
+" ack.vim
+"---------
 
-" Search files and open in vsplit
-nnoremap <leader>fv :<C-u>Unite -buffer-name=files -default-action=vsplit -start-insert file_rec/async:!<cr>
+" Use ag in the background
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
-" Search files and open in new tab
-nnoremap <leader>ft :<C-u>Unite -buffer-name=files -default-action=tabopen -start-insert file_rec/async:!<cr>
+"---------
+" Ctrlp
+"---------
 
-" Search files and open in new window
-nnoremap <leader>fc :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<cr>
-
-nnoremap <space>/ :Unite grep:.<cr>
-
-nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<cr>
-
-" Use ag in unite grep source.
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-\ '-i --vimgrep --hidden --ignore ' .
-\ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
+" Use Ctrlp for buffer management
+nnoremap <leader>b :CtrlPBuffer<cr>
 
 "---------
 " Tmux Powerline
