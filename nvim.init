@@ -299,6 +299,12 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" Prevent Ack from jumping ot first result
+cnoreabbrev Ack Ack!
+
+" Hotkey for activating Ack
+nnoremap <Leader>a :Ack!<Space>
+
 "---------
 " Ctrlp
 "---------
