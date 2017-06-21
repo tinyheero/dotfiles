@@ -20,6 +20,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
     + [Base16-shell](#base16-shell)
 * [R](#r)
 * [Tmux](#tmux)
+* [git](#git)
 
 ## How to Install
 
@@ -259,5 +260,9 @@ q # to escape copy mode
 ```
 
 Then you can copy using `command-p` as per usual as the text is copied into the OS clipboard.
+
+## Git
+
+Autocompletion of git commands and branches is setup. See this [article](http://code-worrier.com/blog/autocomplete-git/) for more details.
 
 
