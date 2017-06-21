@@ -11,9 +11,6 @@ umask 002
 # Needed to fix <c-h> binding for neovim
 export TERMINFO="$HOME/.terminfo"
 
-# Set git text editor to nvim
-export GIT_EDITOR=nvim
-
 #----------
 # Linuxbrew
 #----------
@@ -25,6 +22,18 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 # Miniconda
 #----------
 export PATH="$HOME/miniconda3/bin:$PATH"
+
+#----------
+# Git
+#----------
+
+# Set git text editor to nvim
+export GIT_EDITOR=nvim
+
+# Set autocomplete for git
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
 
 #---------
 # User interface
@@ -39,7 +48,7 @@ parse_git_branch() {
 }
 
 # Customize linux prompt
-export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n"
+export PS1="[\u@\h] \D{%F %T}\n \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n$> "
 
 #----------
 # User specific aliases
