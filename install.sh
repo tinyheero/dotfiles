@@ -22,3 +22,6 @@ ln -sfv "$DOTFILES_DIR/nvim.init" ~/.config/nvim/init.vim
 
 # Setup snakemake Syntax Highlighting
 wget https://bitbucket.org/snakemake/snakemake/raw/master/misc/vim/syntax/snakemake.vim -O ~/.vim/syntax/snakemake.vim
+
+# Get git autocomplete
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
