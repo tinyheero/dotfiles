@@ -240,6 +240,9 @@ let g:airline#extensions#tabline#enabled = 1
 " Do not show buffer number
 let g:airline#extensions#tabline#buffer_nr_show = 0
 
+" Show just the filename and not path of file in buffer
+let g:airline#extensions#tabline#fnamemod = ':t'
+
 " Populate the g:airline_symbols dictionary with the proper font glyphs for
 " various symbols
 let g:airline_powerline_fonts = 1
