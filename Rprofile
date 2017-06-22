@@ -17,6 +17,9 @@ if (interactive()) {
   )
 
   message("Current working directory: ", getwd())
+
+  # Increase the display width of tibbles in the console
+  options(tibble.width = 200)
 }
 
 #' Set the debug mode that happens when an error is thrown
