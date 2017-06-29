@@ -9,7 +9,6 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
     + [Neovim and iTerm2 on OSX](#neovim-and-iterm2-on-osx)
     + [Nvim-R](#nvim-r)
         - [Nvim-R and Tmux](#nvim-r-and-tmux)
-    + [Unite](#unite)
     + [ag.vim](#agvim)
 * [Vim](#vim)
 * [Bash](#bash)
@@ -21,6 +20,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
 * [R](#r)
 * [Tmux](#tmux)
 * [git](#git)
+* [htop](#htop)
 
 ## How to Install
 
@@ -265,4 +265,11 @@ Then you can copy using `command-p` as per usual as the text is copied into the 
 
 Autocompletion of git commands and branches is setup. See this [article](http://code-worrier.com/blog/autocomplete-git/) for more details.
 
+## htop
+
+Htop is a nicer version of top. You can get it by running:
+
+```
+brew install htop
+```
 
