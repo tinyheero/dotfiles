@@ -9,7 +9,6 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
     + [Neovim and iTerm2 on OSX](#neovim-and-iterm2-on-osx)
     + [Nvim-R](#nvim-r)
         - [Nvim-R and Tmux](#nvim-r-and-tmux)
-    + [Unite](#unite)
     + [ag.vim](#agvim)
 * [Vim](#vim)
 * [Bash](#bash)
@@ -21,6 +20,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
 * [R](#r)
 * [Tmux](#tmux)
 * [git](#git)
+* [htop](#htop)
 
 ## How to Install
 
@@ -117,18 +117,16 @@ let R_tmux_split = 1
 
 This means you need to first start tmux and then launch vim. When you spawn an R session from inside vim, it will create another tmux session that is split in the same window. You can remove the `let R_tmux_split = 1` part if you want it to be external.
 
-### Unite
+### ag.vim
 
-To get the [Unite](https://github.com/Shougo/unite.vim) plugin working, you will need to also compile the [vimproc plugin](https://github.com/Shougo/vimproc.vim). This is automatically downloaded when you run `:PluginInstall`. So one needs to:
+The [ag.vim plugin](https://github.com/rking/ag.vim) serves as a front for the the_silver_searcher. This is essentially grep for programmers allowing for quick searching across your files. A cool tip I learned from the video [07 - Plugins - The power of :Ag](https://www.youtube.com/watch?v=XzN4h4dj4cE) is using Ag to search and replace for a given string across all the files in your project.
 
-```bash
-cd ~/.vim/bundle/vimproc.vim
-make
+```
+:args `ag -l string_to_replace .`
+:argdo %s/string_to_search/replacement_string/g | w
 ```
 
-Additionally, Unite is setup to use the [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) for searching for files (esssentially replaces [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)). You'll need to install the_silver_searcher:
-
-On Mac OSX:
+To get this to work, you need [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) for searching for files. You can install on Mac OSX:
 
 ```bash
 brew install the_silver_searcher
@@ -140,16 +138,6 @@ On Centos:
 yum install the_silver_searcher
 ```
 
-### ag.vim
-
-The [ag.vim plugin](https://github.com/rking/ag.vim) serves as a front for the the_silver_searcher. This is essentially grep for programmers. A cool tip I learned from the video [07 - Plugins - The power of :Ag](https://www.youtube.com/watch?v=XzN4h4dj4cE) is using Ag to search and replace for a given string across all the files in your project.
-
-```
-:args `ag -l string_to_replace .`
-:argdo %s/string_to_search/replacement_string/g | w
-```
-
-> ag.vim is different from Unite (listed above). Both use the_silver_searcher as a backend.
 
 ## Vim
 
@@ -265,4 +253,11 @@ Then you can copy using `command-p` as per usual as the text is copied into the 
 
 Autocompletion of git commands and branches is setup. See this [article](http://code-worrier.com/blog/autocomplete-git/) for more details.
 
+## htop
+
+Htop is a nicer version of top. You can get it by running:
+
+```
+brew install htop
+```
 
