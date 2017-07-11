@@ -10,6 +10,7 @@ ln -sfv "$DOTFILES_DIR/inputrc" ~/.inputrc
 ln -sfv "$DOTFILES_DIR/Rprofile" ~/.Rprofile
 ln -sfv "$DOTFILES_DIR/all_bash_profile" ~/.all_bash_profile
 ln -sfv "$DOTFILES_DIR/ctags" ~/.ctags
+ln -sfv "$DOTFILES_DIR/gitconfig" ~/.gitconfig
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	ln -sfv "$DOTFILES_DIR/osx_bash_profile" ~/.bash_profile

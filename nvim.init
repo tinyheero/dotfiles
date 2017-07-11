@@ -8,7 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
 Plug 'chriskempson/base16-vim' " Base16 color scheme
-Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux and vim panes. Allows treating vim and tmux as one a unified session.
+Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes. 
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder. For searching in files use ack.vim
 Plug 'epeli/slimux' " Allows interaction between vim and a tmux window/pane
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
@@ -178,11 +178,19 @@ set si
 " Mappings
 "----------
 
-"" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" Easy vim window navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Seamlessly navigate Vim splits and tmux panes
+" https://bluz71.github.io/2017/06/14/a-few-vim-tmux-mappings.html
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 " Command to substitute all occurrences of the word under the cursor
 nnoremap <leader>s :s/\<<C-r><C-w>\>/
@@ -299,6 +307,11 @@ let R_assign = 2
 " that.
 imap <C-x><C-p> <Plug>RCompleteArgs
 
+" Enable folding, but all folds are open at start
+let r_syntax_folding = 1
+set nofoldenable
+"nnoremap zc zC
+
 "---------
 " ack.vim
 "---------
@@ -353,3 +366,5 @@ nnoremap <leader>tb :TagbarToggle<CR>
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+
+
