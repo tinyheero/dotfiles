@@ -21,6 +21,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
 * [Tmux](#tmux)
 * [git](#git)
 * [htop](#htop)
+* [Open iTerm2 tab here](#open-iterm2-tab-here)
 
 ## How to Install
 
