@@ -261,3 +261,6 @@ Htop is a nicer version of top. You can get it by running:
 brew install htop
 ```
 
+## Open iTerm2 tab here
+
+Sometimes you need to open the current folder in iTerm2 to do some quick linux commands. On OSX, one can use the automator and applescript for this. See this [snippet of code](https://gist.github.com/ttimasdf/7bb02ed419db4b472b534e1a57008a3b) for more details.
