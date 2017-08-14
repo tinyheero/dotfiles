@@ -22,6 +22,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
 * [git](#git)
 * [htop](#htop)
 * [Open iTerm2 tab here](#open-iterm2-tab-here)
+* [Batch rename files using vim](#batch-rename-files-using-vim)
 
 ## How to Install
 
@@ -265,3 +266,7 @@ brew install htop
 ## Open iTerm2 tab here
 
 Sometimes you need to open the current folder in iTerm2 to do some quick linux commands. On OSX, one can use the automator and applescript for this. See this [snippet of code](https://gist.github.com/ttimasdf/7bb02ed419db4b472b534e1a57008a3b) for more details.
+
+## Batch rename files using vim
+
+https://github.com/thameera/vimv
