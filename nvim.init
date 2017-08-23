@@ -71,6 +71,9 @@ set ignorecase
 let mapleader = ","
 let g:mapleader = ","
 
+" Hotkey for turning off highlighted searches
+nnoremap <leader><space> :nohls <enter>
+
 " Interacting with system clipboard
 " https://www.reddit.com/r/neovim/comments/3fricd/easiest_way_to_copy_from_neovim_to_system/
 " NOTE: Using `set clipboard+=unnamedplus` makes block paste ineffective.
@@ -100,9 +103,10 @@ set visualbell t_vb=
 vnoremap < <gv
 vnoremap > >gv
 
-" Swap ; and :
-" Avoid using <SHIFT> for Ex commands		
+" Swap ; and : 
+" Avoid needing to use <SHIFT> for Ex commands		
 " Only applies in 'normal' mode
+" E.g. ;w! - Will save the file 
 nnoremap ; :
 nnoremap : ;
 
