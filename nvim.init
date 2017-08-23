@@ -61,7 +61,7 @@ filetype indent on
 " Highlight searches
 set hlsearch
 
-" Incremental searching
+" Search characters as they are entered
 set incsearch
 
 " Ignore case while searching
