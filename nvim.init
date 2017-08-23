@@ -155,6 +155,9 @@ endif
 " Highlight current line
 set cursorline
 
+" Highlight column at 80 characters as a visual guide
+set colorcolumn=80
+
 "----------
 " Text, tab and indent related
 "----------
