@@ -5,4 +5,5 @@ brew install \
 	wget \
 	neovim/neovim/neovim \
 	hh \
-	htop
+	htop \
+	rename
