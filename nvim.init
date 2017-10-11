@@ -341,6 +341,15 @@ nnoremap <Leader>a :Ack!<Space>
 " Use Ctrlp for buffer management
 nnoremap <leader>b :CtrlPBuffer<cr>
 
+" If a buffer is already opened in a window, normally ctrlp will jump to that
+" window if you try to open the buffer. This option will force ctrlp to re-open
+" the buffer in a window that isn't already viewing (i.e. a viewport) into the
+" buffer.
+"
+" In other words, it will allows for you to have multiple viewports (windows)
+" into a single buffer.
+let g:ctrlp_switch_buffer = ''
+
 "---------
 " Tmux Powerline
 "---------
