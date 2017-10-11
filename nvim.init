@@ -176,9 +176,11 @@ set softtabstop=2
 set smarttab
 
 " Auto indent
+" Applies the indentation of the current line to the next 
 set ai
 
 " Smart indent
+" Reacts to the syntax/style of the code you are editing
 set si
 
 "----------
@@ -323,6 +325,13 @@ imap <C-x><C-p> <Plug>RCompleteArgs
 let r_syntax_folding = 1
 set nofoldenable
 "nnoremap zc zC
+
+" Setup to get indenting to follow the tidyverse style
+" See this link https://stackoverflow.com/questions/13597256/change-r-indentation-style-in-vim-with-vim-r-plugin
+" for details on how this works...
+let r_indent_align_args = 0
+let r_indent_ess_comments = 0
+let r_indent_ess_compatible = 0
 
 "---------
 " ack.vim
