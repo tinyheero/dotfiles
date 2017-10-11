@@ -12,8 +12,10 @@ if (interactive()) {
 
   # Set working directory to alway the project root
   tryCatch(
-    setwd(rprojroot::find_root("_rmdsetup.Rmd")),
-    error = function(c) message("Current working directory: ", getwd())
+    setwd(rprojroot::find_root(rprojroot::has_file(".git/index"))),
+    error = function(c) {
+      message("Unable to find .git/index. Won't change the working directory")
+    }
   )
 
   message("Current working directory: ", getwd())

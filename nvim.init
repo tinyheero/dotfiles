@@ -308,6 +308,11 @@ let R_rconsole_width = 0
 " Type 2 `_` to get `<-`
 let R_assign = 2
 
+" Normally, Nvim-R will set to the same directory as the opened R file. This 
+" prevents Nvim-R from setting the R working directory in any way. Useful 
+" when your own ~/.Rprofile is setting a working directory.
+let R_nvim_wd = -1
+
 " Change function argument completion key binding.
 " Default <C-x><C-a> clashes with tmux prefix. One can do <C-x><C-a><C-a> to
 " bypass (double <C-a> will allow tmux to send to vim), but this circumvents
