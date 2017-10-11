@@ -6,3 +6,9 @@ fi
 
 # Turn colors on or off (used for MACOSX)
 export CLICOLOR=1
+
+export PATH="${HOME}/miniconda2/bin:${PATH}"
+
+vim_tags="ctags -R ."
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
