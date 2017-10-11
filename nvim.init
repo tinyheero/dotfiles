@@ -348,6 +348,8 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 "
 " In other words, it will allows for you to have multiple viewports (windows)
 " into a single buffer.
+" See https://sanctum.geek.nz/arabesque/buffers-windows-tabs for details on
+" vim buffers and windows.
 let g:ctrlp_switch_buffer = ''
 
 "---------
