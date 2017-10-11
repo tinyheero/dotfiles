@@ -11,9 +11,11 @@ ln -sfv "$DOTFILES_DIR/Rprofile" ~/.Rprofile
 ln -sfv "$DOTFILES_DIR/all_bash_profile" ~/.all_bash_profile
 ln -sfv "$DOTFILES_DIR/ctags" ~/.ctags
 ln -sfv "$DOTFILES_DIR/gitconfig" ~/.gitconfig
+ln -sfv "$DOTFILES_DIR/screenrc" ~/.screenrc
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	ln -sfv "$DOTFILES_DIR/osx_bash_profile" ~/.bash_profile
+	./get_osx_software.sh
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 	ln -sfv "$DOTFILES_DIR/linux_bash_profile" ~/.bash_profile
 fi
@@ -22,7 +24,11 @@ mkdir -p ~/.config/nvim
 ln -sfv "$DOTFILES_DIR/nvim.init" ~/.config/nvim/init.vim
 
 # Setup snakemake Syntax Highlighting
-wget https://bitbucket.org/snakemake/snakemake/raw/master/misc/vim/syntax/snakemake.vim -O ~/.vim/syntax/snakemake.vim
+wget \
+	https://bitbucket.org/snakemake/snakemake/raw/master/misc/vim/syntax/snakemake.vim \
+	-O ~/.vim/syntax/snakemake.vim
 
 # Get git autocomplete
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+curl \
+	https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash \
+	-o ~/.git-completion.bash

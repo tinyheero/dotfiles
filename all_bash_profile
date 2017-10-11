@@ -64,6 +64,13 @@ alias bd="popd"
 alias make="make --warn-undefined-variables"
 alias vi="nvim"
 
+# Build the ctags for vim
+alias vim_tags="ctags -R ."
+alias top="htop"
+
+# Rodeo applications
+alias rodeo="open -a /Applications/rodeo.app/"
+
 #----------
 # hh configurations
 #----------
@@ -130,12 +137,5 @@ function num_cols(){
 # http://conda.pydata.org/docs/install/tab-completion.html
 # eval "$(register-python-argcomplete conda)"
 
-# cd to the path of the front Finder window
-cdf() {
-  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-  if [ "$target" != "" ]; then
-    cd "$target"; pwd
-  else
-    echo 'No Finder window found' >&2
-  fi
-}
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
