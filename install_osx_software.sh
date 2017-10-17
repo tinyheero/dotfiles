@@ -5,4 +5,6 @@ brew install \
 	wget \
 	neovim/neovim/neovim \
 	hh \
-	htop
+	htop \ # Fancy top command
+	rename \ # for renaming files
+	md5sha1sum # For md5sum command

@@ -15,10 +15,13 @@ ln -sfv "$DOTFILES_DIR/screenrc" ~/.screenrc
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	ln -sfv "$DOTFILES_DIR/osx_bash_profile" ~/.bash_profile
-	./get_osx_software.sh
+	./install_osx_software.sh
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 	ln -sfv "$DOTFILES_DIR/linux_bash_profile" ~/.bash_profile
 fi
+
+# Setup iTerm2 Shell integration
+./setup_iterm2_shell_integration.sh
 
 mkdir -p ~/.config/nvim
 ln -sfv "$DOTFILES_DIR/nvim.init" ~/.config/nvim/init.vim
