@@ -10,6 +10,7 @@ Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes. 
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder. For searching in files use ack.vim
+Plug 'dhruvasagar/vim-table-mode' " Instant table creation
 Plug 'epeli/slimux' " Allows interaction between vim and a tmux window/pane
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
