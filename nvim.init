@@ -23,6 +23,7 @@ Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels in co
 Plug 'python-mode/python-mode'
 Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
+Plug 'tinyheero/vim-myhelp' " Personal vim-cheatsheet
 Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
 Plug 'tomtom/tlib_vim' " Dependency of vim-snipmate
 Plug 'tomtom/tcomment_vim' " Universal comment
