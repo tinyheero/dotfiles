@@ -52,11 +52,11 @@ ls_deb  <- function(items = search()){
     if (length (f) == 0)
       return (NULL)
 
-    f <- f [sapply (f, isdebugged)]
+    f <- f [vapply (f, isdebugged)]
     f <- names (f)
 
     ## now check whether the debugged function is masked by a not debugged one
-    masked <- !sapply (f, function (f) isdebugged (get (f)))
+    masked <- !vapply (f, function (f) isdebugged (get (f)))
 
     ## generate pretty output format:
     ## "package::function"  and "(package::function)" for masked debugged functions
