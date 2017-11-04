@@ -137,5 +137,6 @@ function num_cols(){
 # http://conda.pydata.org/docs/install/tab-completion.html
 # eval "$(register-python-argcomplete conda)"
 
+# For iTerm2 integration with shell
+# https://www.iterm2.com/documentation-shell-integration.html
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-

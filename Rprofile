@@ -28,6 +28,9 @@ if (interactive()) {
 #' 
 #' @param debug_mode Set the debug mode to happen when an error is thrown
 set_debug_mode <- function(debug_mode = c("off", "traceback")) {
+
+  debug_mode <- match.arg(debug_mode)
+
   if (debug_mode == "traceback") {
     message("Turning debug mode to traceback")
     options(error = traceback)
