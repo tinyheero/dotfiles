@@ -23,6 +23,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
 * [htop](#htop)
 * [Open iTerm2 tab here](#open-iterm2-tab-here)
 * [Batch rename files using vim](#batch-rename-files-using-vim)
+* [Preview markdown files](#preview-markdown-files)
 
 ## How to Install
 
@@ -270,3 +271,22 @@ Sometimes you need to open the current folder in iTerm2 to do some quick linux c
 ## Batch rename files using vim
 
 https://github.com/thameera/vimv
+
+## Preview markdown files
+
+To preview your markdown files, you can use [Grip (GitHub Readme Instant Preview)](https://github.com/joeyespo/grip) 
+for this. You can install this using homebrew:
+
+```
+brew install grip
+```
+
+Then you can run:
+
+```
+grip -b README.md 
+```
+
+This will automatically preview the README file in a new browser tab. 
+
+> Keep in mind this previews using Github markdown specification.
