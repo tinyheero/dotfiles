@@ -309,8 +309,10 @@ let R_tmux_split = 1
 " R panel always opens horizontally
 let R_rconsole_width = 0
 
-" Type 2 `_` to get `<-`
-let R_assign = 2
+" Underscore will be replaced with the assign operator only if it is preceded 
+" by a space and followed by a non-word character
+" :help R_assign
+let R_assign = 3 
 
 " Normally, Nvim-R will set to the same directory as the opened R file. This 
 " prevents Nvim-R from setting the R working directory in any way. Useful 
