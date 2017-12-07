@@ -21,7 +21,7 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
 # Setup iTerm2 Shell integration
-./setup_iterm2_shell_integration.sh
+#./setup_iterm2_shell_integration.sh
 
 mkdir -p ~/.config/nvim
 ln -sfv "$DOTFILES_DIR/nvim.init" ~/.config/nvim/init.vim

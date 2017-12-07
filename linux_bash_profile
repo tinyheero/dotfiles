@@ -18,3 +18,5 @@ export PATH="${HOME}/usr/bin:${PATH}"
 if [ -f $HOME/.custom_bash_profile ]; then
  . $HOME/.custom_bash_profile
 fi
+
+#test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
