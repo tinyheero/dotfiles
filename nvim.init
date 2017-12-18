@@ -65,25 +65,6 @@ let g:mapleader = ","
 " Hotkey for turning off highlighted searches
 nnoremap <leader><space> :nohls <enter>
 
-" Interacting with system clipboard
-" https://www.reddit.com/r/neovim/comments/3fricd/easiest_way_to_copy_from_neovim_to_system/
-" NOTE: Using `set clipboard+=unnamedplus` makes block paste ineffective.
-
-" Copy to clipboard
-vnoremap <leader>y "+y
-nnoremap <leader>Y "+yg_
-nnoremap <leader>y "+y
-nnoremap <leader>yy "+yy
-
-" Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
-
-" Turn off ability to enter Ex mode which is not very useful to be in
-nnoremap Q <nop>
-
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -232,11 +213,24 @@ nnoremap : ;
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 
-" Send text to tmux window/pane via the slimux plugin
-" Shortcuts only work in python scripts
-au BufNewFile,BufRead *.py map \c ;SlimuxShellConfigure<CR>
-au BufNewFile,BufRead *.py map \d ;SlimuxREPLSendLine<CR>
-au BufNewFile,BufRead *.py vmap \se :SlimuxREPLSendSelection<CR>
+" Interacting with system clipboard
+" https://www.reddit.com/r/neovim/comments/3fricd/easiest_way_to_copy_from_neovim_to_system/
+" NOTE: Using `set clipboard+=unnamedplus` makes block paste ineffective.
+
+" Copy to clipboard
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+yg_
+nnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+" Turn off ability to enter Ex mode which is not very useful to be in
+nnoremap Q <nop>
 
 "----------
 " Autocommands
@@ -270,6 +264,12 @@ au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.rules set syntax=snakemake
 au BufNewFile,BufRead *.snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
+
+" Send text to tmux window/pane via the slimux plugin
+" Shortcuts only work in python scripts
+au BufNewFile,BufRead *.py map \c ;SlimuxShellConfigure<CR>
+au BufNewFile,BufRead *.py map \d ;SlimuxREPLSendLine<CR>
+au BufNewFile,BufRead *.py vmap \se :SlimuxREPLSendSelection<CR>
 
 "----------
 " Airline Plugin
