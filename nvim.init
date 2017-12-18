@@ -232,6 +232,13 @@ vnoremap <leader>P "+P
 " Turn off ability to enter Ex mode which is not very useful to be in
 nnoremap Q <nop>
 
+" Use arrow keys to resize windows
+" https://vimrcfu.com/snippet/94
+noremap <up>    <C-W>+
+noremap <down>  <C-W>-
+noremap <left>  3<C-W><
+noremap <right> 3<C-W>>
+
 "----------
 " Autocommands
 "----------
