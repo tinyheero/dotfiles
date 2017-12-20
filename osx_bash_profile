@@ -23,3 +23,16 @@ cdf() {
 if [ -f $HOME/.custom_bash_profile ]; then
  . $HOME/.custom_bash_profile
 fi
+
+# Allows auto-completion of ssh hostnames
+# Depends on the following (installed during `install_osx_software.sh`):
+# 
+# ```
+# brew install bash-completion
+# brew tap homebrew/completions
+# ```
+#
+# https://apple.stackexchange.com/a/209269
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
