@@ -24,6 +24,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
 * [iTerm2](#iterm2)
     + [Italics in iTerm2](#italics-in-iterm2)
     + [Open iTerm2 tab here](#open-iterm2-tab-here)
+* [Docker](#docker)
 * [Batch rename files using vim](#batch-rename-files-using-vim)
 * [Preview markdown files](#preview-markdown-files)
 
@@ -277,6 +278,10 @@ To get italics in iTerm2, follow these [instructions](https://alexpearce.me/2014
 ### Open iTerm2 tab here
 
 Sometimes you need to open the current folder in iTerm2 to do some quick linux commands. On OSX, one can use the automator and applescript for this. See this [snippet of code](https://gist.github.com/ttimasdf/7bb02ed419db4b472b534e1a57008a3b) for more details.
+
+## Docker
+
+To get tab completion for Docker commands, see this [link](https://blog.alexellis.io/docker-mac-bash-completion/). 
 
 ## Batch rename files using vim
 
