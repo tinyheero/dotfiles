@@ -123,6 +123,9 @@ set cursorline
 " Highlight column at 80 characters as a visual guide
 set colorcolumn=80
 
+" Make comments italic
+highlight Comment cterm=italic
+
 "----------
 " Text, tab and indent related
 "----------
