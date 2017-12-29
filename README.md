@@ -41,7 +41,9 @@ Once this is setup, install wget:
 brew install wget
 ```
 
-Now let's clone the repository:
+Also, we need to get [miniconda](https://conda.io/miniconda.html). 
+
+Once before homebrew and conda are installed, we can clone this repository:
 
 ```bash
 git clone git@github.com:tinyheero/dotfiles.git

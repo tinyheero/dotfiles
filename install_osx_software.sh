@@ -16,3 +16,6 @@ brew install \
 # https://apple.stackexchange.com/a/209269
 brew install bash-completion
 brew tap homebrew/completions
+
+# Used for syntax highlighting
+conda install Pygments

@@ -54,7 +54,7 @@ export PS1="\n[\u@\h] \D{%F %T}\n \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)
 # User specific aliases
 #----------
 
-# Line numbers and tabs width = 2 space
+# Line numbers (`-N`) and tabs width = 2 space (`-x 2`)
 alias less="less -N -x 2"
 
 alias rsync="rsync -avr --partial --progress --rsh=ssh"

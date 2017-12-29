@@ -17,6 +17,24 @@ cdf() {
   fi
 }
 
+# pcat (pretty cat) for shell code syntax highlighting
+# Depends on the installation of Pygment
+#
+# conda install Pygment
+#
+# https://gist.github.com/BretFisher/6f688dde0122399efdca5a9d26100437
+# https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments 
+#
+# -g: auto detection of lexer from file contents
+#
+# Can pass in `-l` if you want to override the lexer:
+#     
+#     pcat -l sh test.R
+#
+pcat() { 
+  pygmentize -f terminal256 -O style=native -g $* | less -R
+}
+
 # If there is a .custom_bash_profile in the home directory, then source it.
 # This is designed to allow for machine specific setups (e.g. alias commands
 # that only work on a particular machine).
