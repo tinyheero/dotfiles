@@ -9,7 +9,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes. 
-Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder. For searching in files use ack.vim
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
 Plug 'epeli/slimux' " Allows interaction between vim and a tmux window/pane
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
@@ -33,6 +32,10 @@ Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'vim-pandoc/vim-pandoc-syntax' " Provides markdown syntax? Fixes a nvim-r-plugin rmarkdown bug
+
+" fzf 
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -386,22 +389,12 @@ cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
 "---------
-" Ctrlp
+" fzf
 "---------
 
-" Use Ctrlp for buffer management
-nnoremap <leader>b :CtrlPBuffer<cr>
-
-" If a buffer is already opened in a window, normally ctrlp will jump to that
-" window if you try to open the buffer. This option will force ctrlp to re-open
-" the buffer in a window that isn't already viewing (i.e. a viewport) into the
-" buffer.
-"
-" In other words, it will allows for you to have multiple viewports (windows)
-" into a single buffer.
-" See https://sanctum.geek.nz/arabesque/buffers-windows-tabs for details on
-" vim buffers and windows.
-let g:ctrlp_switch_buffer = ''
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>t :Tags<CR>
 
 "---------
 " Tmux Powerline
