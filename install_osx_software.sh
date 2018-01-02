@@ -17,5 +17,18 @@ brew install \
 brew install bash-completion
 brew tap homebrew/completions
 
+#----------
+# fzf
+#----------
+brew install fzf
+
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
+
+#----------
+# Pygments
+#----------
+
 # Used for syntax highlighting
 conda install Pygments
+

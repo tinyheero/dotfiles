@@ -35,13 +35,6 @@ pcat() {
   pygmentize -f terminal256 -O style=native -g $* | less -R
 }
 
-# If there is a .custom_bash_profile in the home directory, then source it.
-# This is designed to allow for machine specific setups (e.g. alias commands
-# that only work on a particular machine).
-if [ -f $HOME/.custom_bash_profile ]; then
- . $HOME/.custom_bash_profile
-fi
-
 # Allows auto-completion of ssh hostnames
 # Depends on the following (installed during `install_osx_software.sh`):
 # 
@@ -54,3 +47,22 @@ fi
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
+
+#----------
+# fzf: Fuzzy finder
+#----------
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Bind ctrl-f to ctrl-t
+# ctrl-t will also activate fzf_select
+# https://github.com/junegunn/fzf/issues/546
+bind "$(bind -s | grep __fzf_select | sed 's/\\C-t/\\C-f/')"
+
+# If there is a .custom_bash_profile in the home directory, then source it.
+# This is designed to allow for machine specific setups (e.g. alias commands
+# that only work on a particular machine).
+if [ -f $HOME/.custom_bash_profile ]; then
+ . $HOME/.custom_bash_profile
+fi
+
+
