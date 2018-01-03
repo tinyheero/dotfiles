@@ -9,7 +9,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
     + [Neovim and iTerm2 on OSX](#neovim-and-iterm2-on-osx)
     + [Nvim-R](#nvim-r)
         - [Nvim-R and Tmux](#nvim-r-and-tmux)
-    + [ag.vim](#agvim)
+    + [ack.vim](#ack.vim)
 * [Vim](#vim)
 * [Bash](#bash)
     + [hstr](#hstr)
