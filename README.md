@@ -125,9 +125,11 @@ let R_tmux_split = 1
 
 This means you need to first start tmux and then launch vim. When you spawn an R session from inside vim, it will create another tmux session that is split in the same window. You can remove the `let R_tmux_split = 1` part if you want it to be external.
 
-### ag.vim
+### ack.vim
 
-The [ag.vim plugin](https://github.com/rking/ag.vim) serves as a front for the the_silver_searcher. This is essentially grep for programmers allowing for quick searching across your files. A cool tip I learned from the video [07 - Plugins - The power of :Ag](https://www.youtube.com/watch?v=XzN4h4dj4cE) is using Ag to search and replace for a given string across all the files in your project.
+The [ack.vim plugin](https://github.com/mileszs/ack.vim) serves as a front for the [the_silver_searcher](https://github.com/ggreer/the_silver_searcher). Confusingly, the [ag.vim](https://github.com/rking/ag.vim) plugin, which was orginally designed to be the front for the_silver_searcher has been deprecated (see this [comment](https://github.com/rking/ag.vim/issues/124#issuecomment-227038003) for more details). 
+
+This is essentially grep for programmers allowing for quick searching across your files. A cool tip I learned from the video [07 - Plugins - The power of :Ag](https://www.youtube.com/watch?v=XzN4h4dj4cE) is using Ag to search and replace for a given string across all the files in your project.
 
 ```
 :args `ag -l string_to_replace .`

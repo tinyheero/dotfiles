@@ -377,7 +377,7 @@ let r_indent_ess_compatible = 0
 " ack.vim
 "---------
 
-" Use ag in the background
+" Use ag in the background for the ack.vim plugin
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
