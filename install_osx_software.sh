@@ -5,7 +5,7 @@
 #
 brew install \
 	wget \
-	neovim/neovim/neovim \
+	neovim \
 	htop \ # Fancy top command
 	rename \ # for renaming files
 	md5sha1sum # For md5sum command
@@ -14,7 +14,6 @@ brew install \
 # For ssh hostname completion
 # https://apple.stackexchange.com/a/209269
 brew install bash-completion
-brew tap homebrew/completions
 
 #----------
 # fzf
@@ -29,5 +28,4 @@ $(brew --prefix)/opt/fzf/install
 #----------
 
 # Used for syntax highlighting
-conda install Pygments
-
+conda install -y Pygments
