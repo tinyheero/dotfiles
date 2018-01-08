@@ -18,7 +18,6 @@ Plug 'Lokaltog/vim-easymotion' " Quick movements
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'majutsushi/tagbar' " Displays tags in a window, ordered by scope
 Plug 'mileszs/ack.vim' " Searching tool
-Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels in code
 Plug 'python-mode/python-mode'
 Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
@@ -32,6 +31,7 @@ Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'vim-pandoc/vim-pandoc-syntax' " Provides markdown syntax? Fixes a nvim-r-plugin rmarkdown bug
+Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
 
 " fzf 
 Plug '/usr/local/opt/fzf'
