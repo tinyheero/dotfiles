@@ -23,12 +23,12 @@ cdf() {
 # conda install Pygment
 #
 # https://gist.github.com/BretFisher/6f688dde0122399efdca5a9d26100437
-# https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments 
+# https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments
 #
 # -g: auto detection of lexer from file contents
 #
 # Can pass in `-l` if you want to override the lexer:
-#     
+#   
 #     pcat -l sh test.R
 #
 pcat() { 
@@ -58,11 +58,31 @@ fi
 # https://github.com/junegunn/fzf/issues/546
 bind "$(bind -s | grep __fzf_select | sed 's/\\C-t/\\C-f/')"
 
+#----------
+# Conda
+#----------
+
+# If conda is installed, add the bin folder to your PATH variable.
+# Check if the argcomplete conda package is available, if so enable tab 
+# complete.
+if [ -d ${HOME}/miniconda3 ]; then
+
+  echo "Found -d ${HOME}/miniconda3. Appending ${HOME}/miniconda3/bin to PATH"
+  export PATH=${HOME}/miniconda3/bin:${PATH}
+
+  # If the argcomplete conda package is available
+  conda list argcomplete | grep "argcomplete" > /dev/null
+  if [ $? ]; then
+    eval "$(register-python-argcomplete conda)"
+  else
+    echo "conda argcomplete package is not installed. Consider installing with 'conda install argcomplete'. This would allow for conda tab complete"
+  fi
+
+fi
+
 # If there is a .custom_bash_profile in the home directory, then source it.
 # This is designed to allow for machine specific setups (e.g. alias commands
 # that only work on a particular machine).
 if [ -f $HOME/.custom_bash_profile ]; then
  . $HOME/.custom_bash_profile
 fi
-
-
