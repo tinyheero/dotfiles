@@ -7,6 +7,11 @@ fi
 # Turn colors on or off (used for MACOSX)
 export CLICOLOR=1
 
+#
+# Aliases
+#
+alias unmount="diskutil unmount"
+
 # cd to the path of the front Finder window
 cdf() {
   target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
