@@ -54,16 +54,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 #----------
-# fzf: Fuzzy finder
-#----------
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# Bind ctrl-f to ctrl-t
-# ctrl-t will also activate fzf_select
-# https://github.com/junegunn/fzf/issues/546
-bind "$(bind -s | grep __fzf_select | sed 's/\\C-t/\\C-f/')"
-
-#----------
 # Conda
 #----------
 

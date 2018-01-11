@@ -34,8 +34,16 @@ Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'vim-pandoc/vim-pandoc-syntax' " Provides markdown syntax? Fixes a nvim-r-plugin rmarkdown bug
 Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
 
+"
 " fzf 
-Plug '/usr/local/opt/fzf'
+" Installation directory for fzf differs for different OSX.
+"
+if has("macunix")
+	Plug '/usr/local/opt/fzf'
+elseif has("unix")
+	Plug '~/.fzf'
+endif
+
 Plug 'junegunn/fzf.vim'
 
 call plug#end()

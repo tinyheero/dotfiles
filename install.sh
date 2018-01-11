@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # Author: Fong Chun Chan
 # 
@@ -18,10 +18,15 @@ ln -sfv "$DOTFILES_DIR/screenrc" ~/.screenrc
 
 # Link a different ~/.bash_profile depending on OS
 if [[ "${OSTYPE}" == "darwin"* ]]; then
-	ln -sfv "${DOTFILES_DIR}/osx_bash_profile" ~/.bash_profile
-	./install_osx_software.sh
+
+	ln -sfv "${DOTFILES_DIR}/osx_bash_profile" ~/.bash_profile;
+	./install_osx_software.sh;
+
 elif [[ "${OSTYPE}" == "linux-gnu" ]]; then
+
 	ln -sfv "${DOTFILES_DIR}/linux_bash_profile" ~/.bash_profile
+	./install_linux_sofware.sh;
+
 fi
 
 # Setup iTerm2 Shell integration
