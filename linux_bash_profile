@@ -12,6 +12,15 @@ alias ls='ls --color'
 
 export PATH="${HOME}/usr/bin:${PATH}"
 
+#----------
+# Functions
+#----------
+
+# Delete all jobs on queue 
+function del_all_jobs() {
+	qstat | tail -n +3 | awk '{print $1}' | xargs qdel
+}
+
 # If there is a .custom_bash_profile in the home directory, then source it.
 # This is designed to allow for machine specific setups (e.g. alias commands
 # that only work on a particular machine).
