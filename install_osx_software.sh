@@ -40,6 +40,9 @@ brew install bash-completion
 # A code-searching tool similar to ack, but faster
 brew install the_silver_searcher
 
+# Install universal ctags
+brew install ctags
+
 #----------
 # Tmux
 #----------
@@ -54,10 +57,13 @@ brew install reattach-to-user-namespace
 #----------
 brew install fzf
 
-# To install useful key bindings and fuzzy completion:
+# To install useful key bindings and fuzzy completion
+# Do not allow for modification of your .bashrc file since this is already 
+# included in the repository
 $(brew --prefix)/opt/fzf/install \
 	--key-bindings \
-	--completion
+	--completion \
+	--no-update-rc
 
 # Used for syntax highlighting
 conda install -y Pygments
