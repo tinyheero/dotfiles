@@ -1,15 +1,23 @@
-#!/usr/bin/env sh
+#!/bin/bash
 #
 # Install software for the Mac OSX
 # This is called from the `install.sh` script
 #
-brew install \
-	wget \
-	neovim \
-	htop \ # Fancy top command
-	rename \ # for renaming files
-	md5sha1sum # For md5sum command
-	grip # Preview README.md (or other md) using Github md (https://github.com/joeyespo/grip)
+brew install wget 
+bew install neovim 
+
+# Fancy top command
+brew install htop
+
+# For renaming files
+brew install rename
+
+# For md5sum command
+brew install md5sha1sum 
+
+# Preview README.md (or other md) using Github md 
+# (https://github.com/joeyespo/grip)
+brew install grip 
 
 # For ssh hostname completion
 # https://apple.stackexchange.com/a/209269
