@@ -37,6 +37,9 @@ if which nvim >/dev/null; then
 	# Plugin manager (vim-plugin) for neovim
 	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+	# Launch Neovim, install plugins, and then quit
+	nvim +PlugInstall +qall
 else
 	echo "Did not find nvim. Skipping plugin manager (vim-plug) installation"
 fi
