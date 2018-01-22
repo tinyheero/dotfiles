@@ -47,7 +47,7 @@ brew install the_silver_searcher
 brew install tmux 
 
 # Allow for copying from inside a tmux session using vim commands
-brew install reattach-to-user-namespace --with-wrap-pbcopy-and-pbpaste
+brew install reattach-to-user-namespace
 
 #----------
 # fzf
