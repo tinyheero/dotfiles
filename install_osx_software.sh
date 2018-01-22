@@ -6,7 +6,7 @@
 
 # Homebrew needs to be installed first
 which brew > /dev/null;
-if [[ $? -neq 0 ]]; then
+if [[ $? -ne 0 ]]; then
 	echo "Please install homebrew first. See https://brew.sh"; 
 	exit 1
 fi
