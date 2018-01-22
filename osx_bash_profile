@@ -59,7 +59,7 @@ fi
 
 # If conda is installed, add the bin folder to your PATH variable.
 # Check if the argcomplete conda package is available, if so enable tab 
-# complete.
+# complete (http://conda.pydata.org/docs/install/tab-completion.html)
 if [[ -d ${HOME}/miniconda3 ]]; then
 
   echo "Found ${HOME}/miniconda3. Appending ${HOME}/miniconda3/bin to PATH"
@@ -67,7 +67,7 @@ if [[ -d ${HOME}/miniconda3 ]]; then
 
   # If the argcomplete conda package is available
   conda list argcomplete | grep "argcomplete" > /dev/null
-  if [[ $? ]]; then
+  if [[ $? -eq 0 ]]; then
     eval "$(register-python-argcomplete conda)"
   else
     echo "conda argcomplete package is not installed. Consider installing with 'conda install argcomplete'. This would allow for conda tab complete"

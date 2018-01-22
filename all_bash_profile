@@ -12,18 +12,6 @@ umask 002
 export TERMINFO="$HOME/.terminfo"
 
 #----------
-# Linuxbrew
-#----------
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-
-#----------
-# Miniconda
-#----------
-#export PATH="$HOME/miniconda3/bin:$PATH"
-
-#----------
 # Git
 #----------
 
@@ -130,10 +118,6 @@ function extract(){
 function num_cols(){
   awk '{print NF}' $1 | sort -nu | tail -n 1
 }
-
-# Conda Bash completion 
-# http://conda.pydata.org/docs/install/tab-completion.html
-# eval "$(register-python-argcomplete conda)"
 
 # For iTerm2 integration with shell
 # https://www.iterm2.com/documentation-shell-integration.html
