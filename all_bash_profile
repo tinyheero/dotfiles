@@ -119,6 +119,12 @@ function num_cols(){
   awk '{print NF}' $1 | sort -nu | tail -n 1
 }
 
+# Gets the first line of the tsv file and then returns each column as a separate
+# line
+function print_cols() {
+	head -n 1 $1 | tr '\t' '\n' | less -S
+}
+
 # For iTerm2 integration with shell
 # https://www.iterm2.com/documentation-shell-integration.html
 #test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
