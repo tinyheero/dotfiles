@@ -13,6 +13,7 @@ Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits 
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
 Plug 'epeli/slimux' " Allows interaction between vim and a tmux window/pane
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'lervag/vimtex' " Support for writing latex documents
 Plug 'Lokaltog/vim-easymotion' " Quick movements
@@ -70,12 +71,9 @@ set incsearch
 " Ignore case while searching
 set ignorecase
 
-" Set map leader to allow for extra key combinations
+" Set <leader> to allow for extra key combinations
 let mapleader = ","
 let g:mapleader = ","
-
-" Hotkey for turning off highlighted searches
-nnoremap <leader><space> :nohls <enter>
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -210,13 +208,6 @@ map Y y$
 vnoremap < <gv
 vnoremap > >gv
 
-" Swap ; and : 
-" Avoid needing to use <SHIFT> for Ex commands		
-" Only applies in 'normal' mode
-" E.g. ;w! - Will save the file 
-nnoremap ; :
-nnoremap : ;
-
 " Set j,k movements from strict linewise to onscreen display line movements.
 " If movement preceeded by a number, useful in relative number mode, then
 " revert back to strict linewise movements.
@@ -253,6 +244,17 @@ noremap <up>    <C-W>+
 noremap <down>  <C-W>-
 noremap <left>  3<C-W><
 noremap <right> 3<C-W>>
+
+" Hotkeys for saving and quitting
+nnoremap <leader>w :w
+nnoremap <leader>q :q
+
+" Hotkeys for vertical (vs) and horizontal split (hs)
+nnoremap <leader>vs :vs
+nnoremap <leader>hs :split
+
+" Hotkey for turning off highlighted searches
+nnoremap <leader><space> :nohls <enter>
 
 "----------
 " Autocommands
@@ -318,7 +320,7 @@ let g:airline_powerline_fonts = 1
 let g:NERDTreeDirArrows=0
 
 " Map <leader>nt key for turning on NERDTree
-map <leader>nt ;NERDTree<ENTER>
+nnoremap <leader>nt :NERDTree<CR>
 
 " Prevents NERDTree plugin from using fancy arrow graphics
 let g:NERDTreeDirArrows=0
@@ -437,5 +439,14 @@ nnoremap <leader>tb :TagbarToggle<CR>
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+
+"----------
+" vimcmdline
+"----------
+let cmdline_map_start= '<LocalLeader>rf'
+let cmdline_map_send= '<LocalLeader>d'
+
+let cmdline_app = {}
+let cmdline_app['sh'] = 'bash'
 
 
