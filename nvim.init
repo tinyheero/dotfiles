@@ -157,6 +157,10 @@ set ai
 " Reacts to the syntax/style of the code you are editing
 set si
 
+" Convert new tabs into spaces. If you need tabs for a particular file time,
+" then you should use autocommands to set a local buffer
+set expandtab
+
 "----------
 " Mappings
 "----------
@@ -170,10 +174,10 @@ noremap <C-l> <C-w>l
 " Seamlessly navigate Vim splits and tmux panes
 " https://bluz71.github.io/2017/06/14/a-few-vim-tmux-mappings.html
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 
 " Command to substitute all occurrences of the word under the cursor
 nnoremap <leader>s :s/\<<C-r><C-w>\>/
@@ -236,6 +240,7 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
 " Turn off ability to enter Ex mode which is not very useful to be in
+" <nop> means no operation
 nnoremap Q <nop>
 
 " Use arrow keys to resize windows
@@ -250,11 +255,18 @@ nnoremap <leader>w :w
 nnoremap <leader>q :q
 
 " Hotkeys for vertical (vs) and horizontal split (hs)
-nnoremap <leader>vs :vs
+nnoremap <leader>vs :vsplit
 nnoremap <leader>hs :split
 
 " Hotkey for turning off highlighted searches
 nnoremap <leader><space> :nohls <enter>
+
+" Edit your vimrc file in a vertical split
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+
+" Source your vimrc file 
+" Combined with <leader>ev will allow you to edit 
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 "----------
 " Autocommands
@@ -264,13 +276,11 @@ nnoremap <leader><space> :nohls <enter>
 autocmd VimResized * wincmd =
 
 " Set number of spaces for tabs
-autocmd Filetype r setlocal expandtab ts=2 sts=2 sw=2
-autocmd Filetype rmd setlocal expandtab ts=2 sts=2 sw=2
-autocmd Filetype markdown setlocal expandtab ts=2 sts=2 sw=2
-autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4
+autocmd Filetype r setlocal nowrap
+autocmd Filetype python setlocal ts=4 sts=4 sw=4
 
 " Set no wrap for R scripts
-autocmd Filetype r set nowrap
+autocmd Filetype r set 
 
 " Allow for html omnicompletion to take place outside of R chunks and R
 " omnicompletion to take place inside of R chunks
