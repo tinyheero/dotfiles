@@ -180,7 +180,7 @@ nnoremap <leader>s :s/\<<C-r><C-w>\>/
 nnoremap <leader>%s :%s/\<<C-r><C-w>\>/
 
 " Move Up One Directory
-map <leader>cd ;cd ..
+nnoremap <leader>cd :cd ..
 
 " This moves the matches for your search to the center of the screen when you 
 " press n or N so it is easier to identify where you are in your document.
@@ -202,7 +202,7 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Typing Y yanks from cursor to the end of the line
 " https://vimrcfu.com/snippet/88
-map Y y$
+nnoremap Y y$
 
 " Reselect visual block after indent
 vnoremap < <gv
