@@ -1,4 +1,4 @@
-" vim: set ft=vim:
+": set ft=vim:
 " Stops vim from behaving in a strongly vi -compatible way.
 " Place at the start of vimrc file as it can affect lots of other
 " options which you may want to override
@@ -39,9 +39,9 @@ Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lin
 " Installation directory for fzf differs for different OSX.
 "
 if has("macunix")
-	Plug '/usr/local/opt/fzf'
+  Plug '/usr/local/opt/fzf'
 elseif has("unix")
-	Plug '~/.fzf'
+  Plug '~/.fzf'
 endif
 
 Plug 'junegunn/fzf.vim'
@@ -70,8 +70,7 @@ set incsearch
 " Ignore case while searching
 set ignorecase
 
-" Set <leader> to allow for extra key combinations
-let mapleader = ","
+" Set <Leader> to allow for extra key combinations
 let g:mapleader = ","
 
 " Set to auto read when a file is changed from the outside
@@ -179,11 +178,11 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 
 " Command to substitute all occurrences of the word under the cursor
-nnoremap <leader>s :s/\<<C-r><C-w>\>/
-nnoremap <leader>%s :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>s :s/\<<C-r><C-w>\>/
+nnoremap <Leader>%s :%s/\<<C-r><C-w>\>/
 
 " Move Up One Directory
-nnoremap <leader>cd :cd ..
+nnoremap <Leader>cd :cd ..
 
 " This moves the matches for your search to the center of the screen when you 
 " press n or N so it is easier to identify where you are in your document.
@@ -227,16 +226,16 @@ nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 " NOTE: Using `set clipboard+=unnamedplus` makes block paste ineffective.
 
 " Copy to clipboard
-vnoremap <leader>y "+y
-nnoremap <leader>Y "+yg_
-nnoremap <leader>y "+y
-nnoremap <leader>yy "+yy
+vnoremap <Leader>y "+y
+nnoremap <Leader>Y "+yg_
+nnoremap <Leader>y "+y
+nnoremap <Leader>yy "+yy
 
 " Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+vnoremap <Leader>p "+p
+vnoremap <Leader>P "+P
 
 " Turn off ability to enter Ex mode which is not very useful to be in
 " <nop> means no operation
@@ -250,49 +249,61 @@ noremap <left>  3<C-W><
 noremap <right> 3<C-W>>
 
 " Hotkeys for vertical (vs) and horizontal split (hs)
-nnoremap <leader>vs :vsplit
-nnoremap <leader>hs :split
+nnoremap <Leader>vs :vsplit
+nnoremap <Leader>hs :split
 
 " Hotkey for turning off highlighted searches
-nnoremap <leader><space> :nohls <enter>
+nnoremap <Leader><space> :nohls <enter>
 
 " Edit your vimrc file in a vertical split
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 
 " Source your vimrc file 
-" Combined with <leader>ev will allow you to edit 
-nnoremap <leader>sv :source $MYVIMRC<CR>
+" Combined with <Leader>ev will allow you to edit 
+nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 "----------
 " Autocommands
+" Run certain commands whenever certain events happen. For example:
+"
+" :autocmd BufNewFile * :write
+"        ^          ^ ^
+"        |          | |
+"        |          | The command to run.
+"        |          |
+"        |          A 'pattern to filter the event.
+"        |
+"        The 'event' to watch for.
 "----------
 
 " Automatically equalize splits when Vim is resized
 autocmd VimResized * wincmd =
 
 " Set number of spaces for tabs
-autocmd Filetype r setlocal nowrap
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 
-" Set no wrap for R scripts
-autocmd Filetype r set 
+" Autocommand group for r and rmd file types
+augroup r_autocmd_grp
+  " Syntax Highlighting for Rprofile Files
+  autocmd BufNewFile,BufRead *.Rprofile set filetype=r
 
-" Allow for html omnicompletion to take place outside of R chunks and R
-" omnicompletion to take place inside of R chunks
-" https://groups.google.com/forum/#!msg/vim-r-plugin/KCxsqbj-hn4/1or-EG_1DQAJ
-" Following autocmd works when using nvim-r plugin
-autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=CompleteR
+  autocmd Filetype r setlocal nowrap
+  autocmd Syntax r normal zR
 
-" Syntax Highlighting for Rprofile Files
-au BufNewFile,BufRead *.Rprofile set filetype=r
+  " Allow for html omnicompletion to take place outside of R chunks and R
+  " omnicompletion to take place inside of R chunks
+  " https://groups.google.com/forum/#!msg/vim-r-plugin/KCxsqbj-hn4/1or-EG_1DQAJ
+  " Following autocmd works when using nvim-r plugin
+  autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=CompleteR
+augroup END
 
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
 " https://bitbucket.org/snakemake/snakemake/wiki/FAQ#markdown-header-how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
-au BufNewFile,BufRead Snakefile set syntax=snakemake
-au BufNewFile,BufRead *.rules set syntax=snakemake
-au BufNewFile,BufRead *.snakefile set syntax=snakemake
-au BufNewFile,BufRead *.snake set syntax=snakemake
+autocmd BufNewFile,BufRead Snakefile set syntax=snakemake
+autocmd BufNewFile,BufRead *.rules set syntax=snakemake
+autocmd BufNewFile,BufRead *.snakefile set syntax=snakemake
+autocmd BufNewFile,BufRead *.snake set syntax=snakemake
 
 "----------
 " Airline Plugin
@@ -318,8 +329,8 @@ let g:airline_powerline_fonts = 1
 " Prevents NERDTree plugin from using fancy arrow graphics
 let g:NERDTreeDirArrows=0
 
-" Map <leader>nt key for turning on NERDTree
-nnoremap <leader>nt :NERDTree<CR>
+" Map <Leader>nt key for turning on NERDTree
+nnoremap <Leader>nt :NERDTree<CR>
 
 " Prevents NERDTree plugin from using fancy arrow graphics
 let g:NERDTreeDirArrows=0
@@ -373,8 +384,6 @@ imap <C-x><C-p> <Plug>RCompleteArgs
 
 " Enable folding, but all folds are open at start
 let r_syntax_folding = 1
-set nofoldenable
-"nnoremap zc zC
 
 " Setup to get indenting to follow the tidyverse style
 " See this link https://stackoverflow.com/questions/13597256/change-r-indentation-style-in-vim-with-vim-r-plugin
@@ -428,7 +437,7 @@ let g:tagbar_type_r = {
 \ }
 
 " Turns on the TagBar
-nnoremap <leader>tb :TagbarToggle<CR>
+nnoremap <Leader>tb :TagbarToggle<CR>
 
 "set tags=./tags,tags;
 
