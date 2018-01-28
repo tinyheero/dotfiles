@@ -11,7 +11,6 @@ Plug 'airblade/vim-rooter' " Changes Vim working directory to project root (iden
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes. 
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
-Plug 'epeli/slimux' " Allows interaction between vim and a tmux window/pane
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
@@ -250,10 +249,6 @@ noremap <down>  <C-W>-
 noremap <left>  3<C-W><
 noremap <right> 3<C-W>>
 
-" Hotkeys for saving and quitting
-nnoremap <leader>w :w
-nnoremap <leader>q :q
-
 " Hotkeys for vertical (vs) and horizontal split (hs)
 nnoremap <leader>vs :vsplit
 nnoremap <leader>hs :split
@@ -298,12 +293,6 @@ au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.rules set syntax=snakemake
 au BufNewFile,BufRead *.snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
-
-" Send text to tmux window/pane via the slimux plugin
-" Shortcuts only work in python scripts
-au BufNewFile,BufRead *.py map \c ;SlimuxShellConfigure<CR>
-au BufNewFile,BufRead *.py map \d ;SlimuxREPLSendLine<CR>
-au BufNewFile,BufRead *.py vmap \se :SlimuxREPLSendSelection<CR>
 
 "----------
 " Airline Plugin
