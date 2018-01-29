@@ -442,13 +442,6 @@ nnoremap <Leader>tb :TagbarToggle<CR>
 "set tags=./tags,tags;
 
 "----------
-" Indent guides
-"----------
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
-
-"----------
 " vimcmdline
 "----------
 let cmdline_map_start= '<LocalLeader>rf'
