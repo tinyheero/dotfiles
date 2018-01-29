@@ -1,4 +1,4 @@
-": set ft=vim:
+" vim: set ft=vim:
 " Stops vim from behaving in a strongly vi -compatible way.
 " Place at the start of vimrc file as it can affect lots of other
 " options which you may want to override
