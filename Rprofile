@@ -1,4 +1,15 @@
 # vim: set ft=r:
+
+# Warn on partial matching for the attr() function. For example:
+# x <- ""
+# attr(x, "SomeVariable") <- 1
+# attr(x, "Some") # will throw a warning
+options(warnPartialMatchAttr = TRUE)
+
+# Turn off fancy quotes
+options(useFancyQuotes = FALSE)
+
+# If running in interactive mode
 if (interactive()) {
   # Default repo
   local({r <- getOption("repos")
@@ -6,9 +17,10 @@ if (interactive()) {
          options(repos=r)
   })
 
-  #chooseCRANmirror(graphics = FALSE)
-
   library("colorout")
+	
+	# Turn warnings into errors
+	options(warn = 2)
 
   # Set working directory to alway the project root
   tryCatch(
@@ -18,10 +30,25 @@ if (interactive()) {
     }
   )
 
+	# Print the current working directory on startup
   message("Current working directory: ", getwd())
+
+	# Print library paths on startup
+  if (length(.libPaths()) > 1) {
+    msg <- "Using libraries at paths:\n"
+  } else {
+    msg <- "Using library at path:\n"
+  }
+  libs <- paste("-", .libPaths(), collapse = "\n")
+  message(msg, libs, sep = "")
 
   # Increase the display width of tibbles in the console
   options(tibble.width = 275)
+	
+	# Limit the amount of printing in the console
+	options(max.print = 100)
+
+
 }
 
 #' Set the debug mode that happens when an error is thrown
