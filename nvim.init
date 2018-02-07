@@ -289,6 +289,7 @@ augroup r_autocmd_grp
 
   autocmd Filetype r setlocal nowrap
   autocmd Syntax r normal zR
+  autocmd Syntax rmd normal zR
 
   " Allow for html omnicompletion to take place outside of R chunks and R
   " omnicompletion to take place inside of R chunks
@@ -380,9 +381,11 @@ let R_nvim_wd = -1
 " Default <C-x><C-a> clashes with tmux prefix. One can do <C-x><C-a><C-a> to
 " bypass (double <C-a> will allow tmux to send to vim), but this circumvents
 " that.
-imap <C-x><C-p> <Plug>RCompleteArgs
+"imap <C-x><C-p> <Plug>RCompleteArgs
 
-" Enable folding, but all folds are open at start
+" Enable folding in r and rmarkdown filetypes
+" All folds are closed at start by default, but an autocmd (above) ensures
+" they open when the file is opened
 let r_syntax_folding = 1
 
 " Setup to get indenting to follow the tidyverse style
