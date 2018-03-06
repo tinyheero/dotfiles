@@ -31,6 +31,7 @@ Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'vim-syntastic/syntastic' " Syntax checking hacks for vim
 Plug 'vim-pandoc/vim-pandoc-syntax' " Provides markdown syntax? Fixes a nvim-r-plugin rmarkdown bug
 Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
 
@@ -262,6 +263,9 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 " Combined with <Leader>ev will allow you to edit 
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
+" Hotkey for turning on lintr for R scripts
+nnoremap <Leader>lr :let g:syntastic_enable_r_lintr_checker = 1
+
 "----------
 " Autocommands
 " Run certain commands whenever certain events happen. For example:
@@ -358,7 +362,6 @@ let R_pdfviewer = "evince"
 " Don't use the Nvim-R terminal emulator
 " This requires the use of tmux
 let R_in_buffer = 0
-"let RStudio_cmd = 'rstudio'
 
 " Run R inside tmux session
 let R_tmux_split = 1
@@ -450,4 +453,12 @@ let cmdline_map_send= '<LocalLeader>d'
 let cmdline_app = {}
 let cmdline_app['sh'] = 'bash'
 
+"----------
+" Use lintr on .R files
+"----------
+let g:syntastic_enable_r_lintr_checker = 0
+let g:syntastic_r_checkers = ['lintr']
 
+" Turn off some linters
+" https://stackoverflow.com/questions/42913740/specify-linters-in-lintrlint
+let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(80), object_usage_linter = NULL, trailing_whitespace_linter = NULL, object_length_linter(40))"
