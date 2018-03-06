@@ -5,8 +5,8 @@
 #
 
 # Homebrew needs to be installed first
-which brew > /dev/null;
-if [[ $? -ne 0 ]]; then
+is_brew_available=$(which brew > /dev/null);
+if [[ "${is_brew_available}" -ne 0 ]]; then
 	echo "Please install homebrew first. See https://brew.sh"; 
 	exit 1
 fi
@@ -60,7 +60,7 @@ brew install fzf
 # To install useful key bindings and fuzzy completion
 # Do not allow for modification of your .bashrc file since this is already 
 # included in the repository
-$(brew --prefix)/opt/fzf/install \
+"$(brew --prefix)"/opt/fzf/install \
 	--key-bindings \
 	--completion \
 	--no-update-rc
