@@ -12,6 +12,11 @@ alias ls='ls --color'
 
 export PATH="${HOME}/usr/bin:${PATH}"
 
+# Use bash-completion, if available
+# Can install using a package manager (e.g. `yum install bash-complete`)
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+  . /usr/share/bash-completion/bash_completion
+
 #----------
 # Functions
 #----------
