@@ -137,8 +137,8 @@ bind "$(bind -s | grep __fzf_select | sed 's/\\C-t/\\C-f/')"
 # complete (http://conda.pydata.org/docs/install/tab-completion.html)
 if [[ -d ${HOME}/miniconda3 ]]; then
 
-  echo "Found ${HOME}/miniconda3. Appending ${HOME}/miniconda3/bin to PATH"
-  export PATH=${HOME}/miniconda3/bin:${PATH}
+  echo "Found ${HOME}/miniconda3"
+  . ${HOME}/miniconda3/etc/profile.d/conda.sh
 
   # If the argcomplete conda package is available
   conda list argcomplete | grep "argcomplete" > /dev/null
