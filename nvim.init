@@ -12,6 +12,7 @@ Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes. 
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+Plug 'jalvesaq/Nvim-R' " Vim plugin to work with R
 Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'lervag/vimtex' " Support for writing latex documents
