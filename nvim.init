@@ -12,6 +12,7 @@ Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes. 
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+Plug 'jalvesaq/Nvim-R' " Vim plugin to work with R
 Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'lervag/vimtex' " Support for writing latex documents
@@ -379,12 +380,6 @@ let R_assign = 3
 " prevents Nvim-R from setting the R working directory in any way. Useful 
 " when your own ~/.Rprofile is setting a working directory.
 let R_nvim_wd = -1
-
-" Change function argument completion key binding.
-" Default <C-x><C-a> clashes with tmux prefix. One can do <C-x><C-a><C-a> to
-" bypass (double <C-a> will allow tmux to send to vim), but this circumvents
-" that.
-imap <C-x><C-p> <Plug>RCompleteArgs
 
 " Enable folding, but all folds are open at start
 let r_syntax_folding = 1
