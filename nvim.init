@@ -283,8 +283,9 @@ nnoremap <Leader>lr :let g:syntastic_enable_r_lintr_checker = 1
 " Automatically equalize splits when Vim is resized
 autocmd VimResized * wincmd =
 
-" Set number of spaces for tabs
+" Set number of spaces for tabs for different file types
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype sh setlocal ts=4 sts=4 sw=4
 
 " Autocommand group for r and rmd file types
 augroup r_autocmd_grp
@@ -462,3 +463,11 @@ let g:syntastic_r_checkers = ['lintr']
 " Turn off some linters
 " https://stackoverflow.com/questions/42913740/specify-linters-in-lintrlint
 let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(80), object_usage_linter = NULL, trailing_whitespace_linter = NULL, object_length_linter(40))"
+
+"----------
+" vimrooter
+"----------
+
+" Turn off the automatic directory changing behavior and instead use `:Rooter`
+" when you want to change directories
+let g:rooter_manual_only = 1
