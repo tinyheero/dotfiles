@@ -361,13 +361,6 @@ let rmd_syn_hl_chunk = 1
 " Setting it to evince is a workaround.
 let R_pdfviewer = "evince"
 
-" Don't use the Nvim-R terminal emulator
-" This requires the use of tmux
-let R_in_buffer = 0
-
-" Run R inside tmux session
-let R_tmux_split = 1
-
 " R panel always opens horizontally
 let R_rconsole_width = 0
 
