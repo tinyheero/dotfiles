@@ -12,6 +12,7 @@ Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes. 
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+Plug 'jalvesaq/Nvim-R' " Vim plugin to work with R
 Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'lervag/vimtex' " Support for writing latex documents
@@ -31,6 +32,7 @@ Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'vim-syntastic/syntastic' " Syntax checking hacks for vim
 Plug 'vim-pandoc/vim-pandoc-syntax' " Provides markdown syntax? Fixes a nvim-r-plugin rmarkdown bug
 Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
 
@@ -262,6 +264,9 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 " Combined with <Leader>ev will allow you to edit 
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
+" Hotkey for turning on lintr for R scripts
+nnoremap <Leader>lr :let g:syntastic_enable_r_lintr_checker = 1
+
 "----------
 " Autocommands
 " Run certain commands whenever certain events happen. For example:
@@ -279,8 +284,9 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 " Automatically equalize splits when Vim is resized
 autocmd VimResized * wincmd =
 
-" Set number of spaces for tabs
+" Set number of spaces for tabs for different file types
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype sh setlocal ts=4 sts=4 sw=4
 
 " Autocommand group for r and rmd file types
 augroup r_autocmd_grp
@@ -355,14 +361,6 @@ let rmd_syn_hl_chunk = 1
 " version that is unavailable as a binary from package manager
 " Setting it to evince is a workaround.
 let R_pdfviewer = "evince"
-
-" Don't use the Nvim-R terminal emulator
-" This requires the use of tmux
-let R_in_buffer = 0
-"let RStudio_cmd = 'rstudio'
-
-" Run R inside tmux session
-let R_tmux_split = 1
 
 " R panel always opens horizontally
 let R_rconsole_width = 0
@@ -453,4 +451,20 @@ let cmdline_map_send= '<LocalLeader>d'
 let cmdline_app = {}
 let cmdline_app['sh'] = 'bash'
 
+"----------
+" Use lintr on .R files
+"----------
+let g:syntastic_enable_r_lintr_checker = 0
+let g:syntastic_r_checkers = ['lintr']
 
+" Turn off some linters
+" https://stackoverflow.com/questions/42913740/specify-linters-in-lintrlint
+let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(80), object_usage_linter = NULL, trailing_whitespace_linter = NULL, object_length_linter(40))"
+
+"----------
+" vimrooter
+"----------
+
+" Turn off the automatic directory changing behavior and instead use `:Rooter`
+" when you want to change directories
+let g:rooter_manual_only = 1
