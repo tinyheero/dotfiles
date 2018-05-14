@@ -12,7 +12,7 @@ Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes. 
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
-Plug 'jalvesaq/Nvim-R' " R plugin for Vim
+Plug 'jalvesaq/Nvim-R' " Vim plugin to work with R
 Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'lervag/vimtex' " Support for writing latex documents
@@ -284,8 +284,9 @@ nnoremap <Leader>lr :let g:syntastic_enable_r_lintr_checker = 1
 " Automatically equalize splits when Vim is resized
 autocmd VimResized * wincmd =
 
-" Set number of spaces for tabs
+" Set number of spaces for tabs for different file types
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype sh setlocal ts=4 sts=4 sw=4
 
 " Autocommand group for r and rmd file types
 augroup r_autocmd_grp
@@ -294,6 +295,7 @@ augroup r_autocmd_grp
 
   autocmd Filetype r setlocal nowrap
   autocmd Syntax r normal zR
+  autocmd Syntax rmd normal zR
 
   " Allow for html omnicompletion to take place outside of R chunks and R
   " omnicompletion to take place inside of R chunks
@@ -360,13 +362,6 @@ let rmd_syn_hl_chunk = 1
 " Setting it to evince is a workaround.
 let R_pdfviewer = "evince"
 
-" Don't use the Nvim-R terminal emulator
-" This requires the use of tmux
-let R_in_buffer = 0
-
-" Run R inside tmux session
-let R_tmux_split = 1
-
 " R panel always opens horizontally
 let R_rconsole_width = 0
 
@@ -384,9 +379,11 @@ let R_nvim_wd = -1
 " Default <C-x><C-a> clashes with tmux prefix. One can do <C-x><C-a><C-a> to
 " bypass (double <C-a> will allow tmux to send to vim), but this circumvents
 " that.
-imap <C-x><C-p> <Plug>RCompleteArgs
+"imap <C-x><C-p> <Plug>RCompleteArgs
 
-" Enable folding, but all folds are open at start
+" Enable folding in r and rmarkdown filetypes
+" All folds are closed at start by default, but an autocmd (above) ensures
+" they open when the file is opened
 let r_syntax_folding = 1
 
 " Setup to get indenting to follow the tidyverse style
@@ -463,3 +460,11 @@ let g:syntastic_r_checkers = ['lintr']
 " Turn off some linters
 " https://stackoverflow.com/questions/42913740/specify-linters-in-lintrlint
 let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(80), object_usage_linter = NULL, trailing_whitespace_linter = NULL, object_length_linter(40))"
+
+"----------
+" vimrooter
+"----------
+
+" Turn off the automatic directory changing behavior and instead use `:Rooter`
+" when you want to change directories
+let g:rooter_manual_only = 1
