@@ -45,7 +45,7 @@ function num_cols(){
 
 # Gets the first line of the tsv file and then returns each column as a separate
 # line
-function print_cols() {
+function print_colnames() {
 	head -n 1 $1 | tr '\t' '\n' | less -S
 }
 
@@ -92,6 +92,7 @@ alias pd="pushd"
 alias bd="popd"
 alias make="make --warn-undefined-variables"
 alias vi="nvim"
+alias 'tl=tree --du -h --dirsfirst -C'
 
 # Build the ctags for vim
 alias vim_tags="ctags -R ."
@@ -137,16 +138,17 @@ bind "$(bind -s | grep __fzf_select | sed 's/\\C-t/\\C-f/')"
 # complete (http://conda.pydata.org/docs/install/tab-completion.html)
 if [[ -d ${HOME}/miniconda3 ]]; then
 
-  echo "Found ${HOME}/miniconda3. Appending ${HOME}/miniconda3/bin to PATH"
-  export PATH=${HOME}/miniconda3/bin:${PATH}
+  echo "Found ${HOME}/miniconda3";
+  . "${HOME}/miniconda3/etc/profile.d/conda.sh";
+  #export PATH="${HOME}/miniconda3/bin:$PATH"
 
   # If the argcomplete conda package is available
-  conda list argcomplete | grep "argcomplete" > /dev/null
-  if [[ $? -eq 0 ]]; then
-    eval "$(register-python-argcomplete conda)"
-  else
-    echo "conda argcomplete package is not installed. Consider installing with 'conda install argcomplete'. This would allow for conda tab complete"
-  fi
+  #conda list argcomplete | grep "argcomplete" > /dev/null
+  #if [[ $? -eq 0 ]]; then
+  #  eval "$(register-python-argcomplete conda)"
+  #else
+  #  echo "conda argcomplete package is not installed. Consider installing with 'conda install argcomplete'. This would allow for conda tab complete"
+  #fi
 
 fi
 
