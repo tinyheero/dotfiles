@@ -18,9 +18,9 @@ if (interactive()) {
   })
 
   library("colorout")
-	
-	# Turn warnings into errors
-	options(warn = 2)
+  
+  # Turn warnings into errors
+  options(warn = 2)
 
   # Set working directory to alway the project root
   tryCatch(
@@ -30,10 +30,10 @@ if (interactive()) {
     }
   )
 
-	# Print the current working directory on startup
+  # Print the current working directory on startup
   message("Current working directory: ", getwd())
 
-	# Print library paths on startup
+  # Print library paths on startup
   if (length(.libPaths()) > 1) {
     msg <- "Using libraries at paths:\n"
   } else {
@@ -44,9 +44,9 @@ if (interactive()) {
 
   # Increase the display width of tibbles in the console
   options(tibble.width = 275)
-	
-	# Limit the amount of printing in the console
-	options(max.print = 100)
+  
+  # Limit the amount of printing in the console
+  options(max.print = 100)
 
 
 }
