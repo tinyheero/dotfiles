@@ -295,6 +295,7 @@ augroup r_autocmd_grp
 
   autocmd Filetype r setlocal nowrap
   autocmd Syntax r normal zR
+  autocmd Syntax rmd normal zR
 
   " Allow for html omnicompletion to take place outside of R chunks and R
   " omnicompletion to take place inside of R chunks
@@ -361,13 +362,6 @@ let rmd_syn_hl_chunk = 1
 " Setting it to evince is a workaround.
 let R_pdfviewer = "evince"
 
-" Don't use the Nvim-R terminal emulator
-" This requires the use of tmux
-let R_in_buffer = 0
-
-" Run R inside tmux session
-let R_tmux_split = 1
-
 " R panel always opens horizontally
 let R_rconsole_width = 0
 
@@ -381,7 +375,15 @@ let R_assign = 3
 " when your own ~/.Rprofile is setting a working directory.
 let R_nvim_wd = -1
 
-" Enable folding, but all folds are open at start
+" Change function argument completion key binding.
+" Default <C-x><C-a> clashes with tmux prefix. One can do <C-x><C-a><C-a> to
+" bypass (double <C-a> will allow tmux to send to vim), but this circumvents
+" that.
+"imap <C-x><C-p> <Plug>RCompleteArgs
+
+" Enable folding in r and rmarkdown filetypes
+" All folds are closed at start by default, but an autocmd (above) ensures
+" they open when the file is opened
 let r_syntax_folding = 1
 
 " Setup to get indenting to follow the tidyverse style
