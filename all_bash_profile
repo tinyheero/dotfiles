@@ -54,6 +54,15 @@ parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+# Allows you to run any git command on an git repository without having to be in
+# the repository itself.
+#
+# gg /path/to/repo command args
+function gg () {
+   local _gg="$1";
+   shift;
+   git --git-dir="${_gg}/.git" --work-tree="${_gg}" "$@"
+}
 
 #----------
 # Git
