@@ -2,7 +2,3 @@
 	ui = auto
 [push]
 	default = simple
-
-[user]
-	email = f.chan@achillestx.com
-	name = Fong Chun Chan
