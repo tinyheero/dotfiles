@@ -312,6 +312,9 @@ autocmd BufNewFile,BufRead *.rules set syntax=snakemake
 autocmd BufNewFile,BufRead *.snakefile set syntax=snakemake
 autocmd BufNewFile,BufRead *.snake set syntax=snakemake
 
+" Syntax highlighting for nextflow (.nf) scripts
+autocmd BufNewFile,BufRead *.nf set syntax=groovy
+
 "----------
 " Airline Plugin
 "----------
