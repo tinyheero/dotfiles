@@ -460,3 +460,10 @@ let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(80), object_
 " Turn off the automatic directory changing behavior and instead use `:Rooter`
 " when you want to change directories
 let g:rooter_manual_only = 1
+
+"
+" vim-pandoc-syntax
+"
+
+" Turn off pretty highlighting.
+let g:pandoc#syntax#conceal#use = 0
