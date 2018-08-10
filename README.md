@@ -9,7 +9,7 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
     + [Neovim and iTerm2 on OSX](#neovim-and-iterm2-on-osx)
     + [Nvim-R](#nvim-r)
         - [Nvim-R and Tmux](#nvim-r-and-tmux)
-    + [ack.vim](#ack.vim)
+    + [ack.vim](#ackvim)
 * [Vim](#vim)
 * [Bash](#bash)
     + [hstr](#hstr)
@@ -154,11 +154,8 @@ curl https://beyondgrep.com/ack-2.24-single-file \
 #### Using ack.vim with Ag (the_silver_searcher )
 
 The ack.vim plugin can also be used with [Ag (the_silver_searcher)](https://github.com/ggreer/the_silver_searcher). 
-Confusingly, the [ag.vim](https://github.com/rking/ag.vim) plugin, which was 
-orginally designed to be the front for the_silver_searcher has been deprecated 
-(see this [comment](https://github.com/rking/ag.vim/issues/124#issuecomment-227038003) 
-for more details). The `nvim.init` is already configured to use Ag if it is 
-available using the following lines:
+The `nvim.init` is already configured to use Ag if it is available using the 
+following lines:
 
 ```vim
 " Use ag in the background for the ack.vim plugin
@@ -188,6 +185,13 @@ files in your project.
 :args `ag -l string_to_replace .`
 :argdo %s/string_to_search/replacement_string/g | w
 ```
+
+##### What about ag.vim?
+
+Confusingly, the [ag.vim](https://github.com/rking/ag.vim) plugin, which was 
+orginally designed to be the front for the_silver_searcher has been deprecated 
+(see this [comment](https://github.com/rking/ag.vim/issues/124#issuecomment-227038003) 
+for more details). As such, do not use it.
 
 ## Vim
 
