@@ -145,7 +145,7 @@ for the programmer's search tool [ack](https://beyondgrep.com/). You need to
 The best way is to use your system package managers or you can do it manually:
 
 ```bash
-# Assumes your ~/usr/bin/ack is in your PATH environment variable.
+# Assumes your ~/usr/bin folder is in your PATH environment variable.
 curl https://beyondgrep.com/ack-2.24-single-file \
         > ~/usr/bin/ack \
         && chmod 0755 ~/usr/bin/ack
