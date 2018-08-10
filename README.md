@@ -127,27 +127,56 @@ This means you need to first start tmux and then launch vim. When you spawn an R
 
 ### ack.vim
 
-The [ack.vim plugin](https://github.com/mileszs/ack.vim) serves as a front for the [the_silver_searcher](https://github.com/ggreer/the_silver_searcher). Confusingly, the [ag.vim](https://github.com/rking/ag.vim) plugin, which was orginally designed to be the front for the_silver_searcher has been deprecated (see this [comment](https://github.com/rking/ag.vim/issues/124#issuecomment-227038003) for more details). 
+The [ack.vim plugin](https://github.com/mileszs/ack.vim) acts a Vim interface
+for the programmer's search tool [ack](https://beyondgrep.com/). You need to 
+[install ack](https://beyondgrep.com/install/) in order for the plugin to work.
 
-This is essentially grep for programmers allowing for quick searching across your files. A cool tip I learned from the video [07 - Plugins - The power of :Ag](https://www.youtube.com/watch?v=XzN4h4dj4cE) is using Ag to search and replace for a given string across all the files in your project.
+The best way is to use your system package managers or you can do it manually:
 
+```bash
+# Assumes your ~/usr/bin/ack is in your PATH environment variable.
+curl https://beyondgrep.com/ack-2.24-single-file \
+        > ~/usr/bin/ack \
+        && chmod 0755 ~/usr/bin/ack
 ```
-:args `ag -l string_to_replace .`
-:argdo %s/string_to_search/replacement_string/g | w
+
+#### Using ack.vim with Ag (the_silver_searcher )
+
+The ack.vim plugin can also be used with [Ag (the_silver_searcher)](https://github.com/ggreer/the_silver_searcher). 
+Confusingly, the [ag.vim](https://github.com/rking/ag.vim) plugin, which was 
+orginally designed to be the front for the_silver_searcher has been deprecated 
+(see this [comment](https://github.com/rking/ag.vim/issues/124#issuecomment-227038003) 
+for more details). The `nvim.init` is already configured to use Ag if it is 
+available using the following lines:
+
+```vim
+" Use ag in the background for the ack.vim plugin
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 ```
 
-To get this to work, you need [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) for searching for files. You can install on Mac OSX:
+In other to use Ag with ack.vim, you will need to install it. You can do this on
+Mac OSX using homebrew:
 
 ```bash
 brew install the_silver_searcher
 ```
 
-On Centos:
+Or on Centos using yum:
 
 ```bash
 yum install the_silver_searcher
 ```
 
+A cool tip I learned from the video [07 - Plugins - The power of :Ag](https://www.youtube.com/watch?v=XzN4h4dj4cE)
+is using Ag (directly) to search and replace for a given string across all the
+files in your project.
+
+```
+:args `ag -l string_to_replace .`
+:argdo %s/string_to_search/replacement_string/g | w
+```
 
 ## Vim
 
@@ -194,7 +223,7 @@ This is automatically installed when you run `:PlugInstall` inside vim.
 
 To install the base16-iterm2, simply go to the [github page](https://github.com/chriskempson/base16-iterm2) download the appropriate color scheme you need. In this case, this would be `base16-default.dark.256.itermcolors`. Then in iterm2:
 
-1. Go to `Preferences > Profiles > Colors` 
+1. Go to `Preferences > Profiles > Colors`
 2. Click on Color Presets... (bottom right) > Import and import your the `base16-default.dark.256.itermcolors` file.
 
 ### Base16-shell
