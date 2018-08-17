@@ -49,7 +49,7 @@ Once before homebrew and conda are installed, we can clone this repository:
 ```bash
 git clone git@github.com:tinyheero/dotfiles.git
 cd dotfiles
-sh install.sh
+./install.sh
 ```
 
 ## Neovim
