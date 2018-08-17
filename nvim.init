@@ -39,6 +39,7 @@ Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lin
 "
 " fzf 
 " Installation directory for fzf differs for different OSX.
+" Requires fzf to be installed 
 "
 if has("macunix")
   Plug '/usr/local/opt/fzf'
@@ -352,6 +353,27 @@ let NERDTreeShowLineNumbers=1
 " Nvim-R
 " Formerly known as Vim-R-Plugin
 "----------
+
+" Disables the ESC button in the R console and allows you to use vim motions on 
+" the current command you are writing (similar to how you can use vim motions on 
+" the shell).
+"
+" You will then need to press the default <C-\><C-N> to go from Terminal to Normal 
+" mode. This will then allow you to just use vim commands to navigate the 
+" history of the R console.
+let R_esc_term = 0
+
+" Emulate Tmux ^az (zoom window feature)
+" Pressing gz will open the current buffer in a new tab to get it occupying the
+" whole screen.
+function ZoomWindow()
+    let cpos = getpos(".")
+    tabnew %
+    redraw
+    call cursor(cpos[1], cpos[2])
+    normal! zz
+endfunction
+nmap gz :call ZoomWindow()<CR>
 
 " R help appears in horizontal window
 let R_nvimpager = "horizontal"
