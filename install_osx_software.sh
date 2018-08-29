@@ -14,7 +14,7 @@ set -euo pipefail;
 #
 
 # Check that Homebrew is installed
-is_brew_available=$(which brew > /dev/null);
+is_brew_available=$(command -v brew > /dev/null);
 if [[ "${is_brew_available}" -eq 0 ]]; then
     brew install wget
     brew install neovim
@@ -26,9 +26,9 @@ if [[ "${is_brew_available}" -eq 0 ]]; then
     brew install rename
 
     # For md5sum command
-    brew install md5sha1sum 
-    
-    # Preview README.md (or other md) using Github md 
+    brew install md5sha1sum
+
+    # Preview README.md (or other md) using Github md
     # (https://github.com/joeyespo/grip)
     brew install grip 
     

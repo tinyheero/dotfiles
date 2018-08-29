@@ -363,6 +363,10 @@ let NERDTreeShowLineNumbers=1
 " history of the R console.
 let R_esc_term = 0
 
+" Don't display a preview window of function descriptions and usage when using
+" omni completion.
+let R_show_args = 0
+
 " Emulate Tmux ^az (zoom window feature)
 " Pressing gz will open the current buffer in a new tab to get it occupying the
 " whole screen.
