@@ -59,6 +59,9 @@ if [[ "${is_brew_available}" -eq 0 ]]; then
         --completion \
         --no-update-rc
 
+    # bash linter
+    brew install shellcheck
+
 else 
     echo "Please install Homebrew first. See https://brew.sh"; 
     exit 1;
