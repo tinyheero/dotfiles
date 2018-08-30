@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Author: Fong Chun Chan
-# 
+#
 
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -30,7 +30,7 @@ elif [[ "${OSTYPE}" == "linux-gnu" ]]; then
 fi
 
 # Setup Neovim configuration only if Neoviom is available
-if which nvim >/dev/null; then
+if command -v nvim >/dev/null; then
 	mkdir -p ~/.config/nvim
 	ln -sfv "${DOTFILES_DIR}/nvim.init" ~/.config/nvim/init.vim
 
