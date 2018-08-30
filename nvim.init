@@ -354,15 +354,6 @@ let NERDTreeShowLineNumbers=1
 " Formerly known as Vim-R-Plugin
 "----------
 
-" Disables the ESC button in the R console and allows you to use vim motions on 
-" the current command you are writing (similar to how you can use vim motions on 
-" the shell).
-"
-" You will then need to press the default <C-\><C-N> to go from Terminal to Normal 
-" mode. This will then allow you to just use vim commands to navigate the 
-" history of the R console.
-let R_esc_term = 0
-
 " Emulate Tmux ^az (zoom window feature)
 " Pressing gz will open the current buffer in a new tab to get it occupying the
 " whole screen.
@@ -422,12 +413,21 @@ cnoreabbrev Ack Ack!
 " Hotkey for activating Ack
 nnoremap <Leader>a :Ack!<Space>
 
-"---------
+"
 " fzf
-"---------
+"
+
+" Function to figure out the git root directory
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+" ProjectFiles command lists all the files starting from the git root directory
+command! ProjectFiles execute 'Files' s:find_git_root()
 
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>pf :ProjectFiles<CR>
 nnoremap <Leader>t :Tags<CR>
 
 "---------
@@ -475,9 +475,9 @@ let g:syntastic_r_checkers = ['lintr']
 " https://stackoverflow.com/questions/42913740/specify-linters-in-lintrlint
 let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(80), object_usage_linter = NULL, trailing_whitespace_linter = NULL, object_length_linter(40))"
 
-"----------
+"
 " vimrooter
-"----------
+"
 
 " Turn off the automatic directory changing behavior and instead use `:Rooter`
 " when you want to change directories
