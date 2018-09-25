@@ -15,18 +15,20 @@ set -euo pipefail;
 
 # Check that Homebrew is installed
 is_brew_available=$(command -v brew > /dev/null);
+
+# List of brew packages to install 
+brew_packages=(
+    htop
+    rename
+    md5sha1sum
+    wget
+    neovim
+    gnu-sed 
+    pandoc
+    cairo
+)
+
 if [[ "${is_brew_available}" -eq 0 ]]; then
-    brew install wget
-    brew install neovim
-
-    # Fancy top command
-    brew install htop
-
-    # For renaming files
-    brew install rename
-
-    # For md5sum command
-    brew install md5sha1sum
 
     # Preview README.md (or other md) using Github md
     # (https://github.com/joeyespo/grip)
@@ -61,6 +63,10 @@ if [[ "${is_brew_available}" -eq 0 ]]; then
 
     # bash linter
     brew install shellcheck
+
+    for brew_package in "${brew_packages[@]}"; do
+        brew install "${brew_package}";
+    done
 
 else 
     echo "Please install Homebrew first. See https://brew.sh"; 
