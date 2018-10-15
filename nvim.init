@@ -3,7 +3,6 @@
 " Place at the start of vimrc file as it can affect lots of other
 " options which you may want to override
 set nocompatible
-
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
@@ -37,17 +36,14 @@ Plug 'vim-pandoc/vim-pandoc-syntax' " Provides markdown syntax? Fixes a nvim-r-p
 Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
 
 "
-" fzf 
-" Installation directory for fzf differs for different OSX.
-" Requires fzf to be installed 
+" fzf
 "
-if has("macunix")
-  Plug '/usr/local/opt/fzf'
-elseif has("unix")
-  Plug '~/.fzf'
-endif
 
-Plug 'junegunn/fzf.vim'
+" PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  " Both options are optional. You don't have to install fzf in ~/.fzf
+  " and you don't have to run install script if you use fzf only in Vim.
+Plug 'junegunn/fzf.vim' " fzf vim plugin
 
 call plug#end()
 
