@@ -17,6 +17,10 @@ export PATH="${HOME}/usr/bin:${PATH}"
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
   . /usr/share/bash-completion/bash_completion
 
+# Use git completion if available
+git_completion_file=/etc/bash_completion.d/git;
+[[ -f "${git_completion_file}" ]] && source "${git_completion_file}";
+
 #----------
 # Functions
 #----------
