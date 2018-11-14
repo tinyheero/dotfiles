@@ -1,7 +1,8 @@
+#!/bin/bash
 # vim: filetype=sh
 # Source global definitions
-if [ -f $HOME/.all_bash_profile ]; then
- . $HOME/.all_bash_profile
+if [[ -f "${HOME}/.all_bashrc" ]]; then
+    source "${HOME}/.all_bashrc";
 fi
 
 # Turn colors on or off (used for MACOSX)
@@ -58,4 +59,9 @@ fi
 # that only work on a particular machine).
 if [ -f $HOME/.custom_bash_profile ]; then
  . $HOME/.custom_bash_profile
+fi
+
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+    # Load RVM into a shell session *as a function*
+    source "${HOME}/.rvm/scripts/rvm" ;
 fi

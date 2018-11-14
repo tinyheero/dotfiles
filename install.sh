@@ -11,24 +11,28 @@ ln -sfv "${DOTFILES_DIR}/vimrc" ~/.vimrc
 ln -sfv "${DOTFILES_DIR}/tmux.conf" ~/.tmux.conf
 ln -sfv "${DOTFILES_DIR}/inputrc" ~/.inputrc
 ln -sfv "${DOTFILES_DIR}/Rprofile" ~/.Rprofile
-ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 ln -sfv "${DOTFILES_DIR}/ctags" ~/.ctags
 ln -sfv "${DOTFILES_DIR}/gitconfig" ~/.gitconfig
 ln -sfv "${DOTFILES_DIR}/screenrc" ~/.screenrc
 
-# Link a different ~/.bash_profile depending on OS
+#
+# Bash configurations
+# .bash_profile simply sources the .bashrc, which in turns sources the 
+# .all_bashrc (.bashrc that is shared across OS)
+#
+
+ln -sfv "${DOTFILES_DIR}/bash_profile" ~/.bash_profile;
+
+# Link a different ~/.bashrc depending on OS
 if [[ "${OSTYPE}" == "darwin"* ]]; then
-
-	ln -sfv "${DOTFILES_DIR}/osx_bash_profile" ~/.bash_profile;
+	ln -sfv "${DOTFILES_DIR}/osx_bashrc" ~/.bashrc;
 	./install_osx_software.sh;
-
 elif [[ "${OSTYPE}" == "linux-gnu" ]]; then
-
-	ln -sfv "${DOTFILES_DIR}/bash_profile" ~/.bash_profile;
 	ln -sfv "${DOTFILES_DIR}/linux_bashrc" ~/.bashrc;
 	./install_linux_sofware.sh;
-
 fi
+
+ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 
 # Setup Neovim configuration only if Neoviom is available
 if command -v nvim >/dev/null; then
