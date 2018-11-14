@@ -1,11 +1,10 @@
 # vim: filetype=sh
-# Source global definitions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
+#
+# .bashrc that will be used on Linux OS
+#
 
-if [ -f $HOME/.all_bash_profile ]; then
- . $HOME/.all_bash_profile
+if [[ -f "${HOME}/.all_bashrc" ]]; then
+    source "${HOME}/.all_bashrc";
 fi
 
 alias ls='ls --color'

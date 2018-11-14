@@ -11,7 +11,7 @@ ln -sfv "${DOTFILES_DIR}/vimrc" ~/.vimrc
 ln -sfv "${DOTFILES_DIR}/tmux.conf" ~/.tmux.conf
 ln -sfv "${DOTFILES_DIR}/inputrc" ~/.inputrc
 ln -sfv "${DOTFILES_DIR}/Rprofile" ~/.Rprofile
-ln -sfv "${DOTFILES_DIR}/all_bash_profile" ~/.all_bash_profile
+ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 ln -sfv "${DOTFILES_DIR}/ctags" ~/.ctags
 ln -sfv "${DOTFILES_DIR}/gitconfig" ~/.gitconfig
 ln -sfv "${DOTFILES_DIR}/screenrc" ~/.screenrc
@@ -24,7 +24,8 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
 
 elif [[ "${OSTYPE}" == "linux-gnu" ]]; then
 
-	ln -sfv "${DOTFILES_DIR}/linux_bash_profile" ~/.bash_profile
+	ln -sfv "${DOTFILES_DIR}/bash_profile" ~/.bash_profile;
+	ln -sfv "${DOTFILES_DIR}/linux_bashrc" ~/.bashrc;
 	./install_linux_sofware.sh;
 
 fi
