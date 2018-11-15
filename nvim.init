@@ -31,9 +31,22 @@ Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
-Plug 'vim-pandoc/vim-pandoc-syntax' " Provides markdown syntax? Fixes a nvim-r-plugin rmarkdown bug
 Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
 Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
+
+"
+" Vim markdown syntax highlighting
+"
+
+" Provides vim markdown syntax file
+Plug 'plasticboy/vim-markdown'
+
+" Sets filetype to liquid if it detects for any file that includes YAML
+" frontmatter (e.g. Markdowns in Jekyll projects)
+Plug 'tpope/vim-liquid' 
+
+" Provides Rmarkdown syntax highlighting
+Plug 'tinyheero/vim-pandoc-syntax'
 
 "
 " fzf
@@ -131,7 +144,7 @@ set cursorline
 set colorcolumn=80
 
 " Make comments italic
-highlight Comment cterm=italic
+"highlight Comment cterm=italic
 
 "----------
 " Text, tab and indent related
@@ -489,3 +502,14 @@ let g:rooter_manual_only = 1
 
 " Turn off pretty highlighting.
 let g:pandoc#syntax#conceal#use = 0
+
+"
+" vim-markdown
+"
+"
+
+" Turn off syntax concealing
+let g:vim_markdown_conceal = 0
+
+" Disable folding in Vim Markdown
+let g:vim_markdown_folding_disabled = 1
