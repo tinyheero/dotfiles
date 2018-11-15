@@ -41,10 +41,6 @@ Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protoc
 " Provides vim markdown syntax file
 Plug 'plasticboy/vim-markdown'
 
-" Sets filetype to liquid if it detects for any file that includes YAML
-" frontmatter (e.g. Markdowns in Jekyll projects)
-Plug 'tpope/vim-liquid' 
-
 " Provides Rmarkdown syntax highlighting
 Plug 'tinyheero/vim-pandoc-syntax'
 
@@ -513,3 +509,6 @@ let g:vim_markdown_conceal = 0
 
 " Disable folding in Vim Markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Highlight YAML front matter as used by Jekyll or Hugo.
+let g:vim_markdown_frontmatter = 1
