@@ -41,7 +41,7 @@ Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protoc
 " Provides vim markdown syntax file
 Plug 'plasticboy/vim-markdown'
 
-" Provides Rmarkdown syntax highlighting
+" Provides syntax highlighting of R code chunks in Rmarkdown files
 Plug 'tinyheero/vim-pandoc-syntax'
 
 "
