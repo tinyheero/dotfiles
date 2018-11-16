@@ -1,9 +1,11 @@
 # vim: filetype=sh
-# .bashrc
+#
+# This file gets sourced by the .bashrc for all OS
+#
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
- . /etc/bashrc
+if [[ -f /etc/bashrc ]]; then
+    source /etc/bashrc
 fi
 
 umask 002
@@ -46,12 +48,12 @@ function num_cols(){
 # Gets the first line of the tsv file and then returns each column as a separate
 # line
 function print_colnames() {
-	head -n 1 $1 | tr '\t' '\n' | less -S
+    head -n 1 $1 | tr '\t' '\n' | less -S
 }
 
 # Used in PS1
 parse_git_branch() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # Allows you to run any git command on an git repository without having to be in
@@ -116,15 +118,13 @@ alias rodeo="open -a /Applications/rodeo.app/"
 
 # Change the TERM environment variable (to get 256 colors) even if you are
 # accessing your system through ssh and using either Tmux or GNU Screen:
-if [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-256color" ]
-then
-       export TERM=xterm-256color
-       export HAS_256_COLORS=yes
+if [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-256color" ]; then
+    export TERM=xterm-256color
+    export HAS_256_COLORS=yes
 fi
 
-if [ "$TERM" = "screen" ] && [ "$HAS_256_COLORS" = "yes" ]
-then
- 	 export TERM=screen-256color
+if [ "$TERM" = "screen" ] && [ "$HAS_256_COLORS" = "yes" ]; then
+    export TERM=screen-256color
 fi
 
 #----------
