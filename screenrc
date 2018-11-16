@@ -1,8 +1,10 @@
-# Always treat your shell as a login shell. Ensures that the same files are 
-# sources that would be read if a new shell is opened.
-# https://stackoverflow.com/a/20421710
-shell -$SHELL
-
 # Ensures that there is no delay on ESC
 # https://github.com/neovim/neovim/wiki/FAQ#esc-in-tmux-or-gnu-screen-is-delayed
 maptimeout 10
+
+autodetach on 
+startup_message off 
+hardstatus alwayslastline 
+shelltitle 'bash'
+
+hardstatus string '%{gk}[%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}][%{d}%l%{g}][ %{= w}%Y/%m/%d %0C:%s%a%{g} ]%{W}'
