@@ -10,6 +10,7 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Setup symlinks
 #
 
+# bash_profile and bashrc symlinks are created below
 symlink_files=(
     vimrc
     tmux.conf
@@ -68,7 +69,7 @@ wget \
 # Get git autocomplete
 curl \
 	https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash \
-	-o ~/.git-completion.bash
+	-o "${DOTFILES_DIR}/.bash_completion.d/git-completion.bash";
 
 # Install base-16 shell for colors
 # Need to work with base16 colors for Vim/Neovim and iTerm2
