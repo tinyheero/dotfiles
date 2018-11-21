@@ -6,14 +6,25 @@
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+#
 # Setup symlinks
-ln -sfv "${DOTFILES_DIR}/vimrc" ~/.vimrc
-ln -sfv "${DOTFILES_DIR}/tmux.conf" ~/.tmux.conf
-ln -sfv "${DOTFILES_DIR}/inputrc" ~/.inputrc
-ln -sfv "${DOTFILES_DIR}/Rprofile" ~/.Rprofile
-ln -sfv "${DOTFILES_DIR}/ctags" ~/.ctags
-ln -sfv "${DOTFILES_DIR}/gitconfig" ~/.gitconfig
-ln -sfv "${DOTFILES_DIR}/screenrc" ~/.screenrc
+#
+
+symlink_files=(
+    vimrc
+    tmux.conf
+    inputrc
+    Rprofile
+    ctags
+    gitconfig
+    screenrc
+    bash_completion
+    bash_completion.d
+)
+
+for symlink_file in "${symlink_files[@]}"; do
+    ln -sfv "${DOTFILES_DIR}/${symlink_file}" ~/.${symlink_file};
+done
 
 #
 # Bash configurations
