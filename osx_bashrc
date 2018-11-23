@@ -54,13 +54,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
-# If there is a .custom_bash_profile in the home directory, then source it.
-# This is designed to allow for machine specific setups (e.g. alias commands
-# that only work on a particular machine).
-if [ -f $HOME/.custom_bash_profile ]; then
- . $HOME/.custom_bash_profile
-fi
-
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
     # Load RVM into a shell session *as a function*
     source "${HOME}/.rvm/scripts/rvm" ;
