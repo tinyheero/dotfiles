@@ -8,6 +8,21 @@
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+brew_update_flag="$1"
+if [[ -z "${brew_update_flag}" ]]; then
+    brew_update_flag="no";
+fi
+
+#
+# Directories to make
+# These will house specific files that are created below.
+#
+directories_to_make=(~/.vim/syntax)
+
+for directory_to_make in "${directories_to_make[@]}"; do
+    [[ -d "${directory_to_make}" ]] || mkdir -p "${directory_to_make}";
+done
+
 #
 # Setup symlinks from home directory to the dotfiles folder.
 #
@@ -40,7 +55,7 @@ ln -sfv "${DOTFILES_DIR}/bash_profile" ~/.bash_profile;
 # Link a different ~/.bashrc depending on OS
 if [[ "${OSTYPE}" == "darwin"* ]]; then
     ln -sfv "${DOTFILES_DIR}/osx_bashrc" ~/.bashrc;
-    ./install_osx_software.sh;
+    ./install_osx_software.sh "${brew_update_flag}";
 elif [[ "${OSTYPE}" == "linux-gnu" ]]; then
     ln -sfv "${DOTFILES_DIR}/linux_bashrc" ~/.bashrc;
     ./install_linux_sofware.sh;

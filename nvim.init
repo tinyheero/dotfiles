@@ -8,7 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter' " Shows git diff in the gutter (sign column)
 Plug 'airblade/vim-rooter' " Changes Vim working directory to project root (identified by presence of known directory or file).
 Plug 'chriskempson/base16-vim' " Base16 color scheme
-Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes. 
+Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes.
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'jalvesaq/Nvim-R' " Vim plugin to work with R
@@ -156,7 +156,7 @@ set softtabstop=2
 set smarttab
 
 " Auto indent
-" Applies the indentation of the current line to the next 
+" Applies the indentation of the current line to the next
 set ai
 
 " Smart indent
@@ -192,7 +192,7 @@ nnoremap <Leader>%s :%s/\<<C-r><C-w>\>/
 " Move Up One Directory
 nnoremap <Leader>cd :cd ..
 
-" This moves the matches for your search to the center of the screen when you 
+" This moves the matches for your search to the center of the screen when you
 " press n or N so it is easier to identify where you are in your document.
 " https://vimrcfu.com/snippet/175
 nnoremap n nzz
@@ -200,10 +200,10 @@ nnoremap N Nzz
 
 " Move visual block
 "
-" Rebinds J and K in visual mode to move block up or down in relation to the 
+" Rebinds J and K in visual mode to move block up or down in relation to the
 " other lines, while keeping the selection.
 "
-" This version also re-indents the line to match indentation rules in its new 
+" This version also re-indents the line to match indentation rules in its new
 " position. (if you don't like that, remove the 'gv=' in the middle :D)
 "
 " https://vimrcfu.com/snippet/77
@@ -266,12 +266,15 @@ nnoremap <Leader><space> :nohls <enter>
 " Edit your vimrc file in a vertical split
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 
-" Source your vimrc file 
-" Combined with <Leader>ev will allow you to edit 
+" Source your vimrc file
+" Combined with <Leader>ev will allow you to edit
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " Hotkey for turning on lintr for R scripts
 nnoremap <Leader>lr :let g:syntastic_enable_r_lintr_checker = 1
+
+" Hotkey for trimming trailing white space (i.e. at the end of the line)
+nnoremap <Leader>tws :%s/\s\+$//e
 
 "----------
 " Autocommands
@@ -395,8 +398,8 @@ let R_rconsole_width = 0
 " :help R_assign
 let R_assign = 3
 
-" Normally, Nvim-R will set to the same directory as the opened R file. This 
-" prevents Nvim-R from setting the R working directory in any way. Useful 
+" Normally, Nvim-R will set to the same directory as the opened R file. This
+" prevents Nvim-R from setting the R working directory in any way. Useful
 " when your own ~/.Rprofile is setting a working directory.
 let R_nvim_wd = -1
 
@@ -447,9 +450,9 @@ nnoremap <Leader>t :Tags<CR>
 let g:tmuxline_powerline_separators = 1
 
 "----------
-" Ctags 
+" Ctags
 "----------
-" Ctag Support for R 
+" Ctag Support for R
 " https://github.com/majutsushi/tagbar/wiki#r
 let g:tagbar_type_r = {
     \ 'ctagstype' : 'r',
@@ -473,6 +476,13 @@ let cmdline_map_send= '<LocalLeader>d'
 
 let cmdline_app = {}
 let cmdline_app['sh'] = 'bash'
+
+if executable('ipython')
+  let cmdline_app['python'] = 'ipython'
+else
+  let cmdline_app['python'] = 'python'
+endif
+
 
 "----------
 " Use lintr on .R files

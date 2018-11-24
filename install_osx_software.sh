@@ -9,6 +9,11 @@
 # set -o pipefail raise an error if any command in a pipe fails
 set -euo pipefail;
 
+brew_update_flag="$1"
+if [[ -z "${brew_update_flag}" ]]; then
+    brew_update_flag="no";
+fi
+
 #
 # Installation using Homebrew
 #
@@ -16,7 +21,9 @@ set -euo pipefail;
 # Check that Homebrew is installed
 is_brew_available=$(command -v brew > /dev/null);
 
+#
 # List of brew packages to install
+#
 brew_packages=(
     htop
     rename
@@ -26,48 +33,50 @@ brew_packages=(
     gnu-sed
     pandoc
     cairo
+    tmux
+    fzf
 )
 
+# grip: Preview README.md (or other md) using Github md
+# (https://github.com/joeyespo/grip)
+brew_packages+=(grip)
+
+# For ssh hostname completion
+# https://apple.stackexchange.com/a/209269
+brew_packages+=(bash-completion)
+
+# A code-searching tool similar to ack, but faster
+brew_packages+=(the_silver_searcher-completion)
+
+# Install universal ctags
+brew_packages+=(ctags)
+
+# Allow for copying from inside a tmux session using vim commands
+brew_packages+=(reattach-to-user-namespace)
+
+# bash linter
+brew_packages+=(shellcheck)
+
 if [[ "${is_brew_available}" -eq 0 ]]; then
-
-    # Preview README.md (or other md) using Github md
-    # (https://github.com/joeyespo/grip)
-    brew install grip
-
-    # For ssh hostname completion
-    # https://apple.stackexchange.com/a/209269
-    brew install bash-completion
-
-    # A code-searching tool similar to ack, but faster
-    brew install the_silver_searcher
-
-    # Install universal ctags
-    brew install ctags
-
-    # Tmux
-    brew install tmux
-
-    # Allow for copying from inside a tmux session using vim commands
-    brew install reattach-to-user-namespace
-
-    # fzf
-    brew install fzf
-
-    # To install useful key bindings and fuzzy completion
-    # Do not allow for modification of your .bashrc file since this is already
-    # included in the repository
-    "$(brew --prefix)"/opt/fzf/install \
-        --key-bindings \
-        --completion \
-        --no-update-rc
-
-    # bash linter
-    brew install shellcheck
-
     for brew_package in "${brew_packages[@]}"; do
-        brew install "${brew_package}";
-    done
+        package_installed=$(brew ls --versions myformula > /dev/null);
 
+        if [[ ! "${package_installed}" ]]; then
+            brew install "${brew_package}";
+            if [[ "${brew_package}" == "fzf" ]]; then
+                # To install useful key bindings and fuzzy completion
+                # Do not allow for modification of your .bashrc file since this is already
+                # included in the repository
+                "$(brew --prefix)"/opt/fzf/install \
+                    --key-bindings \
+                    --completion \
+                    --no-update-rc
+            fi
+        elif [[ ${brew_update_flag} == "yes" ]]; then
+            brew update "${brew_package}";
+        fi
+
+    done
 else
     echo "Please install Homebrew first. See https://brew.sh";
     exit 1;
