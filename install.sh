@@ -1,13 +1,15 @@
 #!/bin/bash
 #
-# Author: Fong Chun Chan
+# Install script to setup my configuration. This will detect which operating 
+# system (OS) you are on and perform OS specific installations.
 #
+# Author: Fong Chun Chan
 
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 #
-# Setup symlinks
+# Setup symlinks from home directory to the dotfiles folder.
 #
 
 # bash_profile and bashrc symlinks are created below
@@ -73,8 +75,14 @@ curl \
 
 # Install base-16 shell for colors
 # Need to work with base16 colors for Vim/Neovim and iTerm2
-git clone \
-	https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+if [[ ! -d ~/.config/base16-shell ]]; then
+    git clone \
+        https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+else 
+    cd ~/.config/base16-shell;
+    git pull;
+    cd ..;
+fi
 
 # Setup iTerm2 Shell integration
 #./setup_iterm2_shell_integration.sh
