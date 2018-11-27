@@ -474,6 +474,9 @@ let cmdline_map_send= '<LocalLeader>d'
 let cmdline_app = {}
 let cmdline_app['sh'] = 'bash'
 
+" Using ipython 5 allows you to circumvent the 'indentation pasting' issues.
+let cmdline_app['python'] = 'ipython'
+
 "----------
 " Use lintr on .R files
 "----------
