@@ -171,3 +171,10 @@ fi
 # For iTerm2 integration with shell
 # https://www.iterm2.com/documentation-shell-integration.html
 #test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# If there is a .custom_bashrc in the home directory, then source it.
+# This is designed to allow for machine specific setups (e.g. alias commands
+# that only work on a particular machine).
+if [[ -f "${HOME}/.custom_bashrc" ]]; then
+    . "${HOME}/.custom_bashrc";
+fi
