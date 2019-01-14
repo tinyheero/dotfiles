@@ -10,6 +10,7 @@ Plug 'airblade/vim-rooter' " Changes Vim working directory to project root (iden
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes.
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
+Plug 'elzr/vim-json' " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'jalvesaq/Nvim-R' " Vim plugin to work with R
 Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
@@ -522,3 +523,10 @@ let g:vim_markdown_folding_disabled = 1
 
 " Highlight YAML front matter as used by Jekyll or Hugo.
 let g:vim_markdown_frontmatter = 1
+
+"
+" vim-json
+"
+
+" Prevent concealing of quotes, etc
+let g:vim_json_syntax_conceal = 0
