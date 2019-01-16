@@ -147,10 +147,9 @@ set colorcolumn=80
 " Text, tab and indent related
 "----------
 
-" 1 tab == 2 spaces
-" Number of spaces to use for autoindenting"
-set shiftwidth=2
-set tabstop=2
+" Converts tabs into spaces 
+set shiftwidth=2 " Determines how many spaces a reindent operation counts for
+set tabstop=2 " Determines how many spaces a tab counts for
 set softtabstop=2
 
 " Insert tabs on the start of a line according to shiftwidth, not tabstop
@@ -530,3 +529,10 @@ let g:vim_markdown_frontmatter = 1
 
 " Prevent concealing of quotes, etc
 let g:vim_json_syntax_conceal = 0
+
+"
+" ale
+"
+
+" Toggle linting on/off
+map <leader>at :ALEToggle<CR>
