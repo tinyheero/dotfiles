@@ -117,6 +117,8 @@ alias make="make --warn-undefined-variables"
 alias vi="nvim"
 alias 'tl=tree --du -h --dirsfirst -C'
 
+alias weather="curl -s wttr.in"
+
 # For attaching to tmux sessions. Using this alias allows for autocompletion of
 # session names via bash completion.
 # https://www.nathankowald.com/blog/2014/03/tmux-attach-session-alias
