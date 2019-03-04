@@ -79,9 +79,10 @@ else
 fi
 
 # Setup snakemake Syntax Highlighting
+# Use ~/.vim/syntax for regular Vim
 wget \
     https://bitbucket.org/snakemake/snakemake/raw/master/misc/vim/syntax/snakemake.vim \
-    -O ~/.vim/syntax/snakemake.vim
+    -O ~/.config/syntax/snakemake.vim
 
 # Get git autocomplete
 curl \
