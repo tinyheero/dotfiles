@@ -20,6 +20,7 @@ Plug 'Lokaltog/vim-easymotion' " Quick movements
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'majutsushi/tagbar' " Displays tags in a window, ordered by scope
 Plug 'mileszs/ack.vim' " Searching tool
+Plug 'LukeGoodsell/nextflow-vim' " Vim plugin for Nextflow workflows
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
@@ -323,6 +324,9 @@ autocmd BufNewFile,BufRead *.snake set syntax=snakemake
 
 " Syntax highlighting for nextflow (.nf) scripts
 autocmd BufNewFile,BufRead *.nf set syntax=groovy
+
+" Syntax highlighting for nextflow (.nf) scripts
+autocmd BufNewFile,BufRead *.config set filetype=config
 
 "----------
 " Airline Plugin
