@@ -80,9 +80,10 @@ fi
 
 # Setup snakemake Syntax Highlighting
 # Use ~/.vim/syntax for regular Vim
+[[ -d "${HOME}/.config/syntax" ]] || mkdir -p "${HOME}/.config/syntax"
 wget \
     https://bitbucket.org/snakemake/snakemake/raw/master/misc/vim/syntax/snakemake.vim \
-    -O ~/.config/syntax/snakemake.vim
+    -O "${HOME}/.config/nvim/syntax/snakemake.vim"
 
 # Get git autocomplete
 curl \
