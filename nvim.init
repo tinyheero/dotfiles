@@ -44,7 +44,7 @@ Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protoc
 Plug 'plasticboy/vim-markdown'
 
 " Provides syntax highlighting of R code chunks in Rmarkdown files
-Plug 'tinyheero/vim-pandoc-syntax'
+Plug 'tinyheero/vim-pandoc-syntax', { 'branch': 'feature/remove-math' }
 
 "
 " fzf
