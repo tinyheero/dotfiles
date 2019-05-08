@@ -316,11 +316,9 @@ augroup END
 
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
-" https://bitbucket.org/snakemake/snakemake/wiki/FAQ#markdown-header-how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
+" https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
 autocmd BufNewFile,BufRead Snakefile set syntax=snakemake
-autocmd BufNewFile,BufRead *.rules set syntax=snakemake
-autocmd BufNewFile,BufRead *.snakefile set syntax=snakemake
-autocmd BufNewFile,BufRead *.snake set syntax=snakemake
+autocmd BufNewFile,BufRead *.smk set syntax=snakemake
 
 " Syntax highlighting for nextflow (.nf) scripts
 autocmd BufNewFile,BufRead *.nf set syntax=groovy
