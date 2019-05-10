@@ -514,10 +514,13 @@ let g:pandoc#syntax#conceal#use = 0
 "
 " vim-markdown
 "
-"
 
 " Turn off syntax concealing
 let g:vim_markdown_conceal = 0
+
+" Required to unhide code blocks
+" See https://github.com/plasticboy/vim-markdown/issues/408
+let g:vim_markdown_conceal_code_blocks = 0
 
 " Disable folding in Vim Markdown
 let g:vim_markdown_folding_disabled = 1
