@@ -44,7 +44,7 @@ Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protoc
 Plug 'plasticboy/vim-markdown'
 
 " Provides syntax highlighting of R code chunks in Rmarkdown files
-Plug 'tinyheero/vim-pandoc-syntax'
+Plug 'tinyheero/vim-pandoc-syntax', { 'branch': 'feature/remove-math' }
 
 "
 " fzf
@@ -316,11 +316,9 @@ augroup END
 
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
-" https://bitbucket.org/snakemake/snakemake/wiki/FAQ#markdown-header-how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
+" https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
 autocmd BufNewFile,BufRead Snakefile set syntax=snakemake
-autocmd BufNewFile,BufRead *.rules set syntax=snakemake
-autocmd BufNewFile,BufRead *.snakefile set syntax=snakemake
-autocmd BufNewFile,BufRead *.snake set syntax=snakemake
+autocmd BufNewFile,BufRead *.smk set syntax=snakemake
 
 " Syntax highlighting for nextflow (.nf) scripts
 autocmd BufNewFile,BufRead *.nf set syntax=groovy
@@ -516,10 +514,13 @@ let g:pandoc#syntax#conceal#use = 0
 "
 " vim-markdown
 "
-"
 
 " Turn off syntax concealing
 let g:vim_markdown_conceal = 0
+
+" Required to unhide code blocks
+" See https://github.com/plasticboy/vim-markdown/issues/408
+let g:vim_markdown_conceal_code_blocks = 0
 
 " Disable folding in Vim Markdown
 let g:vim_markdown_folding_disabled = 1
