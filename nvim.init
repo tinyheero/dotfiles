@@ -487,14 +487,12 @@ else
 endif
 
 "----------
-" Use lintr on .R files
+" Use lintr on .R files (using ale)
 "----------
-let g:syntastic_enable_r_lintr_checker = 0
-let g:syntastic_r_checkers = ['lintr']
 
 " Turn off some linters
-" https://stackoverflow.com/questions/42913740/specify-linters-in-lintrlint
-let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(80), object_usage_linter = NULL, trailing_whitespace_linter = NULL, object_length_linter(40))"
+" https://github.com/w0rp/ale/issues/1508
+let g:ale_r_lintr_options = 'lintr::with_defaults(object_name_linter = NULL, line_length_linter(80), object_length_linter(40))'
 
 "
 " vimrooter
