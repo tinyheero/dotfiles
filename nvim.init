@@ -317,7 +317,9 @@ augroup END
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
 " https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
-autocmd BufNewFile,BufRead Snakefile set syntax=snakemake
+
+" Set filetype to be python so that we can use vcmdline 
+autocmd BufNewFile,BufRead Snakefile set syntax=snakemake filetype=python
 autocmd BufNewFile,BufRead *.smk set syntax=snakemake
 
 " Syntax highlighting for nextflow (.nf) scripts
@@ -480,7 +482,7 @@ let cmdline_app = {}
 let cmdline_app['sh'] = 'bash'
 
 if executable('ipython')
-  " Using ipython 5 allows you to circumvent the 'indentation pasting' issues.
+  " Using ipython allows you to circumvent the 'indentation pasting' issues.
   let cmdline_app['python'] = 'ipython'
 else
   let cmdline_app['python'] = 'python'
