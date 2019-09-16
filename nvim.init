@@ -541,3 +541,12 @@ let g:vim_json_syntax_conceal = 0
 
 " Toggle linting on/off
 map <leader>at :ALEToggle<CR>
+
+"
+" Python-mode
+"
+
+" Disable breakpoint mode. Unclear how to use it and by default. The
+" breakpoint key binding also conflicts with key binding for opening buffers
+" that is set at <leader>b.
+let g:pymode_breakpoint = 0
