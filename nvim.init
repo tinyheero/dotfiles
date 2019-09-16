@@ -272,7 +272,7 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " Hotkey for turning on lintr for R scripts
-nnoremap <Leader>lr :let g:syntastic_enable_r_lintr_checker = 1
+nnoremap <Leader>lr :ALEToggle<CR>
 
 " Hotkey for trimming trailing white space (i.e. at the end of the line)
 nnoremap <Leader>tws :%s/\s\+$//e
@@ -317,7 +317,9 @@ augroup END
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
 " https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
-autocmd BufNewFile,BufRead Snakefile set syntax=snakemake
+
+" Set filetype to be python so that we can use vcmdline 
+autocmd BufNewFile,BufRead Snakefile set syntax=snakemake filetype=python
 autocmd BufNewFile,BufRead *.smk set syntax=snakemake
 
 " Syntax highlighting for nextflow (.nf) scripts
@@ -480,21 +482,19 @@ let cmdline_app = {}
 let cmdline_app['sh'] = 'bash'
 
 if executable('ipython')
-  " Using ipython 5 allows you to circumvent the 'indentation pasting' issues.
+  " Using ipython allows you to circumvent the 'indentation pasting' issues.
   let cmdline_app['python'] = 'ipython'
 else
   let cmdline_app['python'] = 'python'
 endif
 
 "----------
-" Use lintr on .R files
+" Use lintr on .R files (using ale)
 "----------
-let g:syntastic_enable_r_lintr_checker = 0
-let g:syntastic_r_checkers = ['lintr']
 
 " Turn off some linters
-" https://stackoverflow.com/questions/42913740/specify-linters-in-lintrlint
-let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(80), object_usage_linter = NULL, trailing_whitespace_linter = NULL, object_length_linter(40))"
+" https://github.com/w0rp/ale/issues/1508
+let g:ale_r_lintr_options = 'lintr::with_defaults(object_name_linter = NULL, line_length_linter(80), object_length_linter(40))'
 
 "
 " vimrooter
