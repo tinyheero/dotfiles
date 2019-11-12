@@ -83,7 +83,7 @@ fi
 nvim_syntax_dir="${HOME}/.config/nvim/syntax";
 [[ -d "${nvim_syntax_dir}" ]] || mkdir -p "${nvim_syntax_dir}"
 wget \
-    https://bitbucket.org/snakemake/snakemake/raw/master/misc/vim/syntax/snakemake.vim \
+    https://raw.githubusercontent.com/tinyheero/snakemake/master/misc/vim/syntax/snakemake.vim \
     -O "${nvim_syntax_dir}/snakemake.vim"
 
 # Get git autocomplete
