@@ -63,7 +63,7 @@ fi
 
 ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 
-# Setup Neovim configuration only if Neoviom is available
+# Setup Neovim configuration only if Neovim is available
 if command -v nvim >/dev/null; then
     mkdir -p ~/.config/nvim
     ln -sfv "${DOTFILES_DIR}/nvim.init" ~/.config/nvim/init.vim
@@ -83,7 +83,7 @@ fi
 nvim_syntax_dir="${HOME}/.config/nvim/syntax";
 [[ -d "${nvim_syntax_dir}" ]] || mkdir -p "${nvim_syntax_dir}"
 wget \
-    https://bitbucket.org/snakemake/snakemake/raw/master/misc/vim/syntax/snakemake.vim \
+    https://raw.githubusercontent.com/snakemake/snakemake/master/misc/vim/syntax/snakemake.vim \
     -O "${nvim_syntax_dir}/snakemake.vim"
 
 # Get git autocomplete
