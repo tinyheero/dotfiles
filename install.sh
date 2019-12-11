@@ -106,3 +106,7 @@ fi
 
 # Setup iTerm2 Shell integration
 #./setup_iterm2_shell_integration.sh
+
+ln -sfv \
+        "${DOTFILES_DIR}/vimcmdline/ftplugin/snakemake_cmdline.vim" \
+        "${HOME}/.config/nvim/plugged/vimcmdline/ftplugin/snakemake_cmdline.vim"
