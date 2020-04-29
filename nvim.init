@@ -323,10 +323,7 @@ augroup END
 autocmd BufNewFile,BufRead Snakefile set filetype=snakemake syntax=snakemake 
 autocmd BufNewFile,BufRead *.smk set filetype=snakemake syntax=snakemake 
 
-" Syntax highlighting for nextflow (.nf) scripts
-autocmd BufNewFile,BufRead *.nf set syntax=groovy
-
-" Syntax highlighting for nextflow (.nf) scripts
+" Syntax highlighting for *.config files
 autocmd BufNewFile,BufRead *.config set filetype=config
 
 "----------
