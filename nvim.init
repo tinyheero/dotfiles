@@ -295,6 +295,7 @@ nnoremap <Leader>tws :%s/\s\+$//e
 autocmd VimResized * wincmd =
 
 " Set number of spaces for tabs for different file types
+autocmd Filetype snakemake setlocal ts=4 sts=4 sw=4
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype sh setlocal ts=4 sts=4 sw=4
 
