@@ -326,6 +326,7 @@ autocmd BufNewFile,BufRead *.smk set filetype=snakemake syntax=snakemake
 
 " Syntax highlighting for *.config files
 autocmd BufNewFile,BufRead *.config set filetype=config
+autocmd BufNewFile,BufRead nextflow.config set filetype=nextflow
 
 "----------
 " Airline Plugin
