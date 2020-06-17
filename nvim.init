@@ -21,6 +21,7 @@ Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'majutsushi/tagbar' " Displays tags in a window, ordered by scope
 Plug 'mileszs/ack.vim' " Searching tool
 Plug 'LukeGoodsell/nextflow-vim' " Vim plugin for Nextflow workflows
+Plug 'plasticboy/vim-markdown' " Markdown Vim Mode
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
@@ -31,20 +32,12 @@ Plug 'tomtom/tcomment_vim' " Universal comment
 Plug 'tpope/vim-fugitive' " Git integration
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
+Plug 'unblevable/quick-scope' " Lightning fast left-right movement in Vim
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
 Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
-
-"
-" Vim markdown syntax highlighting
-"
-
-" Provides vim markdown syntax file
-Plug 'plasticboy/vim-markdown'
-
-" Provides syntax highlighting of R code chunks in Rmarkdown files
-Plug 'tinyheero/vim-pandoc-syntax', { 'branch': 'feature/remove-math' }
 
 "
 " fzf
