@@ -543,3 +543,11 @@ map <leader>at :ALEToggle<CR>
 " breakpoint key binding also conflicts with key binding for opening buffers
 " that is set at <leader>b.
 let g:pymode_breakpoint = 0
+
+"
+" vimtex
+"
+"
+
+" Needed to get over the https://github.com/lervag/vimtex/issues/223 issue
+let g:tex_flavor = 'latex'
