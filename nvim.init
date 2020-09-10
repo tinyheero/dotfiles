@@ -12,17 +12,16 @@ Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits 
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
 Plug 'elzr/vim-json' " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
-Plug 'jalvesaq/Nvim-R' " Vim plugin to work with R
+Plug 'jalvesaq/Nvim-R', { 'tag': 'v0.9.13' } " Vim plugin to work with R. Last release that works with neovim < 0.3.4
 Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'lervag/vimtex' " Support for writing latex documents
 Plug 'Lokaltog/vim-easymotion' " Quick movements
+Plug 'LukeGoodsell/nextflow-vim' " Vim plugin for Nextflow workflows
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'majutsushi/tagbar' " Displays tags in a window, ordered by scope
 Plug 'mileszs/ack.vim' " Searching tool
-Plug 'LukeGoodsell/nextflow-vim' " Vim plugin for Nextflow workflows
-Plug 'plasticboy/vim-markdown' " Markdown Vim Mode
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'scrooloose/nerdtree' " File structure viewer
 Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
 Plug 'tinyheero/vim-myhelp' " Personal vim-cheatsheet
@@ -35,6 +34,7 @@ Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'unblevable/quick-scope' " Lightning fast left-right movement in Vim
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
 Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
@@ -73,8 +73,9 @@ set incsearch
 " Ignore case while searching
 set ignorecase
 
-" Set <Leader> to allow for extra key combinations
+" Set <Leader> and <LocalLeader> to allow for extra key combinations
 let g:mapleader = ","
+let g:maplocalleader = "\\"
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -131,8 +132,11 @@ endif
 " Highlight current line
 set cursorline
 
-" Highlight column at 80 characters as a visual guide
-set colorcolumn=80
+" Set length of each time to be a maximum of 79 characters
+set textwidth=79
+
+" Highlight column at textwidth + 1 as visual guide
+set colorcolumn=+1
 
 " Make comments italic
 "highlight Comment cterm=italic
@@ -151,11 +155,11 @@ set smarttab
 
 " Auto indent
 " Applies the indentation of the current line to the next
-set ai
+set autoindent
 
 " Smart indent
 " Reacts to the syntax/style of the code you are editing
-set si
+set smartindent
 
 " Convert new tabs into spaces. If you need tabs for a particular file time,
 " then you should use autocommands to set a local buffer
@@ -288,9 +292,9 @@ nnoremap <Leader>tws :%s/\s\+$//e
 autocmd VimResized * wincmd =
 
 " Set number of spaces for tabs for different file types
-autocmd Filetype snakemake setlocal ts=4 sts=4 sw=4
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
-autocmd Filetype sh setlocal ts=4 sts=4 sw=4
+autocmd Filetype snakemake,python,sh,pandoc setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
+autocmd Filetype python set fileformat=unix
 
 " Autocommand group for r and rmd file types
 augroup r_autocmd_grp
@@ -298,8 +302,7 @@ augroup r_autocmd_grp
   autocmd BufNewFile,BufRead *.Rprofile set filetype=r
 
   autocmd Filetype r setlocal nowrap
-  autocmd Syntax r normal zR
-  autocmd Syntax rmd normal zR
+  autocmd Syntax r,rmd normal zR
 
   " Allow for html omnicompletion to take place outside of R chunks and R
   " omnicompletion to take place inside of R chunks
@@ -498,28 +501,25 @@ let g:ale_r_lintr_options = 'lintr::with_defaults(object_name_linter = NULL, lin
 let g:rooter_manual_only = 1
 
 "
-" vim-pandoc-syntax
+" vim-pandoc and vim-pandoc-syntax
 "
+
+" Turn off spelling
+let g:pandoc#spell#enabled = 0
 
 " Turn off pretty highlighting.
 let g:pandoc#syntax#conceal#use = 0
 
-"
-" vim-markdown
-"
+" Hard-line wrapping once the textwidth is met in pandoc documents
+let g:pandoc#formatting#mode = "ha"
 
-" Turn off syntax concealing
-let g:vim_markdown_conceal = 0
+" Highlight the codeblocks for these languages
+let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python", "r", "make"]
 
-" Required to unhide code blocks
-" See https://github.com/plasticboy/vim-markdown/issues/408
-let g:vim_markdown_conceal_code_blocks = 0
-
-" Disable folding in Vim Markdown
-let g:vim_markdown_folding_disabled = 1
-
-" Highlight YAML front matter as used by Jekyll or Hugo.
-let g:vim_markdown_frontmatter = 1
+" Mappings from the following submodules are enabled. Unlike the default, the
+" checklist module is disabled (it contains the <localleader>cd mapping that
+" clashes with Nvim-R. See :help vim-pandoc-keyboard-module for more details. 
+let g:pandoc#keyboard#enabled_submodules = ["lists", "references", "styles", "sections", "links"]
 
 "
 " vim-json
