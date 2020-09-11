@@ -504,6 +504,9 @@ let g:rooter_manual_only = 1
 " vim-pandoc and vim-pandoc-syntax
 "
 
+" Clashes with the <localleader>gf mapping I already have
+let g:pandoc#modules#disabled = ["hypertext"]
+
 " Turn off spelling
 let g:pandoc#spell#enabled = 0
 
