@@ -514,7 +514,7 @@ let g:pandoc#syntax#conceal#use = 0
 let g:pandoc#formatting#mode = "ha"
 
 " Highlight the codeblocks for these languages
-let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python", "r", "make"]
+let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python", "r", "make", "snakemake"]
 
 " Mappings from the following submodules are enabled. Unlike the default, the
 " checklist module is disabled (it contains the <localleader>cd mapping that
