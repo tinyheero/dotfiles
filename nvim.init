@@ -514,7 +514,11 @@ let g:pandoc#spell#enabled = 0
 let g:pandoc#syntax#conceal#use = 0
 
 " Hard-line wrapping once the textwidth is met in pandoc documents
-let g:pandoc#formatting#mode = "ha"
+" There is the option to add autoformat (a) or smart autoformatting (A), but I
+" have found these to be troublesome
+let g:pandoc#formatting#mode = 'h'
+
+let g:pandoc#formatting#textwidth = 79
 
 " Highlight the codeblocks for these languages
 let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python", "r", "make", "snakemake"]
