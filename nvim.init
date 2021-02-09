@@ -1,4 +1,5 @@
 " vim: set ft=vim:
+
 " Stops vim from behaving in a strongly vi -compatible way.
 " Place at the start of vimrc file as it can affect lots of other
 " options which you may want to override
@@ -88,6 +89,9 @@ set visualbell t_vb=
 set breakindent
 set showbreak=\\\\\
 
+" Number of lines from the bottom when scrolling
+set scrolloff=7
+
 "----------
 " User Interface
 "----------
@@ -106,9 +110,10 @@ set ruler
 set ls=2
 
 " Use hybrid line number mode
+" Current line is listed as absolute line number while lines above and below
+" are listed relative to it.
 " http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
-set relativenumber
-set number
+set number relativenumber
 
 " Hotkey for toggling paste mode
 set pastetoggle=<F2>
@@ -505,7 +510,7 @@ let g:rooter_manual_only = 1
 "
 
 " Clashes with the <localleader>gf mapping I already have
-let g:pandoc#modules#disabled = ["hypertext"]
+let g:pandoc#modules#disabled = ["hypertext", "formatting"]
 
 " Turn off spelling
 let g:pandoc#spell#enabled = 0
