@@ -15,6 +15,7 @@ Plug 'elzr/vim-json' " A better JSON for Vim: distinct highlighting of keywords 
 Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'jalvesaq/Nvim-R', { 'tag': 'v0.9.13' } " Vim plugin to work with R. Last release that works with neovim < 0.3.4
 Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
+Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair.
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'lervag/vimtex' " Support for writing latex documents
 Plug 'Lokaltog/vim-easymotion' " Quick movements
@@ -22,8 +23,8 @@ Plug 'LukeGoodsell/nextflow-vim' " Vim plugin for Nextflow workflows
 Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'majutsushi/tagbar' " Displays tags in a window, ordered by scope
 Plug 'mileszs/ack.vim' " Searching tool
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'scrooloose/nerdtree' " File structure viewer
+Plug 'sheerun/vim-polyglot' " Syntax highlighting for python and other languages
 Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
 Plug 'tinyheero/vim-myhelp' " Personal vim-cheatsheet
 Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
@@ -33,6 +34,7 @@ Plug 'tpope/vim-fugitive' " Git integration
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'unblevable/quick-scope' " Lightning fast left-right movement in Vim
+Plug 'Vimjas/vim-python-pep8-indent' " Modify vim’s indentation behavior to comply with PEP8 and author's aesthetic preferences
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'vim-pandoc/vim-pandoc'
@@ -91,6 +93,7 @@ set showbreak=\\\\\
 
 " Number of lines from the bottom when scrolling
 set scrolloff=7
+
 
 "----------
 " User Interface
@@ -297,9 +300,7 @@ nnoremap <Leader>tws :%s/\s\+$//e
 autocmd VimResized * wincmd =
 
 " Set number of spaces for tabs for different file types
-autocmd Filetype snakemake,python,sh,pandoc setlocal tabstop=4 softtabstop=4 shiftwidth=4
-
-autocmd Filetype python set fileformat=unix
+autocmd Filetype snakemake,sh,pandoc setlocal tabstop=4 softtabstop=4 shiftwidth=4
 
 " Autocommand group for r and rmd file types
 augroup r_autocmd_grp
@@ -328,6 +329,9 @@ autocmd BufNewFile,BufRead *.smk set filetype=snakemake syntax=snakemake
 " Syntax highlighting for *.config files
 autocmd BufNewFile,BufRead *.config set filetype=config
 autocmd BufNewFile,BufRead nextflow.config set filetype=nextflow
+
+" Set folding for .py files
+autocmd BufNewFile,BufRead *.py set foldmethod=indent
 
 "----------
 " Airline Plugin
@@ -546,15 +550,6 @@ let g:vim_json_syntax_conceal = 0
 
 " Toggle linting on/off
 map <leader>at :ALEToggle<CR>
-
-"
-" Python-mode
-"
-
-" Disable breakpoint mode. Unclear how to use it and by default. The
-" breakpoint key binding also conflicts with key binding for opening buffers
-" that is set at <leader>b.
-let g:pymode_breakpoint = 0
 
 "
 " vimtex
