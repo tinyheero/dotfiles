@@ -13,15 +13,6 @@ if [[ -z "${brew_update_flag}" ]]; then
     brew_update_flag="no";
 fi
 
-#
-# Directories to make
-# These will house specific files that are created below.
-#
-directories_to_make=(~/.vim/syntax)
-
-for directory_to_make in "${directories_to_make[@]}"; do
-    [[ -d "${directory_to_make}" ]] || mkdir -p "${directory_to_make}";
-done
 
 #
 # Setup symlinks from home directory to the dotfiles folder.
@@ -44,6 +35,7 @@ for symlink_file in "${symlink_files[@]}"; do
     ln -sfv "${DOTFILES_DIR}/${symlink_file}" "${HOME}/.${symlink_file}";
 done
 
+
 #
 # Bash configurations
 # .bash_profile simply sources the .bashrc, which in turns sources the
@@ -65,8 +57,10 @@ ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 
 # Setup Neovim configuration only if Neovim is available
 if command -v nvim >/dev/null; then
-    mkdir -p ~/.config/nvim
+    mkdir -p "${HOME}/.config/nvim"
     ln -sfv "${DOTFILES_DIR}/init.vim" "${HOME}/.config/nvim/init.vim"
+    ln -sfv "${DOTFILES_DIR}/nvim/vim-plug" "${HOME}/.config/nvim/vim-plug"
+    ln -sfv "${DOTFILES_DIR}/nvim/general" "${HOME}/.config/nvim/general"
 
     # Plugin manager (vim-plugin) for neovim
     curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
@@ -103,9 +97,6 @@ else
     git pull;
     cd ..;
 fi
-
-# Setup iTerm2 Shell integration
-#./setup_iterm2_shell_integration.sh
 
 ln -sfv \
         "${DOTFILES_DIR}/vimcmdline/ftplugin/snakemake_cmdline.vim" \
