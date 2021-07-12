@@ -1,5 +1,3 @@
-" vim: set ft=vim:
-
 " Stops vim from behaving in a strongly vi -compatible way.
 " Place at the start of vimrc file as it can affect lots of other
 " options which you may want to override
@@ -11,36 +9,37 @@ Plug 'airblade/vim-rooter' " Changes Vim working directory to project root (iden
 Plug 'chriskempson/base16-vim' " Base16 color scheme
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux splits and vim panes.
 Plug 'dhruvasagar/vim-table-mode' " Instant table creation
-Plug 'elzr/vim-json' " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
-Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
+"Plug 'elzr/vim-json' " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
+"Plug 'garbas/vim-snipmate' " TextMate's snippets features in Vim
 Plug 'jalvesaq/Nvim-R', { 'tag': 'v0.9.13' } " Vim plugin to work with R. Last release that works with neovim < 0.3.4
-Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
-Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair.
+"Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
 Plug 'kshenoy/vim-signature' " Place, toggle and display marks
 Plug 'lervag/vimtex' " Support for writing latex documents
 Plug 'Lokaltog/vim-easymotion' " Quick movements
 Plug 'LukeGoodsell/nextflow-vim' " Vim plugin for Nextflow workflows
-Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
+"Plug 'MarcWeber/vim-addon-mw-utils' " Dependency of vim-snipmate
 Plug 'majutsushi/tagbar' " Displays tags in a window, ordered by scope
 Plug 'mileszs/ack.vim' " Searching tool
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conquer of completion
 Plug 'scrooloose/nerdtree' " File structure viewer
-Plug 'sheerun/vim-polyglot' " Syntax highlighting for python and other languages
+"Plug 'sheerun/vim-polyglot' " Syntax highlighting for python and other languages
 Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
-Plug 'tinyheero/vim-myhelp' " Personal vim-cheatsheet
-Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
-Plug 'tomtom/tlib_vim' " Dependency of vim-snipmate
+"Plug 'tinyheero/vim-myhelp' " Personal vim-cheatsheet
+"Plug 'tinyheero/vim-snippets' " Snippets for vim-snipmate
+"Plug 'tomtom/tlib_vim' " Dependency of vim-snipmate
 Plug 'tomtom/tcomment_vim' " Universal comment
 Plug 'tpope/vim-fugitive' " Git integration
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-surround' " Quoting and parenthesizing made simple
 Plug 'unblevable/quick-scope' " Lightning fast left-right movement in Vim
-Plug 'Vimjas/vim-python-pep8-indent' " Modify vim’s indentation behavior to comply with PEP8 and author's aesthetic preferences
+"Plug 'Vimjas/vim-python-pep8-indent' " Modify vim’s indentation behavior to comply with PEP8 and author's aesthetic preferences
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
 Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
+Plug 'hkupty/iron.nvim'
 
 "
 " fzf
@@ -94,6 +93,7 @@ set showbreak=\\\\\
 " Number of lines from the bottom when scrolling
 set scrolloff=7
 
+setlocal nowrap
 
 "----------
 " User Interface
@@ -307,7 +307,6 @@ augroup r_autocmd_grp
   " Syntax Highlighting for Rprofile Files
   autocmd BufNewFile,BufRead *.Rprofile set filetype=r
 
-  autocmd Filetype r setlocal nowrap
   autocmd Syntax r,rmd normal zR
 
   " Allow for html omnicompletion to take place outside of R chunks and R
@@ -558,3 +557,16 @@ map <leader>at :ALEToggle<CR>
 
 " Needed to get over the https://github.com/lervag/vimtex/issues/223 issue
 let g:tex_flavor = 'latex'
+
+let g:indent_guides_enable_on_vim_startup = 1
+
+nmap <localleader>d <Plug>(iron-send-line)
+vmap <localleader>se <Plug>(iron-visual-send)
+
+"
+" Vim plugin config files
+"
+source ${HOME}/.config/nvim/plug-config/coc.vim
+source ${HOME}/.config/nvim/plug-config/iron.vim
+luafile ${HOME}/.config/nvim/plugins.lua
+

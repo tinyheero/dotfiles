@@ -66,7 +66,7 @@ ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 # Setup Neovim configuration only if Neovim is available
 if command -v nvim >/dev/null; then
     mkdir -p ~/.config/nvim
-    ln -sfv "${DOTFILES_DIR}/nvim.init" ~/.config/nvim/init.vim
+    ln -sfv "${DOTFILES_DIR}/init.vim" "${HOME}/.config/nvim/init.vim"
 
     # Plugin manager (vim-plugin) for neovim
     curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
