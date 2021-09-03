@@ -143,15 +143,15 @@ let r_indent_ess_compatible = 0
 "---------
 
 " Use ag in the background for the ack.vim plugin
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-" Prevent Ack from jumping to first result
-cnoreabbrev Ack Ack!
-
-" Hotkey for activating Ack
-nnoremap <Leader>a :Ack!<Space>
+"if executable('ag')
+"  let g:ackprg = 'ag --vimgrep'
+"endif
+"
+"" Prevent Ack from jumping to first result
+"cnoreabbrev Ack Ack!
+"
+"" Hotkey for activating Ack
+"nnoremap <Leader>a :Ack!<Space>
 
 "
 " fzf
@@ -280,12 +280,9 @@ let g:tex_flavor = 'latex'
 
 let g:indent_guides_enable_on_vim_startup = 1
 
-nmap <localleader>d <Plug>(iron-send-line)
-vmap <localleader>se <Plug>(iron-visual-send)
-
 "
 " Vim plugin config files
 "
 source ${HOME}/.config/nvim/plug-config/coc.vim
-source ${HOME}/.config/nvim/plug-config/iron.vim
-luafile ${HOME}/.config/nvim/plugins.lua
+source $HOME/.config/nvim/plug-config/iron.vim
+luafile $HOME/.config/nvim/plugins.lua
