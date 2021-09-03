@@ -60,7 +60,11 @@ if command -v nvim >/dev/null; then
     mkdir -p "${HOME}/.config/nvim"
     ln -sfv "${DOTFILES_DIR}/init.vim" "${HOME}/.config/nvim/init.vim"
     ln -sfv "${DOTFILES_DIR}/nvim/vim-plug" "${HOME}/.config/nvim/vim-plug"
+    ln -sfv \
+        "${DOTFILES_DIR}/nvim/plug-config" "${HOME}/.config/nvim/plug-config"
     ln -sfv "${DOTFILES_DIR}/nvim/general" "${HOME}/.config/nvim/general"
+    ln -sfv \
+        "${DOTFILES_DIR}/nvim/plugins.lua" "${HOME}/.config/nvim/plugins.lua"
 
     # Plugin manager (vim-plugin) for neovim
     curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
