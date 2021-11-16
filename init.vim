@@ -281,8 +281,17 @@ let g:tex_flavor = 'latex'
 let g:indent_guides_enable_on_vim_startup = 1
 
 "
+" indentLine
+"
+
+" Turn off the indentLint conceal functionality in Dockerfiles 
+autocmd Filetype dockerfile
+    \ let g:indentLine_setConceal = 0
+
+
+"
 " Vim plugin config files
 "
-source ${HOME}/.config/nvim/plug-config/coc.vim
+source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/iron.vim
 luafile $HOME/.config/nvim/plugins.lua

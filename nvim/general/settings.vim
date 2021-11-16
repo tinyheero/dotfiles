@@ -90,9 +90,6 @@ set textwidth=79
 " Highlight column at textwidth + 1 as visual guide
 set colorcolumn=+1
 
-" Make comments italic
-"highlight Comment cterm=italic
-
 
 "----------
 " Text, tab and indent related
