@@ -17,8 +17,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Instant table creation
   Plug 'dhruvasagar/vim-table-mode'
 
-  " Vim plugin to work with R. Last release that works with neovim < 0.3.4
-  Plug 'jalvesaq/Nvim-R', { 'tag': 'v0.9.13' }
+  " Vim plugin to work with R. 
+  Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
   "Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
   
   " Place, toggle and display marks
