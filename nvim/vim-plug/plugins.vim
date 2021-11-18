@@ -19,7 +19,9 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Vim plugin to work with R. 
   Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-  "Plug 'jalvesaq/vimcmdline' " Send code to command line interpreter
+
+  " Send code to command-line interpreter (REPL application)
+  Plug 'jalvesaq/vimcmdline' 
   
   " Place, toggle and display marks
   Plug 'kshenoy/vim-signature'
@@ -48,10 +50,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-pandoc/vim-pandoc-syntax'
   Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
   Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
-  Plug 'hkupty/iron.nvim'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim' " fzf vim plugin
+
+  Plug 'vim-voom/VOoM'
 
 " Initialize plugin system
 call plug#end()

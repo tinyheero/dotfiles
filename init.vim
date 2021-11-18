@@ -22,18 +22,19 @@ autocmd VimResized * wincmd =
 " Set number of spaces for tabs for different file types
 autocmd Filetype snakemake,sh,pandoc setlocal tabstop=4 softtabstop=4 shiftwidth=4
 
+autocmd FileType rmd,pandoc :Voom
+
 " Autocommand group for r and rmd file types
 augroup r_autocmd_grp
   " Syntax Highlighting for Rprofile Files
   autocmd BufNewFile,BufRead *.Rprofile set filetype=r
-
-  autocmd Syntax r,rmd normal zR
 
   " Allow for html omnicompletion to take place outside of R chunks and R
   " omnicompletion to take place inside of R chunks
   " https://groups.google.com/forum/#!msg/vim-r-plugin/KCxsqbj-hn4/1or-EG_1DQAJ
   " Following autocmd works when using nvim-r plugin
   autocmd FileType rmd let b:rplugin_nonr_omnifunc="htmlcomplete#CompleteTags" | setlocal omnifunc=CompleteR
+
 augroup END
 
 " Syntax Highlighting for Snakemake Files
@@ -84,54 +85,6 @@ let g:NERDTreeDirArrows=0
 
 " Show line numbers in NERDtree
 let NERDTreeShowLineNumbers=1
-
-"----------
-" Nvim-R
-"----------
-
-" Emulate Tmux ^az (zoom window feature)
-" Pressing gz will open the current buffer in a new tab to get it occupying the
-" whole screen.
-function ZoomWindow()
-    let cpos = getpos(".")
-    tabnew %
-    redraw
-    call cursor(cpos[1], cpos[2])
-    normal! zz
-endfunction
-nmap gz :call ZoomWindow()<CR>
-
-" R help appears in horizontal window
-let R_nvimpager = "horizontal"
-
-" Highlight chunk header as R code
-let rrst_syn_hl_chunk = 1
-let rmd_syn_hl_chunk = 1
-
-" zathura is the recommend pdf viewer for Nvim-R, but requires very recent
-" version that is unavailable as a binary from package manager
-" Setting it to evince is a workaround.
-let R_pdfviewer = "evince"
-
-" R panel always opens horizontally
-let R_rconsole_width = 0
-
-" Underscore will be replaced with the assign operator only if it is preceded
-" by a space and followed by a non-word character
-" :help R_assign
-let R_assign = 3
-
-" Normally, Nvim-R will set to the same directory as the opened R file. This
-" prevents Nvim-R from setting the R working directory in any way. Useful
-" when your own ~/.Rprofile is setting a working directory.
-let R_nvim_wd = -1
-
-" Setup to get indenting to follow the tidyverse style
-" See this link https://stackoverflow.com/questions/13597256/change-r-indentation-style-in-vim-with-vim-r-plugin
-" for details on how this works...
-let r_indent_align_args = 0
-let r_indent_ess_comments = 0
-let r_indent_ess_compatible = 0
 
 "---------
 " ack.vim
@@ -284,9 +237,13 @@ autocmd Filetype dockerfile
     \ let g:indentLine_setConceal = 0
 
 
+let voom_ft_modes = {'markdown': 'pandoc', 'rmd': 'pandoc', 'rnoweb': 'latex', 'pandoc': 'pandoc', 'python': 'python'}
+let r_syntax_folding = 1
+
 "
 " Vim plugin config files
 "
 source $HOME/.config/nvim/plug-config/coc.vim
-source $HOME/.config/nvim/plug-config/iron.vim
-luafile $HOME/.config/nvim/plugins.lua
+source $HOME/.config/nvim/plug-config/nvim-r.vim
+"source $HOME/.config/nvim/plug-config/iron.vim
+"luafile $HOME/.config/nvim/plugins.lua
