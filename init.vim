@@ -245,5 +245,3 @@ let r_syntax_folding = 1
 "
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/nvim-r.vim
-"source $HOME/.config/nvim/plug-config/iron.vim
-"luafile $HOME/.config/nvim/plugins.lua
