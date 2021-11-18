@@ -9,7 +9,7 @@ fi
 
 alias ls='ls --color'
 
-export PATH="${HOME}/usr/bin:${PATH}"
+export PATH="${HOME}/usr/local/bin:${HOME}/usr/bin:/usr/local/bin:${PATH}"
 
 # Use bash-completion, if available
 # Can install using a package manager (e.g. `yum install bash-complete`)
