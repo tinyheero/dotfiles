@@ -22,8 +22,6 @@ autocmd VimResized * wincmd =
 " Set number of spaces for tabs for different file types
 autocmd Filetype snakemake,sh,pandoc setlocal tabstop=4 softtabstop=4 shiftwidth=4
 
-autocmd FileType rmd,pandoc :Voom
-
 " Autocommand group for r and rmd file types
 augroup r_autocmd_grp
   " Syntax Highlighting for Rprofile Files
