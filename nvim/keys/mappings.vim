@@ -102,3 +102,7 @@ nnoremap <Leader>lr :ALEToggle<CR>
 
 " Hotkey for trimming trailing white space (i.e. at the end of the line)
 nnoremap <Leader>tws :%s/\s\+$//e
+
+" Hotkey to forward slashes (/) into (", "). This is useful for converting 
+" file paths like /path/to/file to ("path", "to", "file"). 
+nnoremap <Leader>cp :s/\//", "/g<CR>
