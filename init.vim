@@ -167,14 +167,6 @@ endif
 let g:ale_r_lintr_options = 'lintr::with_defaults(object_name_linter = NULL, line_length_linter(80), object_length_linter(40))'
 
 "
-" vimrooter
-"
-
-" Turn off the automatic directory changing behavior and instead use `:Rooter`
-" when you want to change directories
-"let g:rooter_manual_only = 1
-
-"
 " vim-pandoc and vim-pandoc-syntax
 "
 
@@ -243,3 +235,4 @@ let r_syntax_folding = 1
 "
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/nvim-r.vim
+source $HOME/.config/nvim/plug-config/vim-rooter.vim
