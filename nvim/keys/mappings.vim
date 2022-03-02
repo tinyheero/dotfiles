@@ -1,8 +1,18 @@
-" Easy vim window navigation
+"------------------------------------------------------------------------------
+" Window Management
+"------------------------------------------------------------------------------
+" Easy vim window navigation (i.e. splits)
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
+" Use arrow keys to resize windows
+" https://vimrcfu.com/snippet/94
+noremap <up>    <C-W>+
+noremap <down>  <C-W>-
+noremap <left>  3<C-W><
+noremap <right> 3<C-W>>
 
 " Seamlessly navigate Vim splits and tmux panes
 " https://bluz71.github.io/2017/06/14/a-few-vim-tmux-mappings.html
@@ -76,17 +86,6 @@ vnoremap <Leader>P "+P
 " <nop> means no operation
 nnoremap Q <nop>
 
-" Use arrow keys to resize windows
-" https://vimrcfu.com/snippet/94
-noremap <up>    <C-W>+
-noremap <down>  <C-W>-
-noremap <left>  3<C-W><
-noremap <right> 3<C-W>>
-
-" Hotkeys for vertical (vs) and horizontal split (hs)
-nnoremap <Leader>vs :vsplit
-nnoremap <Leader>hs :split
-
 " Hotkey for turning off highlighted searches
 nnoremap <Leader><space> :nohls <enter>
 
@@ -103,6 +102,6 @@ nnoremap <Leader>lr :ALEToggle<CR>
 " Hotkey for trimming trailing white space (i.e. at the end of the line)
 nnoremap <Leader>tws :%s/\s\+$//e
 
-" Hotkey to forward slashes (/) into (", "). This is useful for converting 
-" file paths like /path/to/file to ("path", "to", "file"). 
+" Hotkey to forward slashes (/) into (", "). This is useful for converting
+" file paths like /path/to/file to ('path', 'to', 'file').
 nnoremap <Leader>cp :s/\//", "/g<CR>
