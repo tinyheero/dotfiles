@@ -41,8 +41,7 @@ augroup END
 
 " Set filetype to be snakemake so that we can use vcmdline to launch a 
 " corresponding python terminal
-autocmd BufNewFile,BufRead Snakefile set filetype=snakemake syntax=snakemake 
-autocmd BufNewFile,BufRead *.smk set filetype=snakemake syntax=snakemake 
+autocmd BufNewFile,BufRead Snakefile,*.smk set filetype=snakemake syntax=snakemake 
 
 " Syntax highlighting for *.config files
 autocmd BufNewFile,BufRead *.config set filetype=config
@@ -142,14 +141,6 @@ nnoremap <Leader>tb :TagbarToggle<CR>
 
 "set tags=./tags,tags;
 
-"----------
-" Use lintr on .R files (using ale)
-"----------
-
-" Turn off some linters
-" https://github.com/w0rp/ale/issues/1508
-let g:ale_r_lintr_options = 'lintr::with_defaults(object_name_linter = NULL, line_length_linter(80), object_length_linter(40))'
-
 "
 " vim-pandoc and vim-pandoc-syntax
 "
@@ -221,3 +212,4 @@ source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/nvim-r.vim
 source $HOME/.config/nvim/plug-config/vim-rooter.vim
 source $HOME/.config/nvim/plug-config/vimcmdline.vim
+source $HOME/.config/nvim/plug-config/ale.vim
