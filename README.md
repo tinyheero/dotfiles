@@ -32,13 +32,13 @@ Repository to store my various .dotfiles. The `bash_profile` are set to be OS sp
 
 You need to first get homebrew:
 
-```
+```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 Once this is setup, install wget:
 
-```
+```bash
 brew install wget
 ```
 
@@ -60,7 +60,7 @@ The neovim configuration file requires neovim version > 0.1.4.
 
 You can install neovim through homebrew (OSX): 
 
-```{bash}
+```bash
 brew install neovim
 ```
 
@@ -68,7 +68,7 @@ If you are installing this on a linux distribution, then you can use [linuxbrew]
 
 It also depends on several plugins managed through [vim-plug](https://github.com/junegunn/vim-plug). You need to first setup vim-plug:
 
-```{bash}
+```bash
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
