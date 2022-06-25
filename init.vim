@@ -35,7 +35,6 @@ augroup r_autocmd_grp
 
 augroup END
 
-" TODO: REMOVE
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
@@ -141,13 +140,9 @@ let g:tagbar_type_rmd = {
           \ , 'ctagsargs': ''
           \ }
 
-" Turns on the TagBar
-nnoremap <Leader>tb :TagbarToggle<CR>
-
-"set tags=./tags,tags;
 
 "
-" vim-pandoc and vim-pandoc-syntax
+" vim-pandoc-syntax
 "
 
 " Clashes with the <localleader>gf mapping I already have
@@ -168,7 +163,7 @@ nnoremap <Leader>tb :TagbarToggle<CR>
 " " Mappings from the following submodules are enabled. Unlike the default, the
 " " checklist module is disabled (it contains the <localleader>cd mapping that
 " " clashes with Nvim-R. See :help vim-pandoc-keyboard-module for more details. 
-let g:pandoc#keyboard#enabled_submodules = ['lists', 'references', 'styles', 'sections', 'links']
+"let g:pandoc#keyboard#enabled_submodules = ['lists', 'references', 'styles', 'sections', 'links']
 
 "
 " vim-json
