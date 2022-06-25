@@ -18,7 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'dhruvasagar/vim-table-mode'
 
   " Vim plugin to work with R. 
-  Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+  Plug 'jalvesaq/Nvim-R'
 
   " Send code to command-line interpreter (REPL application)
   Plug 'jalvesaq/vimcmdline' 
@@ -32,10 +32,12 @@ call plug#begin('~/.config/nvim/plugged')
   " File system explorer
   Plug 'preservim/nerdtree'
 
+  " Browse the tags of the current file and get an overview of its structure
+  Plug 'preservim/tagbar' 
+
   " Quick movements
   Plug 'Lokaltog/vim-easymotion'
   Plug 'LukeGoodsell/nextflow-vim' " Vim plugin for Nextflow workflows
-  Plug 'majutsushi/tagbar' " Displays tags in a window, ordered by scope
   Plug 'mileszs/ack.vim' " Searching tool
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conquer of completion
   Plug 'rhysd/committia.vim' " More pleasant editing on git commit message
@@ -46,15 +48,15 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'unblevable/quick-scope' " Lightning fast left-right movement in Vim
   Plug 'vim-airline/vim-airline' " Status bar
   Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
-  Plug 'vim-pandoc/vim-pandoc'
+  "Plug 'vim-pandoc/vim-pandoc'
   Plug 'vim-pandoc/vim-pandoc-syntax'
-  Plug 'Yggdroot/indentLine' " Display the indention levels with thin vertical lines
+  Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
+  "Plug 'preservim/vim-markdown'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim' " fzf vim plugin
 
-  Plug 'vim-voom/VOoM'
 
 " Initialize plugin system
 call plug#end()
