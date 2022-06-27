@@ -1,4 +1,6 @@
 --langdef=snakemake
---langmap=snakemake:+(Snakefile),.smk
---regex-snakemake=/^rule[ \t]*([a-zA-Z0-9_]+)/\1/r,rule/
---regex-snakemake=/^def[ \t]*([a-zA-Z0-9_]+)/\1/f,function,functions/
+--langmap=snakemake:+(Snakefile).smk
+--kinddef-snakemake=r,rule,rules
+--kinddef-snakemake=f,function,functions
+--regex-snakemake=/^rule[ \t]*([a-zA-Z0-9_]+)/\1/r/
+--regex-snakemake=/^def[ \t]*([a-zA-Z0-9_]+)/\1/f/

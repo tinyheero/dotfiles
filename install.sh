@@ -24,7 +24,7 @@ symlink_files=(
     tmux.conf
     inputrc
     Rprofile
-    ctags
+    ctags.d
     gitconfig
     screenrc
     bash_completion

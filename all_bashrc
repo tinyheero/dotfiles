@@ -115,6 +115,7 @@ alias pd="pushd"
 alias bd="popd"
 alias make="make --warn-undefined-variables"
 alias vi="nvim"
+alias vim="nvim"
 alias 'tl=tree --du -h --dirsfirst -C'
 
 alias weather="curl -s wttr.in"
