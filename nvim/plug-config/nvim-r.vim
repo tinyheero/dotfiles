@@ -41,3 +41,7 @@ let R_nvim_wd = -1
 let r_indent_align_args = 0
 let r_indent_ess_comments = 0
 let r_indent_ess_compatible = 0
+
+" Prevent cursor from jumping to the line being debugged (when `browser()` is 
+" run). Highlighting of the line being debugged will also be disabled.
+let R_debug = 0
