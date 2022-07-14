@@ -35,14 +35,17 @@ augroup r_autocmd_grp
 
 augroup END
 
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+"
 " Syntax Highlighting for Snakemake Files
 " Requires syntax highlight definition file. See link below for more details.
 " https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-do-i-enable-syntax-highlighting-in-vim-for-snakefiles
 
 " Set filetype to be snakemake so that we can use vcmdline to launch a 
 " corresponding python terminal
-autocmd BufNewFile,BufRead Snakefile set filetype=snakemake syntax=snakemake 
-autocmd BufNewFile,BufRead *.smk set filetype=snakemake syntax=snakemake 
+autocmd BufNewFile,BufRead Snakefile,*.smk set filetype=snakemake syntax=snakemake 
 
 " Syntax highlighting for *.config files
 autocmd BufNewFile,BufRead *.config set filetype=config
@@ -126,57 +129,41 @@ let g:tmuxline_powerline_separators = 1
 "----------
 " Ctags
 "----------
-" Ctag Support for R
-" https://github.com/majutsushi/tagbar/wiki#r
-let g:tagbar_type_r = {
-    \ 'ctagstype' : 'r',
-    \ 'kinds'     : [
-        \ 'f:Functions',
-        \ 'g:GlobalVariables',
-        \ 'v:FunctionVariables',
-    \ ]
-\ }
+"
+let g:tagbar_type_rmd = {
+          \   'ctagstype':'rmd'
+          \ , 'kinds':['h:header', 'c:chunk', 'f:function', 'v:variable']
+          \ , 'sro':'&&&'
+          \ , 'kind2scope':{'h':'header', 'c':'chunk'}
+          \ , 'sort':0
+          \ , 'ctagsbin': '/Users/f.chan/dotfiles/nvim/rmdtags.py'
+          \ , 'ctagsargs': ''
+          \ }
 
-" Turns on the TagBar
-nnoremap <Leader>tb :TagbarToggle<CR>
-
-"set tags=./tags,tags;
-
-"----------
-" Use lintr on .R files (using ale)
-"----------
-
-" Turn off some linters
-" https://github.com/w0rp/ale/issues/1508
-let g:ale_r_lintr_options = 'lintr::with_defaults(object_name_linter = NULL, line_length_linter(80), object_length_linter(40))'
 
 "
-" vim-pandoc and vim-pandoc-syntax
+" vim-pandoc-syntax
 "
 
 " Clashes with the <localleader>gf mapping I already have
-let g:pandoc#modules#disabled = ["hypertext", "formatting"]
-
-" Turn off spelling
-let g:pandoc#spell#enabled = 0
-
-" Turn off pretty highlighting.
-let g:pandoc#syntax#conceal#use = 0
-
-" Hard-line wrapping once the textwidth is met in pandoc documents
-" There is the option to add autoformat (a) or smart autoformatting (A), but I
-" have found these to be troublesome
-let g:pandoc#formatting#mode = 'h'
-
-let g:pandoc#formatting#textwidth = 79
-
-" Highlight the codeblocks for these languages
-let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python", "r", "make", "snakemake"]
-
-" Mappings from the following submodules are enabled. Unlike the default, the
-" checklist module is disabled (it contains the <localleader>cd mapping that
-" clashes with Nvim-R. See :help vim-pandoc-keyboard-module for more details. 
-let g:pandoc#keyboard#enabled_submodules = ["lists", "references", "styles", "sections", "links"]
+" let g:pandoc#modules#disabled = ['hypertext', 'formatting']
+"
+" " Turn off spelling
+" let g:pandoc#spell#enabled = 0
+"
+"
+" " Hard-line wrapping once the textwidth is met in pandoc documents
+" " There is the option to add autoformat (a) or smart autoformatting (A), but I
+" " have found these to be troublesome
+" let g:pandoc#formatting#mode = 'h'
+"
+" let g:pandoc#formatting#textwidth = 79
+"
+"
+" " Mappings from the following submodules are enabled. Unlike the default, the
+" " checklist module is disabled (it contains the <localleader>cd mapping that
+" " clashes with Nvim-R. See :help vim-pandoc-keyboard-module for more details. 
+"let g:pandoc#keyboard#enabled_submodules = ['lists', 'references', 'styles', 'sections', 'links']
 
 "
 " vim-json
@@ -202,22 +189,16 @@ let g:tex_flavor = 'latex'
 
 let g:indent_guides_enable_on_vim_startup = 1
 
-"
-" indentLine
-"
 
-" Turn off the indentLint conceal functionality in Dockerfiles 
-autocmd Filetype dockerfile
-    \ let g:indentLine_setConceal = 0
-
-
-let voom_ft_modes = {'markdown': 'pandoc', 'rmd': 'pandoc', 'rnoweb': 'latex', 'pandoc': 'pandoc', 'python': 'python'}
 let r_syntax_folding = 1
 
 "
 " Vim plugin config files
 "
+source $HOME/.config/nvim/plug-config/ale.vim
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/nvim-r.vim
+source $HOME/.config/nvim/plug-config/tagbar.vim
 source $HOME/.config/nvim/plug-config/vim-rooter.vim
 source $HOME/.config/nvim/plug-config/vimcmdline.vim
+source $HOME/.config/nvim/plug-config/vim-pandoc.vim
