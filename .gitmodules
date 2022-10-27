@@ -1,0 +1,3 @@
+[submodule "get-rmd-tags"]
+	path = get-rmd-tags
+	url = git@github.com:tinyheero/get-rmd-tags.git
