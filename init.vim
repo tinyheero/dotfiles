@@ -2,6 +2,8 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/keys/mappings.vim
 
+let g:rooter_manual_only = 1
+
 "----------
 " Autocommands
 " Run certain commands whenever certain events happen. For example:
@@ -125,21 +127,6 @@ nnoremap <Leader>t :Tags<CR>
 
 " Remove the funny symbols in tmuxline
 let g:tmuxline_powerline_separators = 1
-
-"----------
-" Ctags
-"----------
-"
-let g:tagbar_type_rmd = {
-          \   'ctagstype':'rmd'
-          \ , 'kinds':['h:header', 'c:chunk', 'f:function', 'v:variable']
-          \ , 'sro':'&&&'
-          \ , 'kind2scope':{'h':'header', 'c':'chunk'}
-          \ , 'sort':0
-          \ , 'ctagsbin': '/Users/f.chan/dotfiles/nvim/rmdtags.py'
-          \ , 'ctagsargs': ''
-          \ }
-
 
 "
 " vim-pandoc-syntax
