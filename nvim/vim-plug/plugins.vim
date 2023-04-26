@@ -17,8 +17,14 @@ call plug#begin('~/.config/nvim/plugged')
   " Instant table creation
   Plug 'dhruvasagar/vim-table-mode'
 
+  " Generate Python docstring to your Python source code.
+  Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+
   " Vim plugin to work with R. 
   Plug 'jalvesaq/Nvim-R'
+
+  " Requires for quarto syntax highlighting
+  Plug 'jalvesaq/R-Vim-runtime'
 
   " Send code to command-line interpreter (REPL application)
   Plug 'jalvesaq/vimcmdline' 

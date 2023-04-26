@@ -104,10 +104,6 @@ let NERDTreeShowLineNumbers=1
 "" Hotkey for activating Ack
 "nnoremap <Leader>a :Ack!<Space>
 
-"
-" fzf
-"
-
 " Function to figure out the git root directory
 function! s:find_git_root()
   return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
@@ -115,11 +111,6 @@ endfunction
 
 " ProjectFiles command lists all the files starting from the git root directory
 command! ProjectFiles execute 'Files' s:find_git_root()
-
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>pf :ProjectFiles<CR>
-nnoremap <Leader>t :Tags<CR>
 
 "---------
 " Tmux Powerline
@@ -184,8 +175,10 @@ let r_syntax_folding = 1
 "
 source $HOME/.config/nvim/plug-config/ale.vim
 source $HOME/.config/nvim/plug-config/coc.vim
+source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/nvim-r.vim
 source $HOME/.config/nvim/plug-config/tagbar.vim
-source $HOME/.config/nvim/plug-config/vim-rooter.vim
 source $HOME/.config/nvim/plug-config/vimcmdline.vim
+source $HOME/.config/nvim/plug-config/vim-rooter.vim
 source $HOME/.config/nvim/plug-config/vim-pandoc.vim
+source $HOME/.config/nvim/plug-config/vim-pydocstring.vim
