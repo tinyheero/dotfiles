@@ -64,7 +64,16 @@ You can install neovim through homebrew (OSX):
 brew install neovim
 ```
 
-If you are installing this on a linux distribution, then you can use [linuxbrew](http://linuxbrew.sh/). 
+If you are installing this on a linux distribution, then you can use the an 
+AppImage. No installation is needed, just download nvim.appimage and run it.
+
+```bash
+mkdir -p ~/usr/bin/
+curl -LO https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage ~/usr/bin
+ln -rs ~/usr/bin/nvim.appimage ~/usr/bin/nvim
+```
 
 It also depends on several plugins managed through [vim-plug](https://github.com/junegunn/vim-plug). You need to first setup vim-plug:
 
