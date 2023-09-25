@@ -11,8 +11,9 @@ vim.opt.relativenumber = true                  -- Relative line numbers from cur
 -- Ensures that Snakefile files are set to the snakemake filetype. This allows
 -- for the treesitter snakemake syntax highlighting to work
 vim.api.nvim_create_autocmd(
-  "BufRead", {
-    pattern = "Snakefile",
+  {"BufRead", "BufNewFile"},
+  {
+    pattern = {"Snakefile", "*.smk"},
     callback = function()
       vim.cmd "set filetype=snakemake"
     end

@@ -20,7 +20,7 @@ local plugins = {
   {
     --Send code to command-line interpreter (REPL application)
     "jalvesaq/vimcmdline",
-    ft = {"sh", "python"},
+    ft = {"sh", "python", "snakemake"},
     config = function()
       vim.g.cmdline_map_start = "<LocalLeader>rf"
       vim.g.cmdline_map_send = "<LocalLeader>d"
@@ -29,7 +29,8 @@ local plugins = {
       -- supported file type
       vim.g.cmdline_app = {
         sh = "bash",
-        python = "ipython"
+        python = "ipython",
+        snakemake = "ipython"
       }
     end
   },
