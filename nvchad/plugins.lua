@@ -1,6 +1,11 @@
 local plugins = {
 
   {
+    "christoomey/vim-tmux-navigator",
+    lazy = false
+  },
+
+  {
     "jalvesaq/Nvim-R",
     ft = {"r", "quarto"},
     config = function()
@@ -13,7 +18,34 @@ local plugins = {
   },
 
   {
-    "christoomey/vim-tmux-navigator",
+    --Send code to command-line interpreter (REPL application)
+    "jalvesaq/vimcmdline",
+    ft = {"sh", "python"},
+    config = function()
+      vim.g.cmdline_map_start = "<LocalLeader>rf"
+      vim.g.cmdline_map_send = "<LocalLeader>d"
+
+      -- Define what application will be run as the interpreter for each 
+      -- supported file type
+      vim.g.cmdline_app = {
+        sh = "bash",
+        python = "ipython"
+      }
+    end
+  },
+
+  {
+    "kshenoy/vim-signature",
+    lazy = false
+  },
+
+  {
+    "tpope/vim-surround",
+    lazy = false
+  },
+
+  {
+    "Lokaltog/vim-easymotion",
     lazy = false
   },
 
