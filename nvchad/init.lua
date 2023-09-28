@@ -20,3 +20,14 @@ vim.api.nvim_create_autocmd(
   }
 )
 
+vim.api.nvim_create_autocmd(
+  "filetype",
+  {
+    pattern = "snakemake",
+    callback = function()
+      vim.opt.tabstop = 4
+      vim.opt.softtabstop = 4
+      vim.opt.shiftwidth = 4
+    end
+  }
+)
