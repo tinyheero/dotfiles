@@ -27,10 +27,27 @@ return {
       { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-    }
+    },
+    lazy = false
   },
   {
     "easymotion/vim-easymotion"
+  },
+  {
+    "jalvesaq/vimcmdline",
+    config = function()
+      vim.g.cmdline_map_start = "<LocalLeader>rf"
+      vim.g.cmdline_map_send = "<LocalLeader>d"
+
+      -- Define what application will be run as the interpreter for each 
+      -- supported file type
+      vim.g.cmdline_app = {
+        sh = "bash",
+        python = "ipython",
+        snakemake = "ipython"
+      }
+    end,
+    lazy = false
   },
   {
     "R-nvim/R.nvim",
