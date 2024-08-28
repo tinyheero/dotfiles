@@ -31,7 +31,8 @@ return {
     lazy = false
   },
   {
-    "easymotion/vim-easymotion"
+    "easymotion/vim-easymotion",
+    lazy = false
   },
   {
     "jalvesaq/vimcmdline",
@@ -50,10 +51,6 @@ return {
     lazy = false
   },
   {
-    "R-nvim/R.nvim",
-    lazy = false
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config = function ()
@@ -63,4 +60,18 @@ return {
       })
     end
   },
+  {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require("cmp").setup({ sources = {{ name = "cmp_r" }}})
+      require("cmp_r").setup({ })
+    end,
+  },
+  {
+    "R-nvim/R.nvim",
+    lazy = false
+  },
+  {
+    "R-nvim/cmp-r",
+  }
 }
