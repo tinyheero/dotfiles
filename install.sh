@@ -103,6 +103,8 @@ else
     cd ..;
 fi
 
-ln -sfv \
+# NOTE: You have to do a copy. If you do a symbolic link, you won't be able to
+# launch vimcmdline. It will complain `Unknown function: VimCmdLineSetApp`
+rsync \
         "${DOTFILES_DIR}/vimcmdline/ftplugin/snakemake_cmdline.vim" \
-        "${HOME}/.config/nvim/plugged/vimcmdline/ftplugin/snakemake_cmdline.vim"
+        "${HOME}/.local/share/nvim/lazy/vimcmdline/ftplugin/snakemake_cmdline.vim"
