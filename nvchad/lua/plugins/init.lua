@@ -88,7 +88,14 @@ return {
     run = ":TSUpdate",
     config = function ()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "markdown", "markdown_inline", "r", "rnoweb", "snakemake", "yaml" },
+        ensure_installed = {
+          "markdown",
+          "markdown_inline",
+          "r",
+          "rnoweb",
+          "snakemake",
+          "yaml"
+        },
         highlight = { enable = true },
       })
     end
@@ -98,9 +105,54 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    opts = function()
+      function has_words_before()
+          if vim.bo.buftype == 'prompt' then
+              return false
+          end
+          local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+          -- stylua: ignore
+          return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+      end
+    end,
     config = function()
-      require("cmp").setup({ sources = {{ name = "cmp_r" }}})
+      local cmp = require("cmp")
+      cmp.setup({
+        sources = {{ name = "cmp_r" }},
+        mapping = cmp.mapping.preset.insert({
+          ['<CR>'] = cmp.mapping.confirm({ select = false }),
+          -- During auto-completion, press <Tab> to select the next item.
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+            elseif has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+        }),
+      })
       require("cmp_r").setup({ })
     end,
   },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+       suggestion = {
+          auto_trigger = true,
+        }
+      })
+    end,
+  }
 }
