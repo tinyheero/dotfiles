@@ -36,6 +36,7 @@ return {
   },
   {
     "jalvesaq/vimcmdline",
+    ft = {"sh", "python", "snakemake"},
     config = function()
       vim.g.cmdline_map_start = "<LocalLeader>rf"
       vim.g.cmdline_map_send = "<LocalLeader>d"
@@ -93,13 +94,13 @@ return {
     end
   },
   {
+    "R-nvim/cmp-r",
+  },
+  {
     "hrsh7th/nvim-cmp",
     config = function()
       require("cmp").setup({ sources = {{ name = "cmp_r" }}})
       require("cmp_r").setup({ })
     end,
   },
-  {
-    "R-nvim/cmp-r",
-  }
 }

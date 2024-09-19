@@ -5,8 +5,7 @@
 #
 # Author: Fong Chun Chan
 
-export DOTFILES_DIR
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export DOTFILES_DIR DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 brew_update_flag="$1"
 if [[ -z "${brew_update_flag}" ]]; then
@@ -55,35 +54,12 @@ fi
 
 ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 
-# Setup Neovim configuration only if Neovim is available
+# Setup NvChad configuration only if Neovim is available
 if command -v nvim >/dev/null; then
-    mkdir -p "${HOME}/.config/nvim"
-    ln -sfv "${DOTFILES_DIR}/init.vim" "${HOME}/.config/nvim/init.vim"
-    ln -sfv "${DOTFILES_DIR}/nvim/vim-plug" "${HOME}/.config/nvim/vim-plug"
-    ln -sfv "${DOTFILES_DIR}/nvim/keys" "${HOME}/.config/nvim/keys"
-    ln -sfv \
-        "${DOTFILES_DIR}/nvim/plug-config" "${HOME}/.config/nvim/plug-config"
-    ln -sfv "${DOTFILES_DIR}/nvim/general" "${HOME}/.config/nvim/general"
-    ln -sfv \
-        "${DOTFILES_DIR}/nvim/plugins.lua" "${HOME}/.config/nvim/plugins.lua"
-
-    # Plugin manager (vim-plugin) for neovim
-    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    # Launch Neovim, install plugins, and then quit
-    nvim +PlugInstall +qall
+    git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 else
     echo "Did not find nvim. Skipping plugin manager (vim-plug) installation"
 fi
-
-# Setup snakemake Syntax Highlighting
-# Use ~/.vim/syntax for regular Vim
-nvim_syntax_dir="${HOME}/.config/nvim/syntax";
-[[ -d "${nvim_syntax_dir}" ]] || mkdir -p "${nvim_syntax_dir}"
-wget \
-    https://raw.githubusercontent.com/snakemake/snakemake/master/misc/vim/syntax/snakemake.vim \
-    -O "${nvim_syntax_dir}/snakemake.vim"
 
 # Get git autocomplete
 bash_completion_dir="${DOTFILES_DIR}/.bash_completion.d";
@@ -103,6 +79,7 @@ else
     cd ..;
 fi
 
+# Enables vimcmdline to work with Snakefile files
 ln -sfv \
         "${DOTFILES_DIR}/vimcmdline/ftplugin/snakemake_cmdline.vim" \
         "${HOME}/.config/nvim/plugged/vimcmdline/ftplugin/snakemake_cmdline.vim"
