@@ -75,23 +75,6 @@ mv nvim.appimage ~/usr/bin
 ln -rs ~/usr/bin/nvim.appimage ~/usr/bin/nvim
 ```
 
-It also depends on several plugins managed through [vim-plug](https://github.com/junegunn/vim-plug). You need to first setup vim-plug:
-
-```bash
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-Then install all the plugins by opening neovim and then:
-
-```
-:PlugInstall
-```
-
-The [vim-airline plugin](https://github.com/vim-airline/vim-airline) uses the powerline fonts. A patched font, based on what your terminal uses, is required for this which you can generate yourself or download a [pre-patched font](https://github.com/powerline/fonts). For example, in iTerm the default font is Monaco. A patched font for Monaco for the OSX was already generated [here](https://gist.github.com/baopham/1838072#file-monaco-powerline-otf). You can download it in then on your Mac go to `"Font Book" -> File -> Add Fonts and choose the "Monaco for Powerline.otf".`. 
-
-Then in iTerm2, set both the Regular font and the Non-ASCII Font in "iTerm2 > Preferences > Profiles > Text" to use the patched font (e.g Monaco for Powerline). Now restart your iTerm2 and it should now have the powerline symbols!
-
 ### Neovim and iTerm2 on OSX
 
 There is this weird issue with iTerm2 on OSX where the command `ctrl-h` doesn't work to switch to the left pane. See this [thread](https://github.com/neovim/neovim/issues/2048) for details. The solution is the following inside of iTerm2:
