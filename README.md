@@ -66,6 +66,7 @@ brew install neovim
 
 If you are installing this on a linux distribution, then you can use the an 
 AppImage. No installation is needed, just download nvim.appimage and run it.
+For example:
 
 ```bash
 mkdir -p ~/usr/bin/
