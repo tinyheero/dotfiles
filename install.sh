@@ -55,10 +55,18 @@ fi
 ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 
 # Setup NvChad configuration only if Neovim is available
+nvim_config_dir="~/.config/nvim"
 if command -v nvim >/dev/null; then
-    git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+    git clone https://github.com/NvChad/starter "${nvim_config_dir}" && nvim
+    nvim_config_lua_dir="${nvim_config_dir}/lua"
+    nvim_config_plugin_dir="${nvim_config_dir}/lua/plugin"
+    [[ -d ${nvim_config_lua_dir} ]] || mkdir -p "${nvim_config_lua_dir}"
+    [[ -d ${nvim_config_plugin_dir} ]] || mkdir -p "${nvim_config_plugin_dir}"
+    ln -rs "${DOTFILES_DIR}/nvchad/lua/options.lua" "${nvim_config_lua_dir}/options.lua"
+    ln -rs "${DOTFILES_DIR}/nvchad/lua/plugins" "${nvim_config_plugin_dir}"
 else
-    echo "Did not find nvim. Skipping plugin manager (vim-plug) installation"
+    echo "Did not find neovim"
+    exit 1;
 fi
 
 # Get git autocomplete
