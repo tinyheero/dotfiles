@@ -62,6 +62,13 @@ return {
                 vim.api.nvim_buf_set_keymap(0, "v", "<Enter>", "<Plug>RSendSelection", {})
             end
           },
+          quarto_chunk_hl = {
+            highlight = true,          -- Highlight code blocks?
+            yaml_hl = false,            -- Highlight YAML comments?
+            virtual_title = true,       -- Add language as virtual text?
+            bg = "#003010",             -- Use a different background color
+            events = "BufEnter,TextChanged", -- Update the highlighting more often
+          },
           R_args = {"--quiet", "--no-save"},
           min_editor_width = 72,
           rconsole_width = 78,

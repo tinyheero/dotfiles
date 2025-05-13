@@ -36,3 +36,5 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.keymap.set('n', '<LocalLeader>d', '<Plug>RDSendLine', { desc = 'Send to R the current line and move down to next line' })
