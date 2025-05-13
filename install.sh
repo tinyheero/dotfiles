@@ -5,8 +5,7 @@
 #
 # Author: Fong Chun Chan
 
-export DOTFILES_DIR
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export DOTFILES_DIR DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 brew_update_flag="$1"
 if [[ -z "${brew_update_flag}" ]]; then
@@ -55,54 +54,37 @@ fi
 
 ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 
-# Setup Neovim configuration only if Neovim is available
+PATH="${HOME}/usr/bin:${PATH}"
+
+# Setup NvChad configuration only if Neovim is available
+nvim_config_dir="${HOME}/.config/nvim"
 if command -v nvim >/dev/null; then
-    mkdir -p "${HOME}/.config/nvim"
-    ln -sfv "${DOTFILES_DIR}/init.vim" "${HOME}/.config/nvim/init.vim"
-    ln -sfv "${DOTFILES_DIR}/nvim/vim-plug" "${HOME}/.config/nvim/vim-plug"
-    ln -sfv "${DOTFILES_DIR}/nvim/keys" "${HOME}/.config/nvim/keys"
-    ln -sfv \
-        "${DOTFILES_DIR}/nvim/plug-config" "${HOME}/.config/nvim/plug-config"
-    ln -sfv "${DOTFILES_DIR}/nvim/general" "${HOME}/.config/nvim/general"
-    ln -sfv \
-        "${DOTFILES_DIR}/nvim/plugins.lua" "${HOME}/.config/nvim/plugins.lua"
-
-    # Plugin manager (vim-plugin) for neovim
-    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    # Launch Neovim, install plugins, and then quit
-    nvim +PlugInstall +qall
+    git clone https://github.com/NvChad/starter "${nvim_config_dir}" && nvim
+    nvim_config_lua_dir="${nvim_config_dir}/lua"
+    nvim_config_plugin_dir="${nvim_config_dir}/lua/plugins"
+    [[ -d ${nvim_config_lua_dir} ]] || mkdir -p "${nvim_config_lua_dir}"
+    [[ -d ${nvim_config_plugin_dir} ]] || mkdir -p "${nvim_config_plugin_dir}"
+    ln -frs "${DOTFILES_DIR}/nvchad/lua/options.lua" "${nvim_config_lua_dir}/options.lua"
+    ln -frs "${DOTFILES_DIR}/nvchad/lua/plugins/init.lua" "${nvim_config_plugin_dir}/init.lua"
 else
-    echo "Did not find nvim. Skipping plugin manager (vim-plug) installation"
+    echo "Did not find neovim"
+    exit 1;
 fi
-
-# Setup snakemake Syntax Highlighting
-# Use ~/.vim/syntax for regular Vim
-nvim_syntax_dir="${HOME}/.config/nvim/syntax";
-[[ -d "${nvim_syntax_dir}" ]] || mkdir -p "${nvim_syntax_dir}"
-wget \
-    https://raw.githubusercontent.com/snakemake/snakemake/master/misc/vim/syntax/snakemake.vim \
-    -O "${nvim_syntax_dir}/snakemake.vim"
-
-# Get git autocomplete
-bash_completion_dir="${DOTFILES_DIR}/.bash_completion.d";
-[[ -d "${bash_completion_dir}" ]] || mkdir -p "${bash_completion_dir}";
-curl \
-    https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash \
-    -o "${bash_completion_dir}/git-completion.bash";
 
 # Install base-16 shell for colors
 # Need to work with base16 colors for Vim/Neovim and iTerm2
-if [[ ! -d ~/.config/base16-shell ]]; then
-    git clone \
-        https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-else
-    cd ~/.config/base16-shell || exit;
-    git pull;
-    cd ..;
-fi
+#if [[ ! -d ~/.config/base16-shell ]]; then
+#    git clone \
+#        https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+#else
+#    cd ~/.config/base16-shell || exit;
+#    git pull;
+#    cd ..;
+#fi
 
-ln -sfv \
-        "${DOTFILES_DIR}/vimcmdline/ftplugin/snakemake_cmdline.vim" \
-        "${HOME}/.config/nvim/plugged/vimcmdline/ftplugin/snakemake_cmdline.vim"
+# Enables vimcmdline to work with Snakefile files
+# NOTE: You have to do a copy. If you do a symbolic link, you won't be able to
+# launch vimcmdline. It will complain `Unknown function: VimCmdLineSetApp`
+#rsync \
+#        "${DOTFILES_DIR}/vimcmdline/ftplugin/snakemake_cmdline.vim" \
+#        "${HOME}/.local/share/nvim/lazy/vimcmdline/ftplugin/snakemake_cmdline.vim"
