@@ -54,42 +54,37 @@ fi
 
 ln -sfv "${DOTFILES_DIR}/all_bashrc" ~/.all_bashrc
 
+PATH="${HOME}/usr/bin:${PATH}"
+
 # Setup NvChad configuration only if Neovim is available
-nvim_config_dir="~/.config/nvim"
+nvim_config_dir="${HOME}/.config/nvim"
 if command -v nvim >/dev/null; then
     git clone https://github.com/NvChad/starter "${nvim_config_dir}" && nvim
     nvim_config_lua_dir="${nvim_config_dir}/lua"
-    nvim_config_plugin_dir="${nvim_config_dir}/lua/plugin"
+    nvim_config_plugin_dir="${nvim_config_dir}/lua/plugins"
     [[ -d ${nvim_config_lua_dir} ]] || mkdir -p "${nvim_config_lua_dir}"
     [[ -d ${nvim_config_plugin_dir} ]] || mkdir -p "${nvim_config_plugin_dir}"
-    ln -rs "${DOTFILES_DIR}/nvchad/lua/options.lua" "${nvim_config_lua_dir}/options.lua"
-    ln -rs "${DOTFILES_DIR}/nvchad/lua/plugins" "${nvim_config_plugin_dir}"
+    ln -frs "${DOTFILES_DIR}/nvchad/lua/options.lua" "${nvim_config_lua_dir}/options.lua"
+    ln -frs "${DOTFILES_DIR}/nvchad/lua/plugins/init.lua" "${nvim_config_plugin_dir}/init.lua"
 else
     echo "Did not find neovim"
     exit 1;
 fi
 
-# Get git autocomplete
-bash_completion_dir="${DOTFILES_DIR}/.bash_completion.d";
-[[ -d "${bash_completion_dir}" ]] || mkdir -p "${bash_completion_dir}";
-curl \
-    https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash \
-    -o "${bash_completion_dir}/git-completion.bash";
-
 # Install base-16 shell for colors
 # Need to work with base16 colors for Vim/Neovim and iTerm2
-if [[ ! -d ~/.config/base16-shell ]]; then
-    git clone \
-        https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-else
-    cd ~/.config/base16-shell || exit;
-    git pull;
-    cd ..;
-fi
+#if [[ ! -d ~/.config/base16-shell ]]; then
+#    git clone \
+#        https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+#else
+#    cd ~/.config/base16-shell || exit;
+#    git pull;
+#    cd ..;
+#fi
 
 # Enables vimcmdline to work with Snakefile files
 # NOTE: You have to do a copy. If you do a symbolic link, you won't be able to
 # launch vimcmdline. It will complain `Unknown function: VimCmdLineSetApp`
-rsync \
-        "${DOTFILES_DIR}/vimcmdline/ftplugin/snakemake_cmdline.vim" \
-        "${HOME}/.local/share/nvim/lazy/vimcmdline/ftplugin/snakemake_cmdline.vim"
+#rsync \
+#        "${DOTFILES_DIR}/vimcmdline/ftplugin/snakemake_cmdline.vim" \
+#        "${HOME}/.local/share/nvim/lazy/vimcmdline/ftplugin/snakemake_cmdline.vim"

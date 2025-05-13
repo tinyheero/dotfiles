@@ -85,11 +85,6 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-#
-# Bash completion
-#
-source "${HOME}/.bash_completion";
-
 #---------
 # User interface
 #---------
