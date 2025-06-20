@@ -2,14 +2,22 @@ return {
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
+    opts = require("configs.conform"),
   },
 
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "configs.lspconfig"
+      require("configs.lspconfig")
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPre", "BufNewFile" },
+    run = ":TSUpdate",
+    config = function()
+      require("configs.nvim-treesitter")
     end,
   },
   {
@@ -28,28 +36,28 @@ return {
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
-    lazy = false
+    lazy = false,
   },
   {
     "easymotion/vim-easymotion",
-    lazy = false
+    lazy = false,
   },
   {
     "jalvesaq/vimcmdline",
-    ft = {"sh", "python", "snakemake"},
+    ft = { "sh", "python", "snakemake" },
     config = function()
       vim.g.cmdline_map_start = "<LocalLeader>rf"
       vim.g.cmdline_map_send = "<LocalLeader>d"
 
-      -- Define what application will be run as the interpreter for each 
+      -- Define what application will be run as the interpreter for each
       -- supported file type
       vim.g.cmdline_app = {
         sh = "bash",
         python = "ipython",
-        snakemake = "ipython"
+        snakemake = "ipython",
       }
     end,
-    lazy = false
+    lazy = false,
   },
   {
     "R-nvim/cmp-r",
@@ -58,10 +66,10 @@ return {
     "hrsh7th/nvim-cmp",
     opts = function()
       function has_words_before()
-          if vim.bo.buftype == 'prompt' then
-              return false
-          end
-          local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        if vim.bo.buftype == "prompt" then
+          return false
+        end
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
           -- stylua: ignore
           return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
       end
@@ -69,11 +77,11 @@ return {
     config = function()
       local cmp = require("cmp")
       cmp.setup({
-        sources = {{ name = "cmp_r" }},
+        sources = { { name = "cmp_r" } },
         mapping = cmp.mapping.preset.insert({
-          ['<CR>'] = cmp.mapping.confirm({ select = false }),
+          ["<CR>"] = cmp.mapping.confirm({ select = false }),
           -- During auto-completion, press <Tab> to select the next item.
-          ['<Tab>'] = cmp.mapping(function(fallback)
+          ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
             elseif has_words_before() then
@@ -81,17 +89,17 @@ return {
             else
               fallback()
             end
-          end, { 'i', 's' }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
+          end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
             else
               fallback()
             end
-          end, { 'i', 's' }),
+          end, { "i", "s" }),
         }),
       })
-      require("cmp_r").setup({ })
+      require("cmp_r").setup({})
     end,
   },
   {
@@ -100,9 +108,9 @@ return {
     event = "InsertEnter",
     config = function()
       require("copilot").setup({
-       suggestion = {
+        suggestion = {
           auto_trigger = true,
-        }
+        },
       })
     end,
   },
@@ -112,13 +120,13 @@ return {
     opts = {},
   },
   {
-    'stevearc/aerial.nvim',
+    "stevearc/aerial.nvim",
     lazy = false,
     opts = {},
     -- Optional dependencies
     dependencies = {
-       "nvim-treesitter/nvim-treesitter",
-       "nvim-tree/nvim-web-devicons"
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
-  }
+  },
 }
