@@ -107,9 +107,6 @@ alias vim="nvim"
 alias pd="pushd"
 alias bd="popd"
 
-# Enable vim motions on the command-line
-bindkey -v
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
