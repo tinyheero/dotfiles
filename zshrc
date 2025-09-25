@@ -70,7 +70,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git conda-zsh-completion)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,6 +106,23 @@ alias vi="nvim"
 alias vim="nvim"
 alias pd="pushd"
 alias bd="popd"
+alias rsync="rsync -avr --partial --progress --rsh=ssh"
+
+# Enable vim motions
+bindkey -v
+
+# Enable incremental history search 
+bindkey '^R' history-incremental-search-backward
+
+# Enable hostname completion for rsync
+# 1. Instruct the Zsh completion for ssh, scp, and rsync to use the 'hosts' tag
+# This ensures Zsh knows to look up hostnames.
+zstyle ':completion:*:(rsync):*' tag-order 'hosts:-host:host files'
+
+# 2. Extract hostnames directly from ~/.ssh/config and assign them to the 'hosts' tag
+# This forces the completion system to build a list using your config file.
+hosts=( $(awk '/^Host / {print $2}' ~/.ssh/config | grep -v '[*?]') )
+zstyle ':completion:*:hosts' hosts $hosts
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
