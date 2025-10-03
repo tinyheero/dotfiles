@@ -113,7 +113,7 @@ bindkey -v
 # Enable incremental history search 
 bindkey '^R' history-incremental-search-backward
 
-# Enable hostname completion for rsync
+# Enable hostname completion for rsync ========================================
 # 1. Instruct the Zsh completion for ssh, scp, and rsync to use the 'hosts' tag
 # This ensures Zsh knows to look up hostnames.
 zstyle ':completion:*:(rsync):*' tag-order 'hosts:-host:host files'
@@ -122,6 +122,21 @@ zstyle ':completion:*:(rsync):*' tag-order 'hosts:-host:host files'
 # This forces the completion system to build a list using your config file.
 hosts=( $(awk '/^Host / {print $2}' ~/.ssh/config | grep -v '[*?]') )
 zstyle ':completion:*:hosts' hosts $hosts
+
+# Add new line to prompt so that cursor appears on its own line ===============
+prompt_end() {
+  if [[ -n $CURRENT_BG ]]; then
+      print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+  else
+      print -n "%{%k%}"
+  fi
+
+  print -n "%{%f%}"
+  CURRENT_BG='' 
+
+  #Adds the new line and ➜ as the start character.
+  printf "\n ➜";
+}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -137,4 +152,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
