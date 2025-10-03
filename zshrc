@@ -138,6 +138,17 @@ prompt_end() {
   printf "\n ➜";
 }
 
+# Function to change directory to the frontmost Finder window's location
+cdf () {
+  # Use AppleScript to get the POSIX path of the insertion location (active folder)
+  local finderPath
+  finderPath=$(osascript -e 'tell application "Finder" to get POSIX path of (insertion location as text)')
+  
+  # Change directory to the retrieved path
+  # Double quotes are crucial for handling paths with spaces or special characters
+  cd "$finderPath"
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
