@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
-# Install zsh plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# Install zsh plugins 
+declare -A plugins=(
+  [zsh-syntax-highlighting]="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+  [zsh-autosuggestions]="https://github.com/zsh-users/zsh-autosuggestions"
+)
+
+for plugin in "${!plugins[@]}"; do
+  plugin_dir="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/${plugin}"
+  if [[ ! -d ${plugin_dir} ]]; then
+    echo "Installing ${plugin}..."
+    git clone "${plugins[${plugin}]}" "${plugin_dir}"
+  else
+    echo "${plugin} is already installed."
+  fi
+done
