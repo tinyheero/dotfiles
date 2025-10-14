@@ -7,7 +7,7 @@ declare -A plugins=(
 )
 
 for plugin in "${!plugins[@]}"; do
-  plugin_dir="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/${plugin}"
+  plugin_dir="${ZSH_CUSTOM:-${HOME}/.oh-my-zsh/custom}/plugins/${plugin}"
   if [[ ! -d ${plugin_dir} ]]; then
     echo "Installing ${plugin}..."
     git clone "${plugins[${plugin}]}" "${plugin_dir}"
