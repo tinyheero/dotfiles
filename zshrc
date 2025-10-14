@@ -1,4 +1,19 @@
-export PATH="/opt/homebrew/bin:$PATH"
+case "${OSTYPE}" in
+  darwin*)
+    # Commands for macOS (Darwin)
+    echo "Configuring for macOS..."
+    export PATH="/opt/homebrew/bin:$PATH"
+    ;;
+  linux*)
+    # Commands for Linux
+    echo "Configuring for Linux..."
+    export PATH="${HOME}/usr/bin:$PATH"
+    ;;
+  *)
+    # Commands for any other OS
+    echo "Unknown OS: ${OSTYPE}. Using generic configuration."
+    ;;
+esac
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
