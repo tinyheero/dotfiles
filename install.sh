@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Identify OS and set PATH and executables accordingly ========================
 ln_exec="ln"
 case "${OSTYPE}" in
   darwin*)
@@ -20,8 +21,12 @@ case "${OSTYPE}" in
 esac
 
 
+# Setup zsh ===================================================================
+${ln_exec} -rs aliases.zsh ${ZSH_CUSTOM}/aliases.zsh
+
 
 # Install zsh plugins =========================================================
+echo "Installing zsh plugins..."
 declare -A plugins=(
   [conda-zsh-completion]="https://github.com/conda-incubator/conda-zsh-completion.git"
   [you-should-use]="https://github.com/MichaelAquilina/zsh-you-should-use.git"
@@ -41,7 +46,9 @@ for plugin in "${!plugins[@]}"; do
 done
 
 
-# Install NvChad =========================================================
+
+# Install NvChad ==============================================================
+echo "Installing NvChad..."
 nvchad_dir="${HOME}/.config/nvim"
 if [[ ! -d "${nvchad_dir}" ]]; then
     git clone https://github.com/NvChad/starter ${nvchad_dir}

@@ -1,0 +1,5 @@
+alias vi="nvim"
+alias vim="nvim"
+alias pd="pushd"
+alias bd="popd"
+alias rsync="rsync -avr --partial --progress --rsh=ssh"
