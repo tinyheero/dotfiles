@@ -45,11 +45,11 @@ done
 nvchad_dir="${HOME}/.config/nvim"
 if [[ ! -d "${nvchad_dir}" ]]; then
     git clone https://github.com/NvChad/starter ${nvchad_dir}
-    ${ln_exec} -rs nvchad/init.lua ${nvchad_dir}/init.lua
-    ${ln_exec} -rs nvchad/lua/autocmds.lua ${nvchad_dir}/lua/autocmds.lua
-    ${ln_exec} -rs nvchad/lua/chadrc.lua ${nvchad_dir}/lua/chadrc.lua
-    ${ln_exec} -rs nvchad/lua/mappings.lua ${nvchad_dir}/lua/mappings.lua
-    ${ln_exec} -rs nvchad/lua/options.lua ${nvchad_dir}/lua/options.lua
-    ${ln_exec} -rs nvchad/lua/configs/nvim-treesitter.lua ${nvchad_dir}/lua/configs/nvim-treesitter.lua
-    ${ln_exec} -rs nvchad/lua/plugins/avante.lua ${nvchad_dir}/lua/plugins/avante.lua
+    ${ln_exec} -rs --force nvchad/init.lua ${nvchad_dir}/init.lua
+    ${ln_exec} -rs --force nvchad/lua/autocmds.lua ${nvchad_dir}/lua/autocmds.lua
+    ${ln_exec} -rs --force nvchad/lua/chadrc.lua ${nvchad_dir}/lua/chadrc.lua
+    ${ln_exec} -rs --force nvchad/lua/mappings.lua ${nvchad_dir}/lua/mappings.lua
+    ${ln_exec} -rs --force nvchad/lua/options.lua ${nvchad_dir}/lua/options.lua
+    ${ln_exec} -rs --force nvchad/lua/configs/nvim-treesitter.lua ${nvchad_dir}/lua/configs/nvim-treesitter.lua
+    ${ln_exec} -rs --force nvchad/lua/plugins/avante.lua ${nvchad_dir}/lua/plugins/avante.lua
 fi
