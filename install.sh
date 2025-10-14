@@ -45,6 +45,8 @@ done
 nvchad_dir="${HOME}/.config/nvim"
 if [[ ! -d "${nvchad_dir}" ]]; then
     git clone https://github.com/NvChad/starter ${nvchad_dir}
+
+    # Link custom NvChad files
     declare -a nvchad_files=(
         "init.lua"
         "lua/autocmds.lua"
@@ -53,6 +55,8 @@ if [[ ! -d "${nvchad_dir}" ]]; then
         "lua/options.lua"
         "lua/configs/nvim-treesitter.lua"
         "lua/plugins/avante.lua"
+        "lua/plugins/init.lua"
+        "lua/plugins/r-nvim.lua"
     )
     for file in "${nvchad_files[@]}"; do
         # --force is needed since the cloning of adds some of the file 
