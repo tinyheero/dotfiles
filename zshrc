@@ -83,6 +83,8 @@ ZSH_THEME="agnoster"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
+  conda
+  conda-env
   conda-zsh-completion 
   git 
   tmux
