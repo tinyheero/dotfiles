@@ -21,6 +21,10 @@ case "${OSTYPE}" in
 esac
 
 
+# Symlink in general configuration files ======================================
+${ln_exec} -frs inputrc ${ZSH_CUSTOM}/.inputrc
+
+
 # Setup zsh ===================================================================
 : ${ZSH_CUSTOM:?ZSH_CUSTOM is not set. Did you forget to EXPORT it before running this script?}
 ${ln_exec} -frs aliases.zsh ${ZSH_CUSTOM}/aliases.zsh
