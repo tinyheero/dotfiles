@@ -33,7 +33,7 @@ ln -rs zshrc ~/.zshrc
 gln -rs zshrc ~/.zshrc
 ```
 
-Change your default shell to Zsh. Then retart your terminal session.
+Change your default shell to Zsh. Then restart your terminal session.
 
 Once you log back in, `cd` back into this `dotfiles` folder and run:
 
@@ -42,10 +42,10 @@ export ZSH_CUSTOM
 ./install.sh
 ```
 
-Note: ZSH_CUSTOM is defined by the `~/.zshrc` script. When we run `install.sh`, 
-it is run as a non-login non-interactive shell. So `~/.zshrc` will not get 
-sourced. To overcome this, we explicitly `EXPORT` this environment variable
-so that it is available to the `install.sh` script.
+**Note: ZSH_CUSTOM is defined by the `~/.zshrc` script. When we run 
+`install.sh`, it is run as a non-login non-interactive shell. So `~/.zshrc` 
+will not get sourced. To overcome this, we explicitly `EXPORT` this 
+environment variable so that it is available to the `install.sh` script.**
 
 This will do the following:
 
