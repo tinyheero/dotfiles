@@ -22,7 +22,8 @@ esac
 
 
 # Setup zsh ===================================================================
-${ln_exec} -rs aliases.zsh ${ZSH_CUSTOM}/aliases.zsh
+: ${ZSH_CUSTOM:?ZSH_CUSTOM is not set. Did you forget to EXPORT it before running this script?}
+${ln_exec} -frs aliases.zsh ${ZSH_CUSTOM}/aliases.zsh
 
 
 # Install zsh plugins =========================================================
@@ -36,7 +37,7 @@ declare -A plugins=(
 )
 
 for plugin in "${!plugins[@]}"; do
-  plugin_dir="${ZSH_CUSTOM:-${HOME}/.oh-my-zsh/custom}/plugins/${plugin}"
+  plugin_dir="${ZSH_CUSTOM}/plugins/${plugin}"
   if [[ ! -d ${plugin_dir} ]]; then
     echo "Installing ${plugin}..."
     git clone "${plugins[${plugin}]}" "${plugin_dir}"

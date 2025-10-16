@@ -16,19 +16,39 @@ version of `ln`.
 
 # Installation
 
-Install Oh My Zsh:
+Assuming your default shell is bash and you are in this dotfiles folder.
+
+First install Oh My Zsh:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Then run:
+Setup your `~/.zshrc`:
 
 ```bash
+ln -rs zshrc ~/.zshrc
+
+# On Mac OSX
+gln -rs zshrc ~/.zshrc
+```
+
+Change your default shell to Zsh. Then retart your terminal session.
+
+Once you log back in, `cd` back into this `dotfiles` folder and run:
+
+```bash
+export ZSH_CUSTOM
 ./install.sh
 ```
 
+Note: ZSH_CUSTOM is defined by the `~/.zshrc` script. When we run `install.sh`, 
+it is run as a non-login non-interactive shell. So `~/.zshrc` will not get 
+sourced. To overcome this, we explicitly `EXPORT` this environment variable
+so that it is available to the `install.sh` script.
+
 This will do the following:
 
+1. Setup aliases
 1. Install zsh plugins
 1. Install NvChad
